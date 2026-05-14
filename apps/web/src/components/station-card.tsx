@@ -1,0 +1,341 @@
+"use client";
+
+import {
+  AlertCircle,
+  CheckCircle2,
+  Loader2,
+  MinusCircle,
+  Download,
+  Eye,
+  type LucideIcon,
+} from "lucide-react";
+import { useState, memo, useMemo, useCallback, type ReactElement } from "react";
+
+import { toText } from "@/ai/gemini-core";
+import { CardSpotlight } from "@/components/aceternity/card-spotlight";
+import { cn } from "@/lib/utils";
+
+import { Badge } from "./ui/badge";
+import { Button } from "./ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "./ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogDescription,
+  DialogHeader,
+  DialogTitle,
+} from "./ui/dialog";
+import { ScrollArea } from "./ui/scroll-area";
+
+interface Station {
+  id: number;
+  name: string;
+  description: string;
+  Icon: LucideIcon;
+}
+
+type Status = "pending" | "running" | "completed" | "failed";
+type StationResults = Partial<Record<number, unknown>>;
+type UnknownRecord = Record<string, unknown>;
+
+interface StationCardProps {
+  station: Station;
+  status: Status;
+  results: StationResults;
+  isActive: boolean;
+}
+
+function isRecord(value: unknown): value is UnknownRecord {
+  return typeof value === "object" && value !== null && !Array.isArray(value);
+}
+
+function toRecord(value: unknown): UnknownRecord {
+  return isRecord(value) ? value : {};
+}
+
+/**
+ * Export station text to file
+ */
+function exportStationToFile(
+  stationNum: number,
+  content: string,
+  stationName: string
+) {
+  const header = `===========================================
+المحطة ${stationNum} - ${stationName}
+===========================================
+
+`;
+  const fullContent = header + content;
+  const blob = new Blob([fullContent], { type: "text/plain;charset=utf-8" });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `station-${stationNum}-${Date.now()}.txt`;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+}
+
+/**
+ * Get full text output from station result
+ */
+type StationTextBuilder = (
+  record: Record<string, unknown>,
+  data: unknown
+) => string;
+
+const formatUnknownList = (value: unknown): string => {
+  if (!Array.isArray(value)) {
+    return toText(value);
+  }
+
+  return value.map((item: unknown) => `- ${toText(item)}`).join("\n");
+};
+
+const buildStation1Text: StationTextBuilder = (record) => {
+  let text = "## الشخصيات الرئيسية:\n";
+  text += formatUnknownList(record["majorCharacters"]);
+  const narrativeStyleAnalysis = toRecord(record["narrativeStyleAnalysis"]);
+  text += "\n\n## التحليل السردي:\n";
+  text += `النغمة العامة: ${toText(narrativeStyleAnalysis["overallTone"])}\n`;
+  text += `تحليل الوتيرة: ${toText(narrativeStyleAnalysis["pacingAnalysis"])}\n`;
+  text += `أسلوب اللغة: ${toText(narrativeStyleAnalysis["languageStyle"])}\n`;
+  return text;
+};
+
+const buildStation2Text: StationTextBuilder = (record) => {
+  let text = "## بيان القصة:\n";
+  text += toText(record["storyStatement"]) + "\n\n";
+  text += "## النوع الهجين:\n";
+  text += toText(
+    isRecord(record["hybridGenre"])
+      ? record["hybridGenre"]["genre"]
+      : record["hybridGenre"]
+  );
+  return text;
+};
+
+const buildStation3Text: StationTextBuilder = (record) => {
+  const networkSummary = toRecord(record["networkSummary"]);
+  let text = "## ملخص الشبكة:\n";
+  text += `عدد الشخصيات: ${toText(networkSummary["charactersCount"])}\n`;
+  text += `عدد العلاقات: ${toText(networkSummary["relationshipsCount"])}\n`;
+  text += `عدد الصراعات: ${toText(networkSummary["conflictsCount"])}\n`;
+  if (record["conflictNetwork"]) {
+    text += "\n## شبكة الصراع:\n" + toText(record["conflictNetwork"]);
+  }
+  return text;
+};
+
+const buildStation4Text: StationTextBuilder = (record) => {
+  const efficiencyMetrics = toRecord(record["efficiencyMetrics"]);
+  const recommendations = toRecord(record["recommendations"]);
+  let text = "## مقاييس الكفاءة:\n";
+  text += `الدرجة الإجمالية: ${toText(efficiencyMetrics["overallEfficiencyScore"])}/100\n\n`;
+  if (recommendations["priorityActions"]) {
+    text += "## التوصيات ذات الأولوية:\n";
+    text += formatUnknownList(recommendations["priorityActions"]);
+  }
+  return text;
+};
+
+const buildStation5Text: StationTextBuilder = (record, data) =>
+  `## التحليل الديناميكي:\n${toText(record["dynamicAnalysisResults"] ?? data)}`;
+
+const buildStation6Text: StationTextBuilder = (record) => {
+  const diagnosticsReport = toRecord(record["diagnosticsReport"]);
+  let text = "## تقرير التشخيص:\n";
+  text += `درجة الصحة العامة: ${toText(diagnosticsReport["overallHealthScore"])}/100\n\n`;
+  if (diagnosticsReport["criticalIssues"]) {
+    text += "## المشاكل الحرجة:\n";
+    text += formatUnknownList(
+      Array.isArray(diagnosticsReport["criticalIssues"])
+        ? diagnosticsReport["criticalIssues"].map((issue: unknown) => {
+            const issueRecord = toRecord(issue);
+            return issueRecord["description"] ?? issue;
+          })
+        : diagnosticsReport["criticalIssues"]
+    );
+  }
+  return text;
+};
+
+const buildStation7Text: StationTextBuilder = (record, data) => {
+  const finalReport = toRecord(record["finalReport"]);
+  return `## التقرير النهائي:\n${toText(finalReport["executiveSummary"] ?? record["executiveSummary"] ?? data)}`;
+};
+
+const stationTextBuilders: Record<number, StationTextBuilder> = {
+  1: buildStation1Text,
+  2: buildStation2Text,
+  3: buildStation3Text,
+  4: buildStation4Text,
+  5: buildStation5Text,
+  6: buildStation6Text,
+  7: buildStation7Text,
+};
+
+function getStationFullText(id: number, data: unknown): string {
+  if (!data) return "";
+
+  if (typeof data === "string") {
+    return data;
+  }
+
+  const record = toRecord(data);
+  const text = (
+    stationTextBuilders[id] ?? (() => JSON.stringify(data, null, 2))
+  )(record, data);
+
+  return text || toText(data);
+}
+
+const StationCard = memo(
+  ({ station, status, results, isActive }: StationCardProps) => {
+    const { id, name, description, Icon } = station;
+    const result = results[id];
+    const hasResults = status === "completed" && result != null;
+    const [showModal, setShowModal] = useState(false);
+
+    // Memoize status icons to prevent recreation on every render
+    const statusIcons: Record<Status, ReactElement> = useMemo(
+      () => ({
+        pending: <MinusCircle className="text-white/55" />,
+        running: <Loader2 className="animate-spin text-primary" />,
+        completed: <CheckCircle2 className="text-green-500" />,
+        failed: <AlertCircle className="text-destructive" />,
+      }),
+      []
+    );
+
+    // Memoize export handler
+    const handleExport = useCallback(() => {
+      const data = result;
+      if (!data) return;
+      const fullText = getStationFullText(id, data);
+      exportStationToFile(id, fullText, name);
+    }, [result, id, name]);
+
+    // Memoize view handler
+    const handleView = useCallback(() => {
+      setShowModal(true);
+    }, []);
+
+    // Memoize full text calculation
+    const fullText = useMemo(() => {
+      const data = result;
+      if (!data) return "";
+      return getStationFullText(id, data);
+    }, [result, id]);
+
+    const renderSummary = useCallback(() => {
+      if (!hasResults) return null;
+
+      const summary = fullText.substring(0, 300);
+
+      return (
+        <div className="space-y-2">
+          <p className="text-sm text-white/55 whitespace-pre-wrap">
+            {summary}
+            {fullText.length > 300 && "..."}
+          </p>
+        </div>
+      );
+    }, [fullText, hasResults]);
+
+    const renderFullContent = useCallback(() => {
+      if (!hasResults) return null;
+
+      return (
+        <ScrollArea className="h-[60vh] w-full rounded-md border p-4">
+          <pre className="whitespace-pre-wrap text-sm font-sans" dir="rtl">
+            {fullText}
+          </pre>
+        </ScrollArea>
+      );
+    }, [fullText, hasResults]);
+
+    return (
+      <>
+        <CardSpotlight>
+          <Card
+            className={cn(
+              "flex h-full flex-col transition-all duration-300",
+              isActive ? "border-primary shadow-lg" : "border-dashed",
+              status === "pending" && "bg-white/[0.03]"
+            )}
+          >
+            <CardHeader className="flex flex-row items-start gap-4 space-y-0">
+              <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-[22px] bg-white/[0.04] text-primary">
+                <Icon className="h-6 w-6" />
+              </div>
+              <div className="flex-1">
+                <CardTitle className="font-headline text-lg">{name}</CardTitle>
+                <CardDescription>{description}</CardDescription>
+              </div>
+              <div>{statusIcons[status]}</div>
+            </CardHeader>
+            {(hasResults ?? isActive) && (
+              <CardContent className="flex-1">
+                {isActive && status === "running" && (
+                  <div className="flex items-center justify-center py-8">
+                    <Loader2 className="h-8 w-8 animate-spin text-primary" />
+                  </div>
+                )}
+                {hasResults && renderSummary()}
+              </CardContent>
+            )}
+            {hasResults && (
+              <CardFooter className="flex gap-2 flex-wrap">
+                <Badge variant="secondary">مكتمل</Badge>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleView}
+                  className="gap-2"
+                >
+                  <Eye className="h-4 w-4" />
+                  عرض
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={handleExport}
+                  className="gap-2"
+                >
+                  <Download className="h-4 w-4" />
+                  تصدير
+                </Button>
+              </CardFooter>
+            )}
+          </Card>
+        </CardSpotlight>
+
+        <Dialog open={showModal} onOpenChange={setShowModal}>
+          <DialogContent className="max-w-4xl">
+            <DialogHeader>
+              <DialogTitle className="font-headline text-xl">
+                {name} - التقرير الكامل
+              </DialogTitle>
+              <DialogDescription>{description}</DialogDescription>
+            </DialogHeader>
+            {renderFullContent()}
+          </DialogContent>
+        </Dialog>
+      </>
+    );
+  }
+);
+
+StationCard.displayName = "StationCard";
+
+export default StationCard;

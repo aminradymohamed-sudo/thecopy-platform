@@ -1,0 +1,93 @@
+{
+  "timestamp": "2026-05-10T22:45:37.893Z",
+  "totalRequired": 14,
+  "existing": 14,
+  "missing": 0,
+  "coverage": "100.00",
+  "files": [
+    {
+      "path": "README.md",
+      "exists": true,
+      "size": 9742,
+      "lastModified": "2026-05-10T22:24:56.000Z"
+    },
+    {
+      "path": "CONTRIBUTING.md",
+      "exists": true,
+      "size": 9338,
+      "lastModified": "2026-05-10T22:37:24.000Z"
+    },
+    {
+      "path": "docs/architecture/ARCHITECTURE.md",
+      "exists": true,
+      "size": 11923,
+      "lastModified": "2026-05-10T22:26:12.000Z"
+    },
+    {
+      "path": "docs/api/openapi.yaml",
+      "exists": true,
+      "size": 22008,
+      "lastModified": "2026-05-10T22:28:32.000Z"
+    },
+    {
+      "path": "docs/api/README.md",
+      "exists": true,
+      "size": 9804,
+      "lastModified": "2026-05-10T22:29:22.000Z"
+    },
+    {
+      "path": "docs/operations/DEPLOYMENT.md",
+      "exists": true,
+      "size": 10491,
+      "lastModified": "2026-05-10T22:31:56.000Z"
+    },
+    {
+      "path": "docs/operations/RUNBOOK.md",
+      "exists": true,
+      "size": 14047,
+      "lastModified": "2026-05-10T22:33:06.000Z"
+    },
+    {
+      "path": "docs/operations/MONITORING.md",
+      "exists": true,
+      "size": 14905,
+      "lastModified": "2026-05-10T22:34:38.000Z"
+    },
+    {
+      "path": "docs/operations/ROLLBACK.md",
+      "exists": true,
+      "size": 13210,
+      "lastModified": "2026-05-10T22:36:38.000Z"
+    },
+    {
+      "path": "docs/CONFIGURATION.md",
+      "exists": true,
+      "size": 14119,
+      "lastModified": "2026-05-10T22:42:08.000Z"
+    },
+    {
+      "path": "docs/security/SECURITY.md",
+      "exists": true,
+      "size": 1882,
+      "lastModified": "2026-05-10T22:36:18.000Z"
+    },
+    {
+      "path": "docs/security/THREAT_MODEL.md",
+      "exists": true,
+      "size": 4283,
+      "lastModified": "2026-05-10T22:36:42.000Z"
+    },
+    {
+      "path": "docs/development/DEVELOPMENT.md",
+      "exists": true,
+      "size": 13105,
+      "lastModified": "2026-05-10T22:38:26.000Z"
+    },
+    {
+      "path": "docs/development/TESTING.md",
+      "exists": true,
+      "size": 19795,
+      "lastModified": "2026-05-10T22:40:26.000Z"
+    }
+  ]
+}

@@ -1,0 +1,216 @@
+{
+  "route": "/cinematography-studio",
+  "trace": [
+    {
+      "step": 1,
+      "tag": "a",
+      "role": null,
+      "label": "العودة للصفحة الرئيسية",
+      "visible": true
+    },
+    {
+      "step": 2,
+      "tag": "a",
+      "role": null,
+      "label": "كتابة",
+      "visible": true
+    },
+    {
+      "step": 3,
+      "tag": "a",
+      "role": null,
+      "label": "استوديو الكتابة",
+      "visible": true
+    },
+    {
+      "step": 4,
+      "tag": "a",
+      "role": null,
+      "label": "استوديو الإخراج",
+      "visible": true
+    },
+    {
+      "step": 5,
+      "tag": "a",
+      "role": null,
+      "label": "استوديو السينما",
+      "visible": true
+    },
+    {
+      "step": 6,
+      "tag": "a",
+      "role": null,
+      "label": "المحطات",
+      "visible": true
+    },
+    {
+      "step": 7,
+      "tag": "a",
+      "role": null,
+      "label": "المختبر",
+      "visible": true
+    },
+    {
+      "step": 8,
+      "tag": "a",
+      "role": null,
+      "label": "الورشة",
+      "visible": true
+    },
+    {
+      "step": 9,
+      "tag": "button",
+      "role": null,
+      "label": "الكتابة",
+      "visible": true
+    },
+    {
+      "step": 10,
+      "tag": "button",
+      "role": null,
+      "label": "الاستوديو",
+      "visible": true
+    },
+    {
+      "step": 11,
+      "tag": "button",
+      "role": null,
+      "label": "الإخراج",
+      "visible": true
+    },
+    {
+      "step": 12,
+      "tag": "button",
+      "role": null,
+      "label": "السينما",
+      "visible": true
+    },
+    {
+      "step": 13,
+      "tag": "button",
+      "role": null,
+      "label": "التحليل",
+      "visible": true
+    },
+    {
+      "step": 14,
+      "tag": "button",
+      "role": null,
+      "label": "الورشة",
+      "visible": true
+    },
+    {
+      "step": 15,
+      "tag": "button",
+      "role": null,
+      "label": "الأدوات",
+      "visible": true
+    },
+    {
+      "step": 16,
+      "tag": "button",
+      "role": null,
+      "label": "المراحل",
+      "visible": true
+    },
+    {
+      "step": 17,
+      "tag": "button",
+      "role": "combobox",
+      "label": "اختيار المزاج البصري للمشروع",
+      "visible": true
+    },
+    {
+      "step": 18,
+      "tag": "input",
+      "role": null,
+      "label": "اسم المشهد",
+      "visible": true
+    },
+    {
+      "step": 19,
+      "tag": "textarea",
+      "role": null,
+      "label": "وصف المشهد",
+      "visible": true
+    },
+    {
+      "step": 20,
+      "tag": "select",
+      "role": null,
+      "label": "حزمة العدسة",
+      "visible": true
+    },
+    {
+      "step": 21,
+      "tag": "input",
+      "role": null,
+      "label": "البعد البؤري",
+      "visible": true
+    },
+    {
+      "step": 22,
+      "tag": "input",
+      "role": null,
+      "label": "فتحة العدسة",
+      "visible": true
+    },
+    {
+      "step": 23,
+      "tag": "input",
+      "role": null,
+      "label": "حساسية الكاميرا",
+      "visible": true
+    },
+    {
+      "step": 24,
+      "tag": "button",
+      "role": null,
+      "label": "حذف إضاءة رئيسية",
+      "visible": true
+    },
+    {
+      "step": 25,
+      "tag": "input",
+      "role": null,
+      "label": "شدة الضوء الرئيسي",
+      "visible": true
+    },
+    {
+      "step": 26,
+      "tag": "input",
+      "role": null,
+      "label": "لون إضاءة رئيسية",
+      "visible": true
+    },
+    {
+      "step": 27,
+      "tag": "button",
+      "role": null,
+      "label": "حذف إضاءة تعبئة",
+      "visible": true
+    },
+    {
+      "step": 28,
+      "tag": "input",
+      "role": null,
+      "label": "شدة إضاءة تعبئة",
+      "visible": true
+    },
+    {
+      "step": 29,
+      "tag": "input",
+      "role": null,
+      "label": "لون إضاءة تعبئة",
+      "visible": true
+    },
+    {
+      "step": 30,
+      "tag": "button",
+      "role": null,
+      "label": "حذف إضاءة خلفية",
+      "visible": true
+    }
+  ],
+  "totalSteps": 30
+}

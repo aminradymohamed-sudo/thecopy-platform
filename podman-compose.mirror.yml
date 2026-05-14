@@ -1,0 +1,148 @@
+name: thecopy-mirror
+
+services:
+  pg-mirror:
+    image: docker.io/library/postgres:16-alpine
+    restart: unless-stopped
+    ports:
+      - "5434:5432"
+    environment:
+      POSTGRES_USER: thecopy
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?POSTGRES_PASSWORD must be provided}
+      POSTGRES_DB: thecopy_mirror
+    volumes:
+      - mirror_pgdata:/var/lib/postgresql/data:Z
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U thecopy -d thecopy_mirror"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s
+    networks:
+      - thecopy-mirror-net
+
+  redis-mirror:
+    image: docker.io/library/redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "6380:6379"
+    command: redis-server --appendonly yes
+    volumes:
+      - mirror_redisdata:/data:Z
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 5s
+    networks:
+      - thecopy-mirror-net
+
+  weaviate-mirror:
+    image: cr.weaviate.io/semitechnologies/weaviate:1.28.4
+    restart: unless-stopped
+    ports:
+      - "8081:8080"
+    environment:
+      QUERY_DEFAULTS_LIMIT: 25
+      AUTHENTICATION_ANONYMOUS_ACCESS_ENABLED: "true"
+      PERSISTENCE_DATA_PATH: /var/lib/weaviate
+      DEFAULT_VECTORIZER_MODULE: none
+      CLUSTER_HOSTNAME: node1
+    volumes:
+      - mirror_weaviatedata:/var/lib/weaviate:Z
+    healthcheck:
+      test:
+        [
+          "CMD-SHELL",
+          "wget -q -O- http://127.0.0.1:8080/v1/.well-known/ready >/dev/null || exit 1",
+        ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 15s
+    networks:
+      - thecopy-mirror-net
+
+  qdrant-mirror:
+    image: docker.io/qdrant/qdrant:v1.13.4
+    restart: unless-stopped
+    ports:
+      - "6335:6333"
+    volumes:
+      - mirror_qdrantdata:/qdrant/storage:Z
+    networks:
+      - thecopy-mirror-net
+
+  backend-mirror:
+    build:
+      context: .
+      dockerfile: apps/backend/Dockerfile
+      args:
+        - TIPTAP_PRO_TOKEN=${TIPTAP_PRO_TOKEN}
+    restart: unless-stopped
+    ports:
+      - "3002:3001"
+    environment:
+      - NODE_ENV=production
+      - PORT=3001
+      - DATABASE_URL=postgresql://thecopy:${POSTGRES_PASSWORD}@pg-mirror:5432/thecopy_mirror
+      - REDIS_URL=redis://redis-mirror:6379
+      - REDIS_ENABLED=true
+      - WEAVIATE_URL=http://weaviate-mirror:8080
+      - WEAVIATE_REQUIRED=false
+      - QDRANT_URL=http://qdrant-mirror:6333
+      - PERSISTENT_MEMORY_INFRA_REQUIRED=false
+      - MEMORY_INFRA_REQUIRED=false
+      - CORS_ORIGIN=http://localhost:6080
+      - RATE_LIMIT_WINDOW_MS=900000
+      - RATE_LIMIT_MAX_REQUESTS=1000
+      - NEXT_PUBLIC_BACKEND_URL=http://localhost:3002
+      - JWT_SECRET=mirror-secret-random-string-at-least-32-chars
+    networks:
+      - thecopy-mirror-net
+    depends_on:
+      pg-mirror:
+        condition: service_healthy
+      redis-mirror:
+        condition: service_healthy
+      weaviate-mirror:
+        condition: service_healthy
+
+  web-mirror:
+    build:
+      context: .
+      dockerfile: apps/web/Dockerfile
+      secrets:
+        - tiptap_pro_token
+      args:
+        - NEXT_PUBLIC_API_URL=http://localhost:3002
+        - NEXT_PUBLIC_BACKEND_URL=http://localhost:3002
+        - NEXT_PUBLIC_FILE_IMPORT_BACKEND_URL=http://localhost:3002/api/file-extract
+        - NEXT_PUBLIC_FINAL_REVIEW_BACKEND_URL=http://localhost:3002/api/final-review
+    restart: unless-stopped
+    ports:
+      - "6080:5000"
+    environment:
+      - NODE_ENV=production
+      - PORT=5000
+    networks:
+      - thecopy-mirror-net
+    depends_on:
+      - backend-mirror
+    secrets:
+      - tiptap_pro_token
+
+volumes:
+  mirror_pgdata:
+  mirror_redisdata:
+  mirror_weaviatedata:
+  mirror_qdrantdata:
+
+networks:
+  thecopy-mirror-net:
+    driver: bridge
+
+secrets:
+  tiptap_pro_token:
+    file: ./secret/tiptap_pro_token.txt

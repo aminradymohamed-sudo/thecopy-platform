@@ -1,0 +1,188 @@
+{
+  "route": "/editor",
+  "trace": [
+    {
+      "step": 1,
+      "tag": "div",
+      "role": "status",
+      "label": "جارٍ تحميل المحرر...",
+      "visible": true
+    },
+    {
+      "step": 3,
+      "tag": "div",
+      "role": "status",
+      "label": "جارٍ تحميل المحرر...",
+      "visible": true
+    },
+    {
+      "step": 5,
+      "tag": "div",
+      "role": "status",
+      "label": "جارٍ تحميل المحرر...",
+      "visible": true
+    },
+    {
+      "step": 7,
+      "tag": "div",
+      "role": "status",
+      "label": "جارٍ تحميل المحرر...",
+      "visible": true
+    },
+    {
+      "step": 8,
+      "tag": "div",
+      "role": null,
+      "label": "1.",
+      "visible": true
+    },
+    {
+      "step": 9,
+      "tag": "div",
+      "role": null,
+      "label": "1.",
+      "visible": true
+    },
+    {
+      "step": 10,
+      "tag": "div",
+      "role": null,
+      "label": "1.",
+      "visible": true
+    },
+    {
+      "step": 11,
+      "tag": "div",
+      "role": null,
+      "label": "1.",
+      "visible": true
+    },
+    {
+      "step": 12,
+      "tag": "div",
+      "role": null,
+      "label": "1.",
+      "visible": true
+    },
+    {
+      "step": 13,
+      "tag": "div",
+      "role": null,
+      "label": "1.",
+      "visible": true
+    },
+    {
+      "step": 15,
+      "tag": "button",
+      "role": "menuitem",
+      "label": "ملف",
+      "visible": true
+    },
+    {
+      "step": 16,
+      "tag": "button",
+      "role": "menuitem",
+      "label": "تعديل",
+      "visible": true
+    },
+    {
+      "step": 17,
+      "tag": "button",
+      "role": "menuitem",
+      "label": "إضافة",
+      "visible": true
+    },
+    {
+      "step": 18,
+      "tag": "button",
+      "role": "menuitem",
+      "label": "تنسيق",
+      "visible": true
+    },
+    {
+      "step": 19,
+      "tag": "button",
+      "role": "menuitem",
+      "label": "أدوات",
+      "visible": true
+    },
+    {
+      "step": 20,
+      "tag": "button",
+      "role": "menuitem",
+      "label": "مساعدة",
+      "visible": true
+    },
+    {
+      "step": 21,
+      "tag": "button",
+      "role": null,
+      "label": "تبديل التنسيق المباشر",
+      "visible": true
+    },
+    {
+      "step": 22,
+      "tag": "button",
+      "role": null,
+      "label": "تصدير PDF",
+      "visible": true
+    },
+    {
+      "step": 23,
+      "tag": "button",
+      "role": null,
+      "label": "تحليل السيناريو",
+      "visible": true
+    },
+    {
+      "step": 24,
+      "tag": "button",
+      "role": null,
+      "label": "إعادة تصنيف المستند",
+      "visible": true
+    },
+    {
+      "step": 25,
+      "tag": "button",
+      "role": null,
+      "label": "الاختصارات",
+      "visible": true
+    },
+    {
+      "step": 26,
+      "tag": "button",
+      "role": null,
+      "label": "معلومات المسودة",
+      "visible": true
+    },
+    {
+      "step": 27,
+      "tag": "button",
+      "role": null,
+      "label": "فتح ملف",
+      "visible": true
+    },
+    {
+      "step": 28,
+      "tag": "button",
+      "role": null,
+      "label": "حفظ الملف",
+      "visible": true
+    },
+    {
+      "step": 29,
+      "tag": "button",
+      "role": null,
+      "label": "تراجع",
+      "visible": true
+    },
+    {
+      "step": 30,
+      "tag": "button",
+      "role": null,
+      "label": "إعادة",
+      "visible": true
+    }
+  ],
+  "totalSteps": 26
+}

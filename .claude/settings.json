@@ -1,0 +1,17 @@
+{
+  "enabledPlugins": {},
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "pnpm --silent exec tsx scripts/agent/persistent-memory-turn-hook.ts",
+            "timeout": 60
+          }
+        ]
+      }
+    ]
+  }
+}

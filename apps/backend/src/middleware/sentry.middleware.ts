@@ -1,0 +1,123 @@
+/**
+ * Sentry Middleware for Express
+ *
+ * Avoid loading Sentry packages unless a DSN is configured.
+ */
+
+import { createRequire } from "node:module";
+
+import type {
+  Request,
+  Response,
+  NextFunction,
+  ErrorRequestHandler,
+} from "express";
+
+type SentryModule = typeof import("@sentry/node");
+
+const loadModule = createRequire(__filename);
+let sentryModule: SentryModule | null = null;
+let cachedErrorHandler: ErrorRequestHandler | null = null;
+
+function isSentryEnabled(): boolean {
+  return Boolean(process.env.SENTRY_DSN?.trim());
+}
+
+function getSentryModule(): SentryModule {
+  sentryModule ??= loadModule("@sentry/node") as SentryModule;
+  return sentryModule;
+}
+
+function getSentryErrorHandler(): ErrorRequestHandler {
+  if (!isSentryEnabled()) {
+    return (error, _req, _res, next) => next(error);
+  }
+
+  cachedErrorHandler ??= getSentryModule().expressErrorHandler() as unknown as ErrorRequestHandler;
+  return cachedErrorHandler;
+}
+
+// Note: لا حاجة لـ sentryRequestHandler/sentryTracingHandler يدويين في @sentry/node v8+.
+// التتبع يتم تلقائياً عبر OpenTelemetry-based instrumentation عند استدعاء Sentry.init().
+// نُبقي فقط على expressErrorHandler الرسمي للالتقاط النهائي للأخطاء.
+export const sentryErrorHandler: ErrorRequestHandler = (
+  error,
+  req,
+  res,
+  next,
+) => getSentryErrorHandler()(error, req, res, next);
+
+export function trackError(req: Request, res: Response, next: NextFunction) {
+  if (!isSentryEnabled()) {
+    next();
+    return;
+  }
+
+  const Sentry = getSentryModule();
+
+  if (req.user) {
+    Sentry.setUser({
+      id: req.user.id,
+      email: req.user.email,
+      ip_address: req.ip ?? req.socket.remoteAddress ?? null,
+    });
+  }
+
+  const originalSend = res.send;
+
+  res.send = function (data: unknown) {
+    if (res.statusCode >= 400) {
+      Sentry.addBreadcrumb({
+        message: `HTTP ${res.statusCode} on ${req.method} ${req.path}`,
+        level: res.statusCode >= 500 ? "error" : "warning",
+        data: {
+          method: req.method,
+          url: req.url,
+          statusCode: res.statusCode,
+          userId: req.user?.id,
+        },
+      });
+    }
+
+    return originalSend.call(this, data);
+  };
+
+  next();
+}
+
+export function trackPerformance(
+  req: Request,
+  res: Response,
+  next: NextFunction,
+) {
+  if (!isSentryEnabled()) {
+    next();
+    return;
+  }
+
+  const Sentry = getSentryModule();
+  const startTime = Date.now();
+
+  res.on("finish", () => {
+    const duration = Date.now() - startTime;
+
+    if (duration > 1000) {
+      Sentry.addBreadcrumb({
+        message: `Slow request: ${req.method} ${req.path}`,
+        level: "warning",
+        data: {
+          duration,
+          method: req.method,
+          url: req.url,
+          statusCode: res.statusCode,
+        },
+      });
+    }
+
+    Sentry.metrics.distribution("http.request.duration", duration, {
+      unit: "millisecond",
+    });
+  });
+
+  next();
+}

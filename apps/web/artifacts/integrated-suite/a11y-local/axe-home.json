@@ -1,0 +1,12 @@
+{
+  "target": {
+    "id": "home",
+    "path": "/"
+  },
+  "timestamp": "2026-05-10T02:47:37.322Z",
+  "url": "http://localhost:6080/",
+  "violations": [],
+  "passes": 30,
+  "incomplete": 0,
+  "inapplicable": 59
+}

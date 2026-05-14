@@ -1,0 +1,2 @@
+[typecheck] backend: 1 TypeScript error(s).
+  1× apps/backend/src/controllers/analysis.controller.ts|TS2345|Argument of type 'SerializedEvent' is not assignable to parameter of type '{ id: string; event: string; data: string; }'.

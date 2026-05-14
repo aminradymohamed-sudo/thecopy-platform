@@ -1,0 +1,53 @@
+# ZAP Authenticated Context for the-copy backend
+# يُستخدم لتغطية المسارات خلف JWT في DAST
+# هذا الملف يصف فقط — التشغيل الفعلي يحدث عبر docker run في run.ps1
+
+context:
+  name: "the-copy-backend-auth"
+  description: "تغطية المسارات المصادَقة في @the-copy/backend"
+
+target:
+  baseUrl: "http://localhost:3001"
+  apiPaths:
+    - /api/v1/auth/*
+    - /api/v1/projects/*
+    - /api/v1/sessions/*
+    - /api/v1/memory/*
+    - /api/v1/breakdown/*
+    - /api/v1/cinematography/*
+
+authentication:
+  method: "json-based"
+  loginUrl: "http://localhost:3001/api/v1/auth/login"
+  loginRequestData: '{"email":"%username%","password":"%password%"}'
+  usernameParameter: "email"
+  passwordParameter: "password"
+  loggedInRegex: '"token":\s*"[^"]+"'
+  loggedOutRegex: '401|403|"error":"unauthorized"'
+
+session:
+  type: "header"
+  tokenLocation: "Authorization"
+  tokenPrefix: "Bearer "
+  tokenExtractor: '$.token'
+
+users:
+  - name: "test-user"
+    credentials:
+      username: "${env:DAST_TEST_USER:-zap-test@example.com}"
+      password: "${env:DAST_TEST_PASS:-CHANGE_ME}"
+
+scanPolicy:
+  strength: "medium"
+  threshold: "low"
+  excludedRules:
+    # Rule 10010 on XSRF-TOKEN only: Double Submit Cookie pattern requires JS read access.
+    # httpOnly: false is intentional on XSRF-TOKEN — see docs/security/zap-baseline-exemptions.md.
+    # ALL other cookies retain httpOnly: true and are NOT exempted.
+    - ruleId: "10010"
+      cookieName: "XSRF-TOKEN"
+      reason: "Double Submit Cookie CSRF pattern — JS must read the token"
+
+reporting:
+  format: ["html", "json"]
+  outputDir: "../../../artifacts/integrated-suite/<run-id>/01-security/dast"

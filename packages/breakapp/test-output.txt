@@ -1,0 +1,59 @@
+
+> @the-copy/breakapp@1.0.0 test C:\Users\Mohmed Aimen Raed\Claude\Projects\the copy.worktrees\agents-xss-vulnerability-leaflet-package\packages\breakapp
+> vitest run
+
+
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.5 [39m[90mC:/Users/Mohmed Aimen Raed/Claude/Projects/the copy.worktrees/agents-xss-vulnerability-leaflet-package/packages/breakapp[39m
+
+ [31mΓ¥»[39m tests/components/MapComponent.xss.test.tsx [2m([22m[2m12 tests[22m[2m | [22m[31m1 failed[39m[2m)[22m[32m 21[2mms[22m[39m
+     [32mΓ£ô[39m should detect onclick event handlers[32m 2[2mms[22m[39m
+[31m     [31m├ù[31m should detect onerror event handlers[39m[32m 8[2mms[22m[39m
+     [32mΓ£ô[39m should detect script tags[32m 1[2mms[22m[39m
+     [32mΓ£ô[39m should detect javascript: protocol[32m 0[2mms[22m[39m
+     [32mΓ£ô[39m should detect iframe tags[32m 0[2mms[22m[39m
+     [32mΓ£ô[39m should detect object tags[32m 0[2mms[22m[39m
+     [32mΓ£ô[39m should allow safe text content[32m 0[2mms[22m[39m
+     [32mΓ£ô[39m should allow safe Arabic text[32m 0[2mms[22m[39m
+     [32mΓ£ô[39m should escape HTML by using textContent then innerHTML[32m 2[2mms[22m[39m
+     [32mΓ£ô[39m should handle empty strings[32m 1[2mms[22m[39m
+     [32mΓ£ô[39m should preserve legitimate text with special characters[32m 1[2mms[22m[39m
+     [32mΓ£ô[39m should escape angle brackets in legitimate content[32m 1[2mms[22m[39m
+ [32mΓ£ô[39m tests/lib/roles.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32mΓ£ô[39m tests/lib/auth-refresh.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32mΓ£ô[39m tests/hooks/useAuthRefresh.test.tsx [2m([22m[2m4 tests[22m[2m)[22m[32m 41[2mms[22m[39m
+ [32mΓ£ô[39m tests/hooks/useQRCamera.test.tsx [2m([22m[2m13 tests[22m[2m)[22m[32m 190[2mms[22m[39m
+ [32mΓ£ô[39m tests/hooks/useCurrentUser.test.tsx [2m([22m[2m5 tests[22m[2m)[22m[32m 103[2mms[22m[39m
+ [32mΓ£ô[39m tests/guards/RoleGuard.test.tsx [2m([22m[2m2 tests[22m[2m)[22m[32m 249[2mms[22m[39m
+ [32mΓ£ô[39m tests/components/QRScanner.test.tsx [2m([22m[2m9 tests[22m[2m)[22m[33m 1224[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m ┘è┘ü╪╣┘ä ╪▓╪▒ ╪º┘ä╪¬╪ú┘â┘è╪» ╪╣┘å╪» ┘ê╪¼┘ê╪» ╪Ñ╪»╪«╪º┘ä ╪║┘è╪▒ ┘ü╪º╪▒╪║ [33m 340[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m ┘è╪▒┘ü╪╢ ╪╡┘è╪║╪⌐ ╪║┘è╪▒ ╪╡╪¡┘è╪¡╪⌐ ┘ê┘è╪▒╪│┘ä onError ╪¿╪│╪¿╪¿ manual-entry-invalid [33m 311[2mms[22m[39m
+     [33m[2mΓ£ô[22m[39m ┘è┘é╪¿┘ä ╪╡┘è╪║╪⌐ ╪╡╪¡┘è╪¡╪⌐ a:b:c ┘ê┘è╪│╪¬╪»╪╣┘è onScan [33m 383[2mms[22m[39m
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ» Failed Tests 1 ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»
+
+ FAIL  tests/components/MapComponent.xss.test.tsx > MapComponent - XSS Prevention > should detect onerror event handlers
+AssertionError: expected false to be true // Object.is equality
+
+- Expected
++ Received
+
+- true
++ false
+
+ Γ¥» tests/components/MapComponent.xss.test.tsx:26:26
+     24|     const payload = '<img onerror="alert(\'XSS\')" />';
+     25|     const hasDangerous = dangerousPatterns.some(pattern => pattern.tesΓÇª
+     26|     expect(hasDangerous).toBe(true);
+       |                          ^
+     27|   });
+     28|
+
+ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»ΓÄ»[1/1]ΓÄ»
+
+
+[2m Test Files [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m7 passed[39m[22m[90m (8)[39m
+[2m      Tests [22m [1m[31m1 failed[39m[22m[2m | [22m[1m[32m59 passed[39m[22m[90m (60)[39m
+[2m   Start at [22m 09:12:32
+[2m   Duration [22m 3.79s[2m (transform 502ms, setup 3.74s, import 1.16s, tests 1.87s, environment 12.80s)[22m
+
+ΓÇëELIFECYCLEΓÇë Test failed. See above for more details.

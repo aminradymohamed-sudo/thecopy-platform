@@ -1,0 +1,24 @@
+{
+  "category": "dast",
+  "startedAt": "2026-05-14T00:17:13.5229315+03:00",
+  "targets": [
+    {
+      "url": "http://localhost:5000",
+      "status": "unreachable"
+    },
+    {
+      "url": "http://localhost:3001",
+      "status": "unreachable"
+    },
+    {
+      "report": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\artifacts\\integrated-suite\\cowork-2026-05-14\\01-security\\dast\\zap-baseline.html",
+      "exitCode": 127,
+      "name": "zap-baseline"
+    },
+    {
+      "name": "zap-authenticated",
+      "status": "tool-missing"
+    }
+  ],
+  "endedAt": "2026-05-14T00:17:24.7495132+03:00"
+}

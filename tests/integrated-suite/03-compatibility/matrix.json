@@ -1,0 +1,46 @@
+{
+  "$schema": "./matrix.schema.json",
+  "name": "the-copy.compatibility.matrix",
+  "version": "1.0.0",
+  "policy": "any reduction in coverage is forbidden by AGENTS.md",
+
+  "browsers": [
+    { "id": "chromium", "channel": "chromium" },
+    { "id": "firefox",  "channel": "firefox"  },
+    { "id": "webkit",   "channel": "webkit"   }
+  ],
+
+  "devices": [
+    { "id": "desktop-fhd",  "viewport": { "width": 1920, "height": 1080 }, "deviceScaleFactor": 1, "isMobile": false },
+    { "id": "desktop-hd",   "viewport": { "width": 1440, "height": 900  }, "deviceScaleFactor": 1, "isMobile": false },
+    { "id": "tablet-ipad",  "preset": "iPad (gen 7)" },
+    { "id": "mobile-iphone","preset": "iPhone 14 Pro" },
+    { "id": "mobile-pixel", "preset": "Pixel 7" }
+  ],
+
+  "os": [
+    "windows",
+    "macos",
+    "linux",
+    "ios-emulated",
+    "android-emulated"
+  ],
+
+  "projects": [
+    { "id": "chromium-desktop",      "browser": "chromium", "device": "desktop-fhd"   },
+    { "id": "chromium-desktop-hd",   "browser": "chromium", "device": "desktop-hd"    },
+    { "id": "firefox-desktop",       "browser": "firefox",  "device": "desktop-fhd"   },
+    { "id": "webkit-desktop",        "browser": "webkit",   "device": "desktop-fhd"   },
+    { "id": "chromium-tablet",       "browser": "chromium", "device": "tablet-ipad"   },
+    { "id": "webkit-mobile",         "browser": "webkit",   "device": "mobile-iphone" },
+    { "id": "chromium-mobile",       "browser": "chromium", "device": "mobile-pixel"  }
+  ],
+
+  "criticalProjects": [
+    "chromium-desktop",
+    "firefox-desktop",
+    "webkit-desktop"
+  ],
+
+  "blocking": "any failure in criticalProjects blocks the release"
+}

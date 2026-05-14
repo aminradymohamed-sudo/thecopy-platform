@@ -1,0 +1,1079 @@
+{
+  "@asamuzakjp/css-color@5.1.11": {
+    "licenses": "MIT",
+    "repository": "https://github.com/asamuzaK/cssColor",
+    "publisher": "asamuzaK",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\css-color",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\css-color\\LICENSE"
+  },
+  "@asamuzakjp/dom-selector@7.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/asamuzaK/domSelector",
+    "publisher": "asamuzaK",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\dom-selector",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\dom-selector\\LICENSE"
+  },
+  "@asamuzakjp/generational-cache@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/asamuzaK/generationalCache",
+    "publisher": "asamuzaK",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\generational-cache",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\generational-cache\\LICENSE"
+  },
+  "@asamuzakjp/nwsapi@2.3.9": {
+    "licenses": "MIT",
+    "repository": "https://github.com/dperini/nwsapi",
+    "publisher": "Diego Perini",
+    "email": "diego.perini@gmail.com",
+    "url": "http://www.iport.it/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\nwsapi",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\nwsapi\\LICENSE"
+  },
+  "@bramus/specificity@2.4.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/bramus/specificity",
+    "publisher": "Bramus Van Damme",
+    "email": "bramus@bram.us",
+    "url": "https://www.bram.us/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@bramus\\specificity",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@bramus\\specificity\\LICENSE"
+  },
+  "@csstools/color-helpers@6.0.2": {
+    "licenses": "MIT-0",
+    "repository": "https://github.com/csstools/postcss-plugins",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\css-color\\node_modules\\@csstools\\color-helpers",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\css-color\\node_modules\\@csstools\\color-helpers\\LICENSE.md"
+  },
+  "@csstools/css-calc@3.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/csstools/postcss-plugins",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\css-color\\node_modules\\@csstools\\css-calc",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\css-color\\node_modules\\@csstools\\css-calc\\LICENSE.md"
+  },
+  "@csstools/css-color-parser@4.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/csstools/postcss-plugins",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\css-color\\node_modules\\@csstools\\css-color-parser",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\css-color\\node_modules\\@csstools\\css-color-parser\\LICENSE.md"
+  },
+  "@csstools/css-parser-algorithms@4.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/csstools/postcss-plugins",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\css-color\\node_modules\\@csstools\\css-parser-algorithms",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\css-color\\node_modules\\@csstools\\css-parser-algorithms\\LICENSE.md"
+  },
+  "@csstools/css-syntax-patches-for-csstree@1.1.3": {
+    "licenses": "MIT-0",
+    "repository": "https://github.com/csstools/postcss-plugins",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@csstools\\css-syntax-patches-for-csstree",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@csstools\\css-syntax-patches-for-csstree\\LICENSE.md"
+  },
+  "@csstools/css-tokenizer@4.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/csstools/postcss-plugins",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\css-color\\node_modules\\@csstools\\css-tokenizer",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@asamuzakjp\\css-color\\node_modules\\@csstools\\css-tokenizer\\LICENSE.md"
+  },
+  "@exodus/bytes@1.15.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ExodusOSS/bytes",
+    "publisher": "Exodus Movement, Inc.",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@exodus\\bytes",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@exodus\\bytes\\LICENSE"
+  },
+  "@google/genai@0.8.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/googleapis/js-genai",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@google\\genai",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@google\\genai\\LICENSE"
+  },
+  "@img/colour@1.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lovell/colour",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@img\\colour",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@img\\colour\\LICENSE.md"
+  },
+  "@img/sharp-win32-x64@0.34.5": {
+    "licenses": "Apache-2.0 AND LGPL-3.0-or-later",
+    "repository": "https://github.com/lovell/sharp",
+    "publisher": "Lovell Fuller",
+    "email": "npm@lovell.info",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@img\\sharp-win32-x64",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@img\\sharp-win32-x64\\LICENSE"
+  },
+  "@lancedb/lancedb-win32-x64-msvc@0.27.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/lancedb/lancedb",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@lancedb\\lancedb-win32-x64-msvc",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@lancedb\\lancedb-win32-x64-msvc\\README.md"
+  },
+  "@lancedb/lancedb@0.27.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/lancedb/lancedb",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@lancedb\\lancedb",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@lancedb\\lancedb\\README.md"
+  },
+  "@next/env@16.2.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/vercel/next.js",
+    "publisher": "Next.js Team",
+    "email": "support@vercel.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@next\\env",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@next\\env\\README.md"
+  },
+  "@next/swc-win32-x64-msvc@16.2.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/vercel/next.js",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@next\\swc-win32-x64-msvc",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@next\\swc-win32-x64-msvc\\README.md"
+  },
+  "@noble/hashes@2.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/paulmillr/noble-hashes",
+    "publisher": "Paul Miller",
+    "url": "https://paulmillr.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@noble\\hashes",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@noble\\hashes\\LICENSE"
+  },
+  "@openrouter/sdk@0.12.35": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/OpenRouterTeam/typescript-sdk",
+    "publisher": "OpenRouter",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@openrouter\\sdk",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@openrouter\\sdk\\LICENSE.md"
+  },
+  "@opentelemetry/api@1.9.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/open-telemetry/opentelemetry-js",
+    "publisher": "OpenTelemetry Authors",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@opentelemetry\\api",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@opentelemetry\\api\\LICENSE"
+  },
+  "@playwright/test@1.59.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/microsoft/playwright",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@playwright\\test",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@playwright\\test\\LICENSE",
+    "noticeFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@playwright\\test\\NOTICE"
+  },
+  "@qdrant/js-client-rest@1.17.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/qdrant/qdrant-js",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@qdrant\\js-client-rest",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@qdrant\\js-client-rest\\LICENSE"
+  },
+  "@qdrant/openapi-typescript-fetch@1.2.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/qdrant/openapi-typescript-fetch",
+    "publisher": "Ajai Shankar",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@qdrant\\openapi-typescript-fetch",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@qdrant\\openapi-typescript-fetch\\LICENSE"
+  },
+  "@swc/helpers@0.5.15": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/swc-project/swc",
+    "publisher": "강동윤",
+    "email": "kdy1997.dev@gmail.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\next\\node_modules\\@swc\\helpers",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\next\\node_modules\\@swc\\helpers\\LICENSE"
+  },
+  "@swc/helpers@0.5.21": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/swc-project/swc",
+    "publisher": "강동윤",
+    "email": "kdy1997.dev@gmail.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@swc\\helpers",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@swc\\helpers\\LICENSE"
+  },
+  "@types/command-line-args@5.2.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@types\\command-line-args",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@types\\command-line-args\\LICENSE"
+  },
+  "@types/command-line-usage@5.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@types\\command-line-usage",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@types\\command-line-usage\\LICENSE"
+  },
+  "@types/jsonwebtoken@9.0.10": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@types\\jsonwebtoken",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@types\\jsonwebtoken\\LICENSE"
+  },
+  "@types/ms@2.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@types\\ms",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@types\\ms\\LICENSE"
+  },
+  "@types/node@20.19.40": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\apache-arrow\\node_modules\\@types\\node",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\apache-arrow\\node_modules\\@types\\node\\LICENSE"
+  },
+  "@types/node@25.6.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@types\\node",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@types\\node\\LICENSE"
+  },
+  "@types/trusted-types@2.0.7": {
+    "licenses": "MIT",
+    "repository": "https://github.com/DefinitelyTyped/DefinitelyTyped",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@types\\trusted-types",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@types\\trusted-types\\LICENSE"
+  },
+  "@vercel/analytics@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/vercel/analytics",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@vercel\\analytics",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@vercel\\analytics\\LICENSE"
+  },
+  "agent-base@7.1.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/TooTallNate/proxy-agents",
+    "publisher": "Nathan Rajlich",
+    "email": "nathan@tootallnate.net",
+    "url": "http://n8.io/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\agent-base",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\agent-base\\LICENSE"
+  },
+  "ansi-styles@4.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/chalk/ansi-styles",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\chalk\\node_modules\\ansi-styles",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\chalk\\node_modules\\ansi-styles\\license"
+  },
+  "apache-arrow@18.1.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/apache/arrow",
+    "publisher": "Apache Software Foundation",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\apache-arrow",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\apache-arrow\\LICENSE.txt",
+    "noticeFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\apache-arrow\\NOTICE.txt"
+  },
+  "array-back@3.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/75lb/array-back",
+    "publisher": "Lloyd Brookes",
+    "email": "75pound@gmail.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\command-line-args\\node_modules\\array-back",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\command-line-args\\node_modules\\array-back\\LICENSE"
+  },
+  "array-back@6.2.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/75lb/array-back",
+    "publisher": "Lloyd Brookes",
+    "email": "opensource@75lb.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\command-line-usage\\node_modules\\array-back",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\command-line-usage\\node_modules\\array-back\\LICENSE"
+  },
+  "base64-js@1.5.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/beatgammit/base64-js",
+    "publisher": "T. Jameson Little",
+    "email": "t.jameson.little@gmail.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\base64-js",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\base64-js\\LICENSE"
+  },
+  "baseline-browser-mapping@2.10.29": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/web-platform-dx/baseline-browser-mapping",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\baseline-browser-mapping",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\baseline-browser-mapping\\LICENSE.txt"
+  },
+  "bidi-js@1.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lojjic/bidi-js",
+    "publisher": "Jason Johnston",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\bidi-js",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\bidi-js\\LICENSE.txt"
+  },
+  "bignumber.js@9.3.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/MikeMcl/bignumber.js",
+    "publisher": "Michael Mclaughlin",
+    "email": "M8ch88l@gmail.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\bignumber.js",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\bignumber.js\\LICENCE.md"
+  },
+  "buffer-equal-constant-time@1.0.1": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/goinstant/buffer-equal-constant-time",
+    "publisher": "GoInstant Inc., a salesforce.com company",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\buffer-equal-constant-time",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\buffer-equal-constant-time\\LICENSE.txt"
+  },
+  "caniuse-lite@1.0.30001792": {
+    "licenses": "CC-BY-4.0",
+    "repository": "https://github.com/browserslist/caniuse-lite",
+    "publisher": "Ben Briggs",
+    "email": "beneb.info@gmail.com",
+    "url": "http://beneb.info",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\caniuse-lite",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\caniuse-lite\\LICENSE"
+  },
+  "chalk-template@0.4.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/chalk/chalk-template",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\chalk-template",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\chalk-template\\license"
+  },
+  "chalk@4.1.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/chalk/chalk",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\chalk",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\chalk\\license"
+  },
+  "client-only@0.0.1": {
+    "licenses": "MIT",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\client-only"
+  },
+  "color-convert@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Qix-/color-convert",
+    "publisher": "Heather Arthur",
+    "email": "fayearthur@gmail.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\color-convert",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\color-convert\\LICENSE"
+  },
+  "color-name@1.1.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/colorjs/color-name",
+    "publisher": "DY",
+    "email": "dfcreative@gmail.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\color-convert\\node_modules\\color-name",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\color-convert\\node_modules\\color-name\\LICENSE"
+  },
+  "command-line-args@5.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/75lb/command-line-args",
+    "publisher": "Lloyd Brookes",
+    "email": "75pound@gmail.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\command-line-args",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\command-line-args\\LICENSE"
+  },
+  "command-line-usage@7.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/75lb/command-line-usage",
+    "publisher": "Lloyd Brookes",
+    "email": "opensource@75lb.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\command-line-usage",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\command-line-usage\\LICENCE"
+  },
+  "css-tree@3.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/csstree/csstree",
+    "publisher": "Roman Dvornov",
+    "email": "rdvornov@gmail.com",
+    "url": "https://github.com/lahmatiy",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\css-tree",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\css-tree\\LICENSE"
+  },
+  "data-urls@7.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jsdom/data-urls",
+    "publisher": "Domenic Denicola",
+    "email": "d@domenic.me",
+    "url": "https://domenic.me/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\data-urls",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\data-urls\\LICENSE.txt"
+  },
+  "debug@4.4.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/debug-js/debug",
+    "publisher": "Josh Junon",
+    "url": "https://github.com/qix-",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\debug",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\debug\\LICENSE"
+  },
+  "decimal.js@10.6.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/MikeMcl/decimal.js",
+    "publisher": "Michael Mclaughlin",
+    "email": "M8ch88l@gmail.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\decimal.js",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\decimal.js\\LICENCE.md"
+  },
+  "detect-libc@2.1.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/lovell/detect-libc",
+    "publisher": "Lovell Fuller",
+    "email": "npm@lovell.info",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\detect-libc",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\detect-libc\\LICENSE"
+  },
+  "dompurify@3.4.2": {
+    "licenses": "(MPL-2.0 OR Apache-2.0)",
+    "repository": "https://github.com/cure53/DOMPurify",
+    "publisher": "Dr.-Ing. Mario Heiderich, Cure53",
+    "email": "mario@cure53.de",
+    "url": "https://cure53.de/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\dompurify",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\dompurify\\LICENSE"
+  },
+  "ecdsa-sig-formatter@1.0.11": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/Brightspace/node-ecdsa-sig-formatter",
+    "publisher": "D2L Corporation",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\ecdsa-sig-formatter",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\ecdsa-sig-formatter\\LICENSE"
+  },
+  "entities@8.0.0": {
+    "licenses": "BSD-2-Clause",
+    "repository": "https://github.com/fb55/entities",
+    "publisher": "Felix Boehm",
+    "email": "me@feedic.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\entities",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\entities\\LICENSE"
+  },
+  "express-jwt@8.5.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/auth0/express-jwt",
+    "publisher": "Matias Woloski",
+    "email": "matias@auth0.com",
+    "url": "https://www.auth0.com/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\express-jwt",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\express-jwt\\LICENSE"
+  },
+  "express-unless@2.1.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jfromaniello/express-unless",
+    "publisher": "José F. Romaniello",
+    "email": "jfromaniello@gmail.com",
+    "url": "http://joseoncode.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\express-unless",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\express-unless\\LICENSE"
+  },
+  "extend@3.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/justmoon/node-extend",
+    "publisher": "Stefan Thomas",
+    "email": "justmoon@members.fsf.org",
+    "url": "http://www.justmoon.net",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\extend",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\extend\\LICENSE"
+  },
+  "find-replace@3.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/75lb/find-replace",
+    "publisher": "Lloyd Brookes",
+    "email": "75pound@gmail.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\find-replace",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\find-replace\\LICENSE"
+  },
+  "flatbuffers@24.12.23": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/google/flatbuffers",
+    "publisher": "The FlatBuffers project",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\flatbuffers",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\flatbuffers\\LICENSE"
+  },
+  "gaxios@6.7.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/googleapis/gaxios",
+    "publisher": "Google, LLC",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\gaxios",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\gaxios\\LICENSE"
+  },
+  "gcp-metadata@6.1.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/googleapis/gcp-metadata",
+    "publisher": "Google LLC",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\gcp-metadata",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\gcp-metadata\\LICENSE"
+  },
+  "google-auth-library@9.15.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/googleapis/google-auth-library-nodejs",
+    "publisher": "Google Inc.",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\google-auth-library",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\google-auth-library\\LICENSE"
+  },
+  "google-logging-utils@0.0.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/googleapis/gax-nodejs",
+    "publisher": "Google API Authors",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\gcp-metadata\\node_modules\\google-logging-utils",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\gcp-metadata\\node_modules\\google-logging-utils\\LICENSE"
+  },
+  "gtoken@7.1.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/google/node-gtoken",
+    "publisher": "Google, LLC",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\gtoken",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\gtoken\\LICENSE"
+  },
+  "has-flag@4.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/has-flag",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\has-flag",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\has-flag\\license"
+  },
+  "html-encoding-sniffer@6.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jsdom/html-encoding-sniffer",
+    "publisher": "Domenic Denicola",
+    "email": "d@domenic.me",
+    "url": "https://domenic.me/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\html-encoding-sniffer",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\html-encoding-sniffer\\LICENSE.txt"
+  },
+  "https-proxy-agent@7.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/TooTallNate/proxy-agents",
+    "publisher": "Nathan Rajlich",
+    "email": "nathan@tootallnate.net",
+    "url": "http://n8.io/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\https-proxy-agent",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\https-proxy-agent\\LICENSE"
+  },
+  "is-potential-custom-element-name@1.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mathiasbynens/is-potential-custom-element-name",
+    "publisher": "Mathias Bynens",
+    "url": "https://mathiasbynens.be/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\is-potential-custom-element-name",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\is-potential-custom-element-name\\LICENSE-MIT.txt"
+  },
+  "is-stream@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sindresorhus/is-stream",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "https://sindresorhus.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\is-stream",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\is-stream\\license"
+  },
+  "isomorphic-dompurify@3.12.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/kkomelin/isomorphic-dompurify",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\isomorphic-dompurify",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\isomorphic-dompurify\\LICENSE"
+  },
+  "jsdom@29.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jsdom/jsdom",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\jsdom",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\jsdom\\LICENSE.txt"
+  },
+  "json-bigint@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/sidorares/json-bigint",
+    "publisher": "Andrey Sidorov",
+    "email": "sidorares@yandex.ru",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\json-bigint",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\json-bigint\\LICENSE"
+  },
+  "json-bignum@0.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/datalanche/json-bignum",
+    "publisher": "Datalanche, Inc.",
+    "url": "https://www.datalanche.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\json-bignum",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\json-bignum\\LICENSE"
+  },
+  "jsonwebtoken@9.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/auth0/node-jsonwebtoken",
+    "publisher": "auth0",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\jsonwebtoken",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\jsonwebtoken\\LICENSE"
+  },
+  "jwa@2.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/brianloveswords/node-jwa",
+    "publisher": "Brian J. Brennan",
+    "email": "brianloveswords@gmail.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\jwa",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\jwa\\LICENSE"
+  },
+  "jws@4.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/brianloveswords/node-jws",
+    "publisher": "Brian J Brennan",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\jws",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\jws\\LICENSE"
+  },
+  "lodash.camelcase@4.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.camelcase",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.camelcase\\LICENSE"
+  },
+  "lodash.includes@4.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.includes",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.includes\\LICENSE"
+  },
+  "lodash.isboolean@3.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.isboolean",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.isboolean\\LICENSE"
+  },
+  "lodash.isinteger@4.0.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.isinteger",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.isinteger\\LICENSE"
+  },
+  "lodash.isnumber@3.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.isnumber",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.isnumber\\LICENSE"
+  },
+  "lodash.isplainobject@4.0.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.isplainobject",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.isplainobject\\LICENSE"
+  },
+  "lodash.isstring@4.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.isstring",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.isstring\\LICENSE"
+  },
+  "lodash.once@4.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lodash/lodash",
+    "publisher": "John-David Dalton",
+    "email": "john.david.dalton@gmail.com",
+    "url": "http://allyoucanleet.com/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.once",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lodash.once\\LICENSE"
+  },
+  "lru-cache@11.3.6": {
+    "licenses": "BlueOak-1.0.0",
+    "repository": "https://github.com/isaacs/node-lru-cache",
+    "publisher": "Isaac Z. Schlueter",
+    "email": "i@izs.me",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lru-cache",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\lru-cache\\LICENSE.md"
+  },
+  "mdn-data@2.27.1": {
+    "licenses": "CC0-1.0",
+    "repository": "https://github.com/mdn/data",
+    "publisher": "Mozilla Developer Network",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\mdn-data",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\mdn-data\\LICENSE"
+  },
+  "ms@2.1.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/vercel/ms",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\ms",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\ms\\license.md"
+  },
+  "nanoid@3.3.12": {
+    "licenses": "MIT",
+    "repository": "https://github.com/ai/nanoid",
+    "publisher": "Andrey Sitnik",
+    "email": "andrey@sitnik.ru",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\nanoid",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\nanoid\\LICENSE"
+  },
+  "next@16.2.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/vercel/next.js",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\next",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\next\\license.md"
+  },
+  "node-fetch@2.7.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/bitinn/node-fetch",
+    "publisher": "David Frank",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\node-fetch",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\node-fetch\\LICENSE.md"
+  },
+  "parse5@8.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/inikulin/parse5",
+    "publisher": "Ivan Nikulin",
+    "email": "ifaaan@gmail.com",
+    "url": "https://github.com/inikulin",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\parse5",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\parse5\\LICENSE"
+  },
+  "picocolors@1.1.1": {
+    "licenses": "ISC",
+    "repository": "https://github.com/alexeyraspopov/picocolors",
+    "publisher": "Alexey Raspopov",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\picocolors",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\picocolors\\LICENSE"
+  },
+  "playwright-core@1.59.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/microsoft/playwright",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\playwright-core",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\playwright-core\\LICENSE",
+    "noticeFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\playwright-core\\NOTICE"
+  },
+  "playwright@1.59.1": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/microsoft/playwright",
+    "publisher": "Microsoft Corporation",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\playwright",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\playwright\\LICENSE",
+    "noticeFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\playwright\\NOTICE"
+  },
+  "postcss@8.5.14": {
+    "licenses": "MIT",
+    "repository": "https://github.com/postcss/postcss",
+    "publisher": "Andrey Sitnik",
+    "email": "andrey@sitnik.es",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\postcss",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\postcss\\LICENSE"
+  },
+  "punycode@2.3.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/mathiasbynens/punycode.js",
+    "publisher": "Mathias Bynens",
+    "url": "https://mathiasbynens.be/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\punycode",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\punycode\\LICENSE-MIT.txt"
+  },
+  "react-dom@19.2.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\react-dom",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\react-dom\\LICENSE"
+  },
+  "react@19.2.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\react",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\react\\LICENSE"
+  },
+  "reflect-metadata@0.2.2": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/rbuckton/reflect-metadata",
+    "publisher": "Ron Buckton",
+    "email": "ron.buckton@microsoft.com",
+    "url": "http://github.com/rbuckton",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\reflect-metadata",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\reflect-metadata\\LICENSE"
+  },
+  "require-from-string@2.0.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/floatdrop/require-from-string",
+    "publisher": "Vsevolod Strukchinsky",
+    "email": "floatdrop@gmail.com",
+    "url": "github.com/floatdrop",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\require-from-string",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\require-from-string\\license"
+  },
+  "safe-buffer@5.2.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/feross/safe-buffer",
+    "publisher": "Feross Aboukhadijeh",
+    "email": "feross@feross.org",
+    "url": "https://feross.org",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\safe-buffer",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\safe-buffer\\LICENSE"
+  },
+  "saxes@6.0.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/lddubeau/saxes",
+    "publisher": "Louis-Dominique Dubeau",
+    "email": "ldd@lddubeau.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\saxes",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\saxes\\README.md"
+  },
+  "scheduler@0.27.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/facebook/react",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\scheduler",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\scheduler\\LICENSE"
+  },
+  "semver@7.8.0": {
+    "licenses": "ISC",
+    "repository": "https://github.com/npm/node-semver",
+    "publisher": "GitHub Inc.",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\semver",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\semver\\LICENSE"
+  },
+  "sharp@0.34.5": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/lovell/sharp",
+    "publisher": "Lovell Fuller",
+    "email": "npm@lovell.info",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\sharp",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\sharp\\LICENSE"
+  },
+  "source-map-js@1.2.1": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/7rulnik/source-map-js",
+    "publisher": "Valentin 7rulnik Semirulnik",
+    "email": "v7rulnik@gmail.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\source-map-js",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\source-map-js\\LICENSE"
+  },
+  "styled-jsx@5.1.6": {
+    "licenses": "MIT",
+    "repository": "https://github.com/vercel/styled-jsx",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\styled-jsx",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\styled-jsx\\license.md"
+  },
+  "supports-color@7.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/chalk/supports-color",
+    "publisher": "Sindre Sorhus",
+    "email": "sindresorhus@gmail.com",
+    "url": "sindresorhus.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\chalk\\node_modules\\supports-color",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\chalk\\node_modules\\supports-color\\license"
+  },
+  "symbol-tree@3.2.4": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jsdom/js-symbol-tree",
+    "publisher": "Joris van der Wel",
+    "email": "joris@jorisvanderwel.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\symbol-tree",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\symbol-tree\\LICENSE"
+  },
+  "table-layout@4.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/75lb/table-layout",
+    "publisher": "Lloyd Brookes",
+    "email": "75pound@gmail.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\table-layout",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\table-layout\\LICENSE"
+  },
+  "the-copy-monorepo@1.0.0": {
+    "licenses": "UNLICENSED",
+    "private": true,
+    "repository": "https://github.com/CLOCKWORK-TEMPTATION/thecopy-platform",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\README.md"
+  },
+  "timing-safe-equal@1.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/crypto-browserify/timing-safe-equal",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\timing-safe-equal",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\timing-safe-equal\\readme.md"
+  },
+  "tldts-core@7.0.30": {
+    "licenses": "MIT",
+    "repository": "https://github.com/remusao/tldts",
+    "publisher": "Rémi Berson",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\tldts\\node_modules\\tldts-core",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\tldts\\node_modules\\tldts-core\\LICENSE"
+  },
+  "tldts@7.0.30": {
+    "licenses": "MIT",
+    "repository": "https://github.com/remusao/tldts",
+    "publisher": "Rémi Berson",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\tldts",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\tldts\\LICENSE"
+  },
+  "tough-cookie@6.0.1": {
+    "licenses": "BSD-3-Clause",
+    "repository": "https://github.com/salesforce/tough-cookie",
+    "publisher": "Jeremy Stashewsky",
+    "email": "jstash@gmail.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\tough-cookie",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\tough-cookie\\LICENSE"
+  },
+  "tr46@0.0.3": {
+    "licenses": "MIT",
+    "repository": "https://github.com/Sebmaster/tr46.js",
+    "publisher": "Sebastian Mayr",
+    "email": "npm@smayr.name",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\tr46"
+  },
+  "tr46@6.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jsdom/tr46",
+    "publisher": "Sebastian Mayr",
+    "email": "npm@smayr.name",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\whatwg-url\\node_modules\\tr46",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\whatwg-url\\node_modules\\tr46\\LICENSE.md"
+  },
+  "tslib@2.8.1": {
+    "licenses": "0BSD",
+    "repository": "https://github.com/Microsoft/tslib",
+    "publisher": "Microsoft Corp.",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\tslib",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\tslib\\LICENSE.txt"
+  },
+  "typescript@5.9.3": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/microsoft/TypeScript",
+    "publisher": "Microsoft Corp.",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\typescript",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\typescript\\LICENSE.txt"
+  },
+  "typical@4.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/75lb/typical",
+    "publisher": "Lloyd Brookes",
+    "email": "75pound@gmail.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\command-line-args\\node_modules\\typical",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\command-line-args\\node_modules\\typical\\LICENSE"
+  },
+  "typical@7.3.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/75lb/typical",
+    "publisher": "Lloyd Brookes",
+    "email": "opensource@75lb.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\command-line-usage\\node_modules\\typical",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\command-line-usage\\node_modules\\typical\\LICENSE"
+  },
+  "undici-types@6.21.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nodejs/undici",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\undici-types",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\undici-types\\LICENSE"
+  },
+  "undici-types@7.19.2": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nodejs/undici",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@types\\node\\node_modules\\undici-types",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\@types\\node\\node_modules\\undici-types\\LICENSE"
+  },
+  "undici@7.25.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nodejs/undici",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\jsdom\\node_modules\\undici",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\jsdom\\node_modules\\undici\\LICENSE"
+  },
+  "undici@8.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/nodejs/undici",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\undici",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\undici\\LICENSE"
+  },
+  "uuid@14.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/uuidjs/uuid",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\uuid",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\uuid\\LICENSE.md"
+  },
+  "w3c-xmlserializer@5.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jsdom/w3c-xmlserializer",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\w3c-xmlserializer",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\w3c-xmlserializer\\LICENSE.md"
+  },
+  "webidl-conversions@3.0.1": {
+    "licenses": "BSD-2-Clause",
+    "repository": "https://github.com/jsdom/webidl-conversions",
+    "publisher": "Domenic Denicola",
+    "email": "d@domenic.me",
+    "url": "https://domenic.me/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\node-fetch\\node_modules\\webidl-conversions",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\node-fetch\\node_modules\\webidl-conversions\\LICENSE.md"
+  },
+  "webidl-conversions@8.0.1": {
+    "licenses": "BSD-2-Clause",
+    "repository": "https://github.com/jsdom/webidl-conversions",
+    "publisher": "Domenic Denicola",
+    "email": "d@domenic.me",
+    "url": "https://domenic.me/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\webidl-conversions",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\webidl-conversions\\LICENSE.md"
+  },
+  "whatwg-mimetype@5.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jsdom/whatwg-mimetype",
+    "publisher": "Domenic Denicola",
+    "email": "d@domenic.me",
+    "url": "https://domenic.me/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\whatwg-mimetype",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\whatwg-mimetype\\LICENSE.txt"
+  },
+  "whatwg-url@16.0.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jsdom/whatwg-url",
+    "publisher": "Sebastian Mayr",
+    "email": "github@smayr.name",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\whatwg-url",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\whatwg-url\\LICENSE.txt"
+  },
+  "whatwg-url@5.0.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/jsdom/whatwg-url",
+    "publisher": "Sebastian Mayr",
+    "email": "github@smayr.name",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\node-fetch\\node_modules\\whatwg-url",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\node-fetch\\node_modules\\whatwg-url\\LICENSE.txt"
+  },
+  "wordwrapjs@5.1.1": {
+    "licenses": "MIT",
+    "repository": "https://github.com/75lb/wordwrapjs",
+    "publisher": "Lloyd Brookes",
+    "email": "opensource@75lb.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\wordwrapjs",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\wordwrapjs\\LICENSE"
+  },
+  "ws@8.20.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/websockets/ws",
+    "publisher": "Einar Otto Stangvik",
+    "email": "einaros@gmail.com",
+    "url": "http://2x.io",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\ws",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\ws\\LICENSE"
+  },
+  "xml-name-validator@5.0.0": {
+    "licenses": "Apache-2.0",
+    "repository": "https://github.com/jsdom/xml-name-validator",
+    "publisher": "Domenic Denicola",
+    "email": "d@domenic.me",
+    "url": "https://domenic.me/",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\xml-name-validator",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\xml-name-validator\\LICENSE.txt"
+  },
+  "xmlchars@2.2.0": {
+    "licenses": "MIT",
+    "repository": "https://github.com/lddubeau/xmlchars",
+    "publisher": "Louis-Dominique Dubeau",
+    "email": "ldd@lddubeau.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\xmlchars",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\xmlchars\\LICENSE"
+  },
+  "zod@3.25.76": {
+    "licenses": "MIT",
+    "repository": "https://github.com/colinhacks/zod",
+    "publisher": "Colin McDonnell",
+    "email": "zod@colinhacks.com",
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\zod",
+    "licenseFile": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\node_modules\\zod\\LICENSE"
+  }
+}

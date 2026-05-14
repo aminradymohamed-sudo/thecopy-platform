@@ -1,0 +1,229 @@
+"use client";
+
+/**
+ * أعضاء المشاريع — Admin Users
+ *
+ * @description
+ * تعرض قائمة الأعضاء المنتمين إلى مشروع مختار من قائمة منسدلة،
+ * مع دورهم وتاريخ الانضمام.
+ *
+ * السبب: مدير النظام بحاجة لصورة شفافة عن توزيع الأعضاء
+ * على المشاريع قبل اتخاذ قرارات دعوة أو إلغاء صلاحيات.
+ */
+
+import { api, getRoleLabel } from "@the-copy/breakapp";
+import Link from "next/link";
+import { useCallback, useEffect, useState } from "react";
+
+import { CardSpotlight } from "@/components/aceternity/card-spotlight";
+import { toast } from "@/hooks/use-toast";
+
+interface AdminProject {
+  id: string;
+  name: string;
+  directorUserId: string;
+  createdAt: string;
+}
+
+interface ProjectMember {
+  userId: string;
+  role: string;
+  joinedAt: string;
+}
+
+// ── Sub-components ───────────────────────────────────────────────────────────
+
+interface ProjectSelectorProps {
+  projects: AdminProject[];
+  selectedProjectId: string;
+  loadingProjects: boolean;
+  onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
+}
+
+function ProjectSelector({
+  projects,
+  selectedProjectId,
+  loadingProjects,
+  onChange,
+}: ProjectSelectorProps) {
+  return (
+    <CardSpotlight className="overflow-hidden rounded-[22px] bg-white/[0.04] backdrop-blur-xl border border-white/8 p-6 mb-6">
+      <label
+        htmlFor="field-page-1"
+        className="block text-sm font-medium text-white mb-2 font-cairo"
+      >
+        المشروع
+      </label>
+      <select
+        id="field-page-1"
+        value={selectedProjectId}
+        onChange={onChange}
+        disabled={loadingProjects || projects.length === 0}
+        className="w-full px-4 py-2 border border-white/8 rounded-[22px] bg-white/4 text-white focus:ring-2 focus:ring-white/20 focus:border-transparent font-cairo disabled:opacity-50"
+      >
+        {projects.length === 0 ? (
+          <option value="" className="bg-black text-white">
+            لا توجد مشاريع
+          </option>
+        ) : (
+          projects.map((project: AdminProject) => (
+            <option
+              key={project.id}
+              value={project.id}
+              className="bg-black text-white"
+            >
+              {project.name}
+            </option>
+          ))
+        )}
+      </select>
+    </CardSpotlight>
+  );
+}
+
+interface MembersListCardProps {
+  members: ProjectMember[];
+  loadingMembers: boolean;
+}
+
+function MembersListCard({ members, loadingMembers }: MembersListCardProps) {
+  return (
+    <CardSpotlight className="overflow-hidden rounded-[22px] bg-white/[0.04] backdrop-blur-xl border border-white/8 p-6">
+      <h2 className="text-xl font-semibold mb-4 text-white font-cairo">
+        الأعضاء ({members.length})
+      </h2>
+      {loadingMembers ? (
+        <div className="flex justify-center py-12">
+          <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-white/40" />
+        </div>
+      ) : members.length === 0 ? (
+        <p className="text-white/55 text-center py-8 font-cairo">
+          لا يوجد أعضاء في هذا المشروع بعد
+        </p>
+      ) : (
+        <div className="space-y-3">
+          {members.map((member: ProjectMember) => (
+            <div
+              key={`${member.userId}-${member.joinedAt}`}
+              className="flex flex-col md:flex-row md:items-center justify-between gap-2 p-4 border border-white/8 rounded-[22px] bg-white/[0.02]"
+            >
+              <div className="flex-1 min-w-0">
+                <p className="text-sm text-white font-mono truncate">
+                  {member.userId}
+                </p>
+                <p className="text-xs text-white/45 mt-1 font-cairo">
+                  انضمّ في {new Date(member.joinedAt).toLocaleString("ar-SA")}
+                </p>
+              </div>
+              <span className="px-3 py-1 text-xs bg-white/8 text-white rounded-full font-cairo border border-white/12">
+                {getRoleLabel(member.role)}
+              </span>
+            </div>
+          ))}
+        </div>
+      )}
+    </CardSpotlight>
+  );
+}
+
+// ── Main component ───────────────────────────────────────────────────────────
+
+export default function AdminUsersPage() {
+  const [projects, setProjects] = useState<AdminProject[]>([]);
+  const [selectedProjectId, setSelectedProjectId] = useState<string>("");
+  const [members, setMembers] = useState<ProjectMember[]>([]);
+  const [loadingProjects, setLoadingProjects] = useState<boolean>(true);
+  const [loadingMembers, setLoadingMembers] = useState<boolean>(false);
+
+  useEffect(() => {
+    let cancelled = false;
+    api
+      .get<AdminProject[]>("/admin/projects")
+      .then((response) => {
+        if (cancelled) return;
+        setProjects(response.data);
+        setLoadingProjects(false);
+        const first = response.data[0];
+        if (first) setSelectedProjectId(first.id);
+      })
+      .catch((error: unknown) => {
+        if (cancelled) return;
+        const axiosError = error as { message?: string };
+        toast({
+          title: "خطأ في جلب المشاريع",
+          description: axiosError.message ?? "تعذّر تحميل المشاريع",
+          variant: "destructive",
+        });
+        setLoadingProjects(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!selectedProjectId) return;
+    let cancelled = false;
+    api
+      .get<ProjectMember[]>("/admin/users", {
+        params: { projectId: selectedProjectId },
+      })
+      .then((response) => {
+        if (cancelled) return;
+        setMembers(response.data);
+        setLoadingMembers(false);
+      })
+      .catch((error: unknown) => {
+        if (cancelled) return;
+        const axiosError = error as { message?: string };
+        toast({
+          title: "خطأ في جلب الأعضاء",
+          description: axiosError.message ?? "تعذّر تحميل قائمة الأعضاء",
+          variant: "destructive",
+        });
+        setLoadingMembers(false);
+      });
+    return () => {
+      cancelled = true;
+    };
+  }, [selectedProjectId]);
+
+  const handleProjectChange = useCallback(
+    (event: React.ChangeEvent<HTMLSelectElement>): void => {
+      setSelectedProjectId(event.target.value);
+    },
+    []
+  );
+
+  return (
+    <div dir="rtl" className="min-h-screen bg-black/8 p-8 backdrop-blur-xl">
+      <div className="max-w-5xl mx-auto">
+        <div className="mb-8 flex items-center justify-between">
+          <div>
+            <h1 className="text-3xl font-bold text-white mb-2 font-cairo">
+              أعضاء المشاريع
+            </h1>
+            <p className="text-white/55 font-cairo">
+              اختر مشروعاً لعرض أعضائه وأدوارهم
+            </p>
+          </div>
+          <Link
+            href="/BREAKAPP/admin"
+            className="px-4 py-2 text-sm bg-white/6 text-white hover:bg-white/8 transition font-cairo rounded-[22px]"
+          >
+            العودة
+          </Link>
+        </div>
+
+        <ProjectSelector
+          projects={projects}
+          selectedProjectId={selectedProjectId}
+          loadingProjects={loadingProjects}
+          onChange={handleProjectChange}
+        />
+
+        <MembersListCard members={members} loadingMembers={loadingMembers} />
+      </div>
+    </div>
+  );
+}

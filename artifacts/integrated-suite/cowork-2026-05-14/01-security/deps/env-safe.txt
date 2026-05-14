@@ -1,0 +1,12 @@
+ WARN  Issue while reading "C:\Users\Mohmed Aimen Raed\Claude\Projects\the copy\.npmrc". Failed to replace env in config: ${TIPTAP_PRO_TOKEN}
+ WARN  Issue while reading "C:\Users\Mohmed Aimen Raed\Claude\Projects\the copy\.npmrc". Failed to replace env in config: ${TIPTAP_PRO_TOKEN}
+ WARN  Issue while reading "C:\Users\Mohmed Aimen Raed\Claude\Projects\the copy\.npmrc". Failed to replace env in config: ${TIPTAP_PRO_TOKEN}
+ WARN  Issue while reading "C:\Users\Mohmed Aimen Raed\Claude\Projects\the copy\.npmrc". Failed to replace env in config: ${TIPTAP_PRO_TOKEN}
+
+> the-copy-monorepo@1.0.0 security:env:check C:\Users\Mohmed Aimen Raed\Claude\Projects\the copy
+> pnpm --filter @the-copy/backend exec tsx -e "import('./src/config/env-safe.ts').then(m => { const check = m.runEnvSafeCheck || m.default?.runEnvSafeCheck; if (!check) process.exit(1); const r = check(); if (!r.ok) process.exit(1); })"
+
+ WARN  Issue while reading "C:\Users\Mohmed Aimen Raed\Claude\Projects\the copy\.npmrc". Failed to replace env in config: ${TIPTAP_PRO_TOKEN}
+ WARN  Issue while reading "C:\Users\Mohmed Aimen Raed\Claude\Projects\the copy\.npmrc". Failed to replace env in config: ${TIPTAP_PRO_TOKEN}
+◇ injected env (14) from .env // tip: ◈ encrypted .env [www.dotenvx.com]
+[env-safe] تحذير — متغيّرات اختيارية غير مضبوطة مقارنةً بـ C:\Users\Mohmed Aimen Raed\Claude\Projects\the copy\apps\backend\.env.example: NODE_ENV, PORT, REDIS_ENABLED, WEAVIATE_URL, QDRANT_URL, PERSISTENT_MEMORY_INFRA_REQUIRED, MEMORY_INFRA_REQUIRED, RATE_LIMIT_WINDOW_MS, RATE_LIMIT_MAX_REQUESTS. سيتم الاعتماد على القيم الافتراضية أو وضع التدهور الآمن.

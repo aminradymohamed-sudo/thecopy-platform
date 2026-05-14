@@ -1,0 +1,81 @@
+{
+  "timestamp": "2026-05-10T02:47:37.357Z",
+  "targets": [
+    {
+      "id": "home",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 0,
+        "minor": 0
+      },
+      "totalViolations": 0
+    },
+    {
+      "id": "editor",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 4,
+        "minor": 0
+      },
+      "totalViolations": 4
+    },
+    {
+      "id": "cinematography",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 4,
+        "minor": 0
+      },
+      "totalViolations": 3
+    },
+    {
+      "id": "breakdown",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 5,
+        "minor": 0
+      },
+      "totalViolations": 3
+    },
+    {
+      "id": "actorai-arabic",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 2,
+        "minor": 0
+      },
+      "totalViolations": 1
+    },
+    {
+      "id": "art-director",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 4,
+        "minor": 0
+      },
+      "totalViolations": 3
+    },
+    {
+      "id": "brain-storm",
+      "counts": {
+        "critical": 0,
+        "serious": 0,
+        "moderate": 3,
+        "minor": 0
+      },
+      "totalViolations": 2
+    }
+  ],
+  "totals": {
+    "critical": 0,
+    "serious": 0,
+    "moderate": 22,
+    "minor": 0
+  }
+}

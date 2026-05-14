@@ -1,0 +1,51 @@
+# robots.txt — TheCopy Platform
+# https://www.thecopy.app
+
+User-agent: *
+Allow: /
+Allow: /editor
+Allow: /arabic-creative-writing-studio
+Allow: /directors-studio
+Allow: /actorai-arabic
+Allow: /art-director
+Allow: /breakdown
+Allow: /cinematography-studio
+Allow: /brain-storm
+Allow: /BUDGET
+Allow: /BREAKAPP
+Allow: /styliest-techpack
+
+# منع الزحف للمسارات الإدارية والـ API
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
+Disallow: /__/
+Disallow: /test-results/
+
+# منع AI scrapers من تخزين المحتوى الإبداعي للمستخدمين
+User-agent: GPTBot
+Disallow: /editor
+Disallow: /api/
+
+User-agent: ChatGPT-User
+Disallow: /editor
+Disallow: /api/
+
+User-agent: CCBot
+Disallow: /editor
+Disallow: /api/
+
+User-agent: Google-Extended
+Disallow: /editor
+Disallow: /api/
+
+User-agent: anthropic-ai
+Disallow: /editor
+Disallow: /api/
+
+User-agent: Claude-Web
+Disallow: /editor
+Disallow: /api/
+
+# Sitemap
+Sitemap: https://www.thecopy.app/sitemap.xml

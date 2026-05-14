@@ -1,0 +1,88 @@
+{
+  "evals": [
+    {
+      "id": "eval-01-database-migration-safety",
+      "name": "خطة آمنة لإضافة عمود sensitive لجدول users",
+      "prompt": "أريد إضافة عمود 'social_security_number' لجدول users في production. هذا جدول كبير (500K users) ونظام يعمل 24/7. كيف أنفذ هذا بأمان؟",
+      "expectations": [
+        "يجب تحديد strategy لـ zero-downtime migration",
+        "يجب وضع rollback plan واضحة",
+        "يجب تحديد edge cases (users being created during migration)",
+        "يجب تقييم technical feasibility (500K rows migration time)",
+        "يجب وضع step-by-step execution plan",
+        "يجب تحديد testing strategy قبل التنفيذ",
+        "يجب وضع safety checklist شاملة"
+      ]
+    },
+    {
+      "id": "eval-02-two-factor-authentication",
+      "name": "تنفيذ آمن لـ 2FA",
+      "prompt": "نريد إضافة two-factor authentication للنظام. المستخدمين الحاليين 100K user. كيف ننفذ هذا بدون مشاكل؟",
+      "expectations": [
+        "يجب تحديد dependencies (speakeasy, qrcode, etc)",
+        "يجب وضع testing strategy (unit + integration + security tests)",
+        "يجب تحديد rollback plan (ماذا لو user فقد جهازه؟)",
+        "يجب تحديد edge cases (clock skew, lost device, backup codes)",
+        "يجب تقييم feasibility (timing attacks, brute force protection)",
+        "يجب وضع gradual rollout plan",
+        "يجب تحديد account recovery mechanism"
+      ]
+    },
+    {
+      "id": "eval-03-payment-processing-integration",
+      "name": "تكامل آمن مع payment gateway",
+      "prompt": "نريد إضافة Stripe payment processing للنظام. هذا يشمل تخزين بيانات مالية وتعامل مع transactions. خطة التنفيذ الآمنة؟",
+      "expectations": [
+        "يجب تحديد PCI compliance requirements",
+        "يجب وضع testing strategy (sandbox → production)",
+        "يجب تحديد rollback plan (ماذا عن transactions in-flight؟)",
+        "يجب تحديد edge cases (payment failures, refunds, chargebacks)",
+        "يجب تقييم security requirements (no card data storage)",
+        "يجب وضع webhook handling strategy",
+        "يجب تحديد idempotency strategy لـ retry scenarios"
+      ]
+    },
+    {
+      "id": "eval-04-realtime-notifications",
+      "name": "نظام إشعارات realtime مع WebSockets",
+      "prompt": "نريد إضافة realtime notifications باستخدام WebSockets. النظام يخدم 50K concurrent users. كيف نضمن stability؟",
+      "expectations": [
+        "يجب تحديد dependencies (Socket.io, Redis pub/sub)",
+        "يجب وضع testing strategy (load testing مع 50K connections)",
+        "يجب تحديد rollback plan (fallback to polling)",
+        "يجب تحديد edge cases (connection drops, reconnection storms)",
+        "يجب تقييم infrastructure needs (memory, CPU, network)",
+        "يجب وضع scaling strategy (horizontal scaling)",
+        "يجب تحديد monitoring strategy"
+      ]
+    },
+    {
+      "id": "eval-05-data-migration-legacy-to-new",
+      "name": "نقل بيانات من نظام قديم لجديد",
+      "prompt": "عندنا 2 million records في جدول قديم، نريد نقلهم لجدول جديد مع تحويل الـ schema. النظام لا يمكن إيقافه. الخطة؟",
+      "expectations": [
+        "يجب وضع dual-write strategy",
+        "يجب تحديد data validation strategy",
+        "يجب وضع rollback plan مع data integrity guarantee",
+        "يجب تحديد edge cases (data conflicts, duplicates)",
+        "يجب تقييم migration time (2M records)",
+        "يجب وضع verification strategy (data consistency checks)",
+        "يجب تحديد cutover plan"
+      ]
+    },
+    {
+      "id": "eval-06-api-rate-limiting",
+      "name": "إضافة rate limiting لحماية API",
+      "prompt": "النظام يتعرض لـ abuse، نريد إضافة rate limiting. لكن يوجد legitimate users يرسلون requests كثيرة. كيف نوازن؟",
+      "expectations": [
+        "يجب تحديد rate limit strategy (per-user, per-IP, per-endpoint)",
+        "يجب وضع testing strategy (verify legitimate users not blocked)",
+        "يجب تحديد rollback plan (disable rate limiting)",
+        "يجب تحديد edge cases (API keys, whitelisting)",
+        "يجب تقييم Redis vs in-memory storage",
+        "يجب وضع gradual rollout (start with warnings, then enforce)",
+        "يجب تحديد monitoring strategy"
+      ]
+    }
+  ]
+}

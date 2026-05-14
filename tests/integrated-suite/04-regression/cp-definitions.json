@@ -1,0 +1,54 @@
+{
+  "cps": [
+    {
+      "id": "CP-001",
+      "spec": "apps/web/tests/e2e/breakapp-qr-login.spec.ts",
+      "testName": "الإدخال اليدوي الصحيح ينفّذ المصادقة وينتقل للوحة تحكم"
+    },
+    {
+      "id": "CP-002",
+      "spec": "apps/web/tests/e2e/analysis-public-flow.spec.ts",
+      "testName": "starts analysis, completes stations, exports valid formats, and resets"
+    },
+    {
+      "id": "CP-003",
+      "spec": "apps/web/tests/e2e/breakdown-analysis.spec.ts",
+      "testName": "يُكمِل التحليل الكامل من إدخال النص إلى ظهور النتائج"
+    },
+    {
+      "id": "CP-004",
+      "spec": "apps/web/tests/e2e/cinematography-studio.e2e.spec.ts",
+      "testName": "page renders without runtime exception and shows core controls"
+    },
+    {
+      "id": "CP-005",
+      "spec": "apps/web/tests/e2e/actorai-arabic-studio-smoke.spec.ts",
+      "testName": "actorai arabic base route opens the interactive studio"
+    },
+    {
+      "id": "CP-006",
+      "spec": "apps/web/tests/e2e/art-director.spec.ts",
+      "testName": "تحميل الصفحة وعرض لوحة التحكم"
+    },
+    {
+      "id": "CP-007",
+      "spec": "apps/web/tests/e2e/brainstorm-sessions.spec.ts",
+      "testName": "يُنشئ brief جديد ويبدأ جلسة"
+    },
+    {
+      "id": "CP-008",
+      "spec": "apps/web/tests/e2e/directors-editor-flow.e2e.spec.ts",
+      "testName": "completes directors-studio to editor journey with stable project context"
+    },
+    {
+      "id": "CP-009",
+      "spec": "apps/web/tests/e2e/budget-runtime.spec.ts",
+      "testName": "ينشئ الميزانية ويصدرها ويستعيدها بعد التحديث"
+    },
+    {
+      "id": "CP-010",
+      "spec": "apps/web/tests/e2e/development-tool-execution.spec.ts",
+      "testName": "E2E-002: tool catalog is rendered on page load"
+    }
+  ]
+}

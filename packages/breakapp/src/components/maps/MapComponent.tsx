@@ -1,0 +1,257 @@
+'use client';
+/**
+ * مكون الخريطة - Map Component
+ * 
+ * @description
+ * يعرض خريطة تفاعلية لتحديد موقع التصوير
+ * وعرض مواقع الموردين القريبين
+ * 
+ * السبب: المخرج يحتاج لرؤية موقع التصوير والموردين
+ * على خريطة واحدة لتسهيل اتخاذ قرارات التموين
+ * 
+ * Security: Popup content is sanitized to prevent XSS (CVE-2025-69993)
+ */
+
+import { useEffect, useRef, useCallback, useMemo } from 'react';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import type { VendorMapData } from '../../lib/types';
+
+/**
+ * Sanitizes HTML string to prevent XSS attacks while preserving safe formatting
+ * Allows only safe HTML tags: br, strong, em, span with style attributes
+ */
+function sanitizePopupContent(content: string): string {
+  const div = typeof window !== 'undefined' ? document.createElement('div') : null;
+  if (!div) return content;
+  
+  div.textContent = content;
+  let sanitized = div.innerHTML;
+
+  // First escape everything, then selectively unescape allowed patterns
+  const escaped = sanitized;
+  
+  // For trusted content that contains intentional HTML, decode and validate
+  try {
+    // Decode HTML entities that were escaped
+    const textarea = document.createElement('textarea');
+    textarea.innerHTML = content;
+    const decoded = textarea.value;
+    
+    // Validate no dangerous patterns exist
+    const dangerous = [
+      /on\w+\s*=/gi, // Event handlers (onclick, onerror, etc.)
+      /<script/gi, // Script tags
+      /javascript:/gi, // Javascript protocol
+      /<iframe/gi, // iframes
+      /<object/gi, // object tags
+    ];
+    
+    const hasDangerous = dangerous.some(pattern => pattern.test(decoded));
+    if (hasDangerous) {
+      // If dangerous patterns detected, return escaped text only
+      return div.innerHTML;
+    }
+    
+    // If no dangerous patterns, it's safe to use the original content with formatting
+    return decoded;
+  } catch {
+    // On error, return the escaped version
+    return escaped;
+  }
+}
+
+
+// إصلاح مسار أيقونات Leaflet الافتراضية
+if (typeof window !== 'undefined') {
+  const iconPrototype = L.Icon.Default.prototype as L.Icon.Default & { _getIconUrl?: unknown };
+  delete iconPrototype._getIconUrl;
+  L.Icon.Default.mergeOptions({
+    iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+  });
+}
+
+/**
+ * خصائص مكون الخريطة
+ */
+interface MapComponentProps {
+  /** مركز الخريطة [خط العرض، خط الطول] */
+  center?: [number, number];
+  /** مستوى التكبير الافتراضي */
+  zoom?: number;
+  /** دالة تُستدعى عند اختيار موقع على الخريطة */
+  onLocationSelect?: (lat: number, lng: number) => void;
+  /** قائمة الموردين لعرضهم على الخريطة */
+  vendors?: VendorMapData[];
+  /** فئات CSS إضافية */
+  className?: string;
+}
+
+/**
+ * مكون خريطة تفاعلية
+ * 
+ * @description
+ * يعرض خريطة OpenStreetMap مع إمكانية:
+ * - اختيار موقع بالنقر
+ * - عرض علامات الموردين
+ * - عرض المسافة من موقع التصوير
+ * 
+ * @example
+ * ```tsx
+ * <MapComponent
+ *   center={[24.7136, 46.6753]}
+ *   zoom={12}
+ *   onLocationSelect={(lat, lng) => console.log(lat, lng)}
+ *   vendors={vendorsData}
+ * />
+ * ```
+ */
+export default function MapComponent({
+  center = [24.7136, 46.6753], // الرياض، المملكة العربية السعودية
+  zoom = 12,
+  onLocationSelect,
+  vendors = [],
+  className = '',
+}: MapComponentProps) {
+  const mapRef = useRef<L.Map | null>(null);
+  const mapContainerRef = useRef<HTMLDivElement>(null);
+  const markerRef = useRef<L.Marker | null>(null);
+  const vendorMarkersRef = useRef<L.Marker[]>([]);
+  const vendorPathsRef = useRef<L.Polyline[]>([]);
+
+  /**
+   * أيقونة الموردين
+   */
+  const vendorIcon = useMemo(() => L.icon({
+    iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
+    iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
+    shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+  }), []);
+
+  const markerToneColors = useMemo(
+    () => ({
+      default: '#3b82f6',
+      available: '#10b981',
+      busy: '#f59e0b',
+      offline: '#94a3b8',
+    }),
+    []
+  );
+
+  const markerIcons = useMemo(
+    () =>
+      Object.fromEntries(
+        Object.entries(markerToneColors).map(([tone, color]) => [
+          tone,
+          L.divIcon({
+            className: '',
+            html: `<span style="display:block;width:18px;height:18px;border-radius:9999px;background:${color};border:3px solid #fff;box-shadow:0 6px 14px rgba(0,0,0,.35);"></span>`,
+            iconSize: [18, 18],
+            iconAnchor: [9, 9],
+          }),
+        ])
+      ) as Record<NonNullable<VendorMapData['markerTone']>, L.DivIcon>,
+    [markerToneColors]
+  );
+
+  /**
+   * معالج النقر على الخريطة
+   */
+  const handleMapClick = useCallback((e: L.LeafletMouseEvent) => {
+    if (!onLocationSelect || !mapRef.current) return;
+    
+    const { lat, lng } = e.latlng;
+    onLocationSelect(lat, lng);
+
+    // تحديث أو إنشاء علامة الموقع المحدد
+    if (markerRef.current) {
+      markerRef.current.setLatLng(e.latlng);
+    } else {
+      markerRef.current = L.marker(e.latlng)
+        .addTo(mapRef.current)
+        .bindPopup(sanitizePopupContent('الموقع المحدد'))
+        .openPopup();
+    }
+  }, [onLocationSelect]);
+
+  // تهيئة الخريطة
+  useEffect(() => {
+    if (!mapContainerRef.current || mapRef.current) return;
+
+    const map = L.map(mapContainerRef.current).setView(center, zoom);
+    mapRef.current = map;
+
+    // إضافة طبقة خرائط OpenStreetMap
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      maxZoom: 19,
+    }).addTo(map);
+
+    // إضافة معالج النقر
+    if (onLocationSelect) {
+      map.on('click', handleMapClick);
+    }
+
+    // التنظيف عند إلغاء تحميل المكون
+    return () => {
+      map.off('click', handleMapClick);
+      map.remove();
+      mapRef.current = null;
+    };
+  }, [center, zoom, onLocationSelect, handleMapClick]);
+
+  // تحديث علامات الموردين
+  useEffect(() => {
+    if (!mapRef.current) return;
+
+    // حذف العلامات القديمة
+    vendorMarkersRef.current.forEach((marker) => marker.remove());
+    vendorMarkersRef.current = [];
+    vendorPathsRef.current.forEach((line) => line.remove());
+    vendorPathsRef.current = [];
+
+    // إضافة علامات جديدة
+    vendors.forEach((vendor) => {
+      if (!mapRef.current) return;
+      const markerTone = vendor.markerTone ?? 'default';
+      const icon = markerIcons[markerTone] ?? vendorIcon;
+      const statusLine = vendor.statusLabel ? `<br/>الحالة: ${vendor.statusLabel}` : '';
+      const distanceLine = vendor.distance ? `<br/>المسافة: ${Math.round(vendor.distance)} متر` : '';
+
+      if (vendor.path && vendor.path.length > 1) {
+        const line = L.polyline(
+          vendor.path.map((point) => [point.lat, point.lng]),
+          {
+            color: markerToneColors[markerTone],
+            weight: 3,
+            opacity: 0.65,
+          }
+        ).addTo(mapRef.current);
+        vendorPathsRef.current.push(line);
+      }
+
+      const marker = L.marker([vendor.lat, vendor.lng], { icon })
+        .addTo(mapRef.current)
+        .bindPopup(
+          sanitizePopupContent(
+            `<strong>${vendor.name}</strong><br/>` +
+            `${statusLine}${distanceLine}`
+          )
+        );
+
+      vendorMarkersRef.current.push(marker);
+    });
+  }, [vendors, vendorIcon, markerIcons, markerToneColors]);
+
+  return (
+    <div
+      ref={mapContainerRef}
+      className={`w-full h-full min-h-[400px] rounded-lg ${className}`}
+      style={{ zIndex: 0 }}
+    />
+  );
+}

@@ -1,0 +1,64 @@
+# Railway Config as Code — backend service
+# https://docs.railway.com/config-as-code/reference
+#
+# This file pins Railway's build and deploy configuration to the repository so
+# every deployment uses the same settings regardless of dashboard state. Values
+# here override the dashboard for the deployment they apply to.
+
+[build]
+# Force the Dockerfile builder. Railway auto-detects Dockerfile presence but
+# declaring it explicitly prevents accidental fallback to Railpack/Nixpacks.
+builder = "DOCKERFILE"
+# Path is relative to the service's Root Directory (currently the monorepo root,
+# matching how Railway Metal Builder resolved `apps/backend/Dockerfile` in the
+# 2026-05-12 production build log).
+dockerfilePath = "apps/backend/Dockerfile"
+
+# Trigger a backend rebuild only when files that actually affect the backend
+# image change. Web-only changes will skip the backend pipeline.
+watchPatterns = [
+  "apps/backend/**",
+  "packages/core-memory/**",
+  "packages/tsconfig/**",
+  "package.json",
+  "pnpm-lock.yaml",
+  "pnpm-workspace.yaml",
+  ".npmrc",
+  "apps/backend/Dockerfile",
+  "railway.toml",
+]
+
+[deploy]
+# Railway hits this endpoint over HTTP after the container starts. Only when it
+# returns 2xx within healthcheckTimeout does Railway swap traffic to the new
+# deployment. The /health/live route returns HTTP 200 immediately (liveness
+# check) with no external dependencies, so deployments succeed as long as the
+# application process is running. Use /health/ready for post-deployment
+# monitoring of external service availability (DB, Redis, Weaviate, Gemini).
+healthcheckPath = "/health/live"
+healthcheckTimeout = 60
+
+# Crash-recovery policy: restart on non-zero exit, up to 10 attempts before
+# Railway marks the deployment failed. ALWAYS would mask logic errors that
+# legitimately stop the process; NEVER would silently break production.
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+
+# Deployment teardown — give the previous instance 30s of overlap so in-flight
+# requests can finish, then 30s of drain time after SIGTERM before SIGKILL.
+# Matches the graceful shutdown handler at apps/backend/src/server.ts:116-122.
+overlapSeconds = 30
+drainingSeconds = 30
+
+# Environment-specific overrides. Currently identical to base, but the section
+# is reserved so production-only tuning (e.g. higher healthcheckTimeout, more
+# replicas) can be added without restructuring the file.
+[environments.production.deploy]
+healthcheckPath = "/health/live"
+healthcheckTimeout = 60
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10
+# Defense-in-depth: runs migration regardless of entrypoint NODE_ENV detection.
+# The entrypoint also runs migration when NODE_ENV=production, so this is safe to run twice
+# (drizzle-kit migrate is idempotent — it skips already-applied migrations).
+preDeployCommand = "pnpm --filter @the-copy/backend run db:migrate"

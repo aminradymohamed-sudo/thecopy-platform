@@ -1,0 +1,775 @@
+asyncapi: 3.0.0
+info:
+  title: The Copy Platform Real-time Events
+  description: |
+    AsyncAPI specification for The Copy Platform's real-time event system.
+    This document describes the WebSocket and event-driven architecture for
+    background job processing, analysis progress, and system notifications.
+  version: 1.0.0
+  contact:
+    name: The Copy Platform Team
+    url: https://github.com/CLOCKWORK-TEMPTATION/thecopy-platform
+    email: support@thecopyplatform.com
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+
+servers:
+  production:
+    url: wss://api.thecopyplatform.com
+    protocol: wss
+    description: Production WebSocket server
+  staging:
+    url: wss://staging.thecopyplatform.com
+    protocol: wss
+    description: Staging WebSocket server
+  development:
+    url: ws://localhost:3001
+    protocol: ws
+    description: Local development WebSocket server
+
+defaultContentType: application/json
+
+channels:
+  /realtime/connect:
+    description: Main WebSocket connection endpoint for real-time events
+    parameters:
+      - $ref: '#/components/parameters/Authorization'
+    publish:
+      operationId: connectToRealtime
+      description: Establish WebSocket connection for receiving real-time events
+      message:
+        oneOf:
+          - $ref: '#/components/messages/AuthenticationMessage'
+          - $ref: '#/components/messages/ConnectionAck'
+
+  /user/{userId}:
+    description: User-specific event channel
+    parameters:
+      - $ref: '#/components/parameters/UserId'
+    subscribe:
+      operationId: subscribeToUserEvents
+      description: Subscribe to events specific to a user
+      message:
+        oneOf:
+          - $ref: '#/components/messages/JobStartedEvent'
+          - $ref: '#/components/messages/JobProgressEvent'
+          - $ref: '#/components/messages/JobCompletedEvent'
+          - $ref: '#/components/messages/JobFailedEvent'
+          - $ref: '#/components/messages/SystemEvent'
+
+  /project/{projectId}:
+    description: Project-specific event channel
+    parameters:
+      - $ref: '#/components/parameters/ProjectId'
+    subscribe:
+      operationId: subscribeToProjectEvents
+      description: Subscribe to events related to a specific project
+      message:
+        oneOf:
+          - $ref: '#/components/messages/AnalysisStartedEvent'
+          - $ref: '#/components/messages/AnalysisProgressEvent'
+          - $ref: '#/components/messages/AnalysisStationCompletedEvent'
+          - $ref: '#/components/messages/AnalysisCompletedEvent'
+          - $ref: '#/components/messages/AnalysisFailedEvent'
+
+  /queue/{queueName}:
+    description: Queue-specific event channel
+    parameters:
+      - $ref: '#/components/parameters/QueueName'
+    subscribe:
+      operationId: subscribeToQueueEvents
+      description: Subscribe to events from a specific queue
+      message:
+        oneOf:
+          - $ref: '#/components/messages/QueueActiveEvent'
+          - $ref: '#/components/messages/QueueWaitingEvent'
+          - $ref: '#/components/messages/QueueCompletedEvent'
+          - $ref: '#/components/messages/QueueFailedEvent'
+          - $ref: '#/components/messages/QueueStalledEvent'
+          - $ref: '#/components/messages/QueueCleanedEvent'
+          - $ref: '#/components/messages/QueueStatsEvent'
+
+  /global:
+    description: Global system events channel
+    subscribe:
+      operationId: subscribeToGlobalEvents
+      description: Subscribe to system-wide events and notifications
+      message:
+        oneOf:
+          - $ref: '#/components/messages/SystemErrorEvent'
+          - $ref: '#/components/messages/SystemWarningEvent'
+          - $ref: '#/components/messages/SystemInfoEvent'
+
+components:
+  parameters:
+    Authorization:
+      description: JWT authorization token
+      location: $message.header#/authorization
+      schema:
+        type: string
+        pattern: ^Bearer [A-Za-z0-9\-_]+\\.[A-Za-z0-9\-_]+\\.[A-Za-z0-9\-_]+$
+
+    UserId:
+      description: User identifier
+      location: $message.header#/userId
+      schema:
+        type: string
+        format: uuid
+
+    ProjectId:
+      description: Project identifier
+      location: $message.header#/projectId
+      schema:
+        type: string
+        format: uuid
+
+    QueueName:
+      description: Queue name
+      location: $message.header#/queueName
+      schema:
+        type: string
+        enum:
+          - analysis
+          - generation
+          - export
+          - processing
+          - default
+
+  messages:
+    AuthenticationMessage:
+      name: Authentication
+      title: Authentication Message
+      description: Client authentication message
+      payload:
+        $ref: '#/components/schemas/AuthenticationPayload'
+
+    ConnectionAck:
+      name: ConnectionAcknowledged
+      title: Connection Acknowledged
+      description: Server acknowledgment of successful connection
+      payload:
+        $ref: '#/components/schemas/ConnectionAckPayload'
+
+    # Job Events
+    JobStartedEvent:
+      name: JobStarted
+      title: Job Started
+      description: Event emitted when a background job starts
+      payload:
+        $ref: '#/components/schemas/JobStartedPayload'
+
+    JobProgressEvent:
+      name: JobProgress
+      title: Job Progress
+      description: Event emitted during job execution with progress updates
+      payload:
+        $ref: '#/components/schemas/JobProgressPayload'
+
+    JobCompletedEvent:
+      name: JobCompleted
+      title: Job Completed
+      description: Event emitted when a job completes successfully
+      payload:
+        $ref: '#/components/schemas/JobCompletedPayload'
+
+    JobFailedEvent:
+      name: JobFailed
+      title: Job Failed
+      description: Event emitted when a job fails
+      payload:
+        $ref: '#/components/schemas/JobFailedPayload'
+
+    # Analysis Events
+    AnalysisStartedEvent:
+      name: AnalysisStarted
+      title: Analysis Started
+      description: Event emitted when screenplay analysis begins
+      payload:
+        $ref: '#/components/schemas/AnalysisStartedPayload'
+
+    AnalysisProgressEvent:
+      name: AnalysisProgress
+      title: Analysis Progress
+      description: Event emitted during analysis with progress updates
+      payload:
+        $ref: '#/components/schemas/AnalysisProgressPayload'
+
+    AnalysisStationCompletedEvent:
+      name: AnalysisStationCompleted
+      title: Analysis Station Completed
+      description: Event emitted when an analysis station completes
+      payload:
+        $ref: '#/components/schemas/StationCompletedPayload'
+
+    AnalysisCompletedEvent:
+      name: AnalysisCompleted
+      title: Analysis Completed
+      description: Event emitted when analysis completes successfully
+      payload:
+        $ref: '#/components/schemas/AnalysisCompletedPayload'
+
+    AnalysisFailedEvent:
+      name: AnalysisFailed
+      title: Analysis Failed
+      description: Event emitted when analysis fails
+      payload:
+        $ref: '#/components/schemas/AnalysisFailedPayload'
+
+    # Queue Events
+    QueueActiveEvent:
+      name: QueueActive
+      title: Queue Active
+      description: Event emitted when a job becomes active in queue
+      payload:
+        $ref: '#/components/schemas/QueueActivePayload'
+
+    QueueWaitingEvent:
+      name: QueueWaiting
+      title: Queue Waiting
+      description: Event emitted when a job is waiting in queue
+      payload:
+        $ref: '#/components/schemas/QueueWaitingPayload'
+
+    QueueCompletedEvent:
+      name: QueueCompleted
+      title: Queue Completed
+      description: Event emitted when a queue job completes
+      payload:
+        $ref: '#/components/schemas/QueueCompletedPayload'
+
+    QueueFailedEvent:
+      name: QueueFailed
+      title: Queue Failed
+      description: Event emitted when a queue job fails
+      payload:
+        $ref: '#/components/schemas/QueueFailedPayload'
+
+    QueueStalledEvent:
+      name: QueueStalled
+      title: Queue Stalled
+      description: Event emitted when a queue job stalls
+      payload:
+        $ref: '#/components/schemas/QueueStalledPayload'
+
+    QueueCleanedEvent:
+      name: QueueCleaned
+      title: Queue Cleaned
+      description: Event emitted when queue is cleaned
+      payload:
+        $ref: '#/components/schemas/QueueCleanedPayload'
+
+    QueueStatsEvent:
+      name: QueueStats
+      title: Queue Statistics
+      description: Event emitted with queue statistics
+      payload:
+        $ref: '#/components/schemas/QueueStatsPayload'
+
+    # System Events
+    SystemErrorEvent:
+      name: SystemError
+      title: System Error
+      description: Event emitted for system errors
+      payload:
+        $ref: '#/components/schemas/SystemErrorPayload'
+
+    SystemWarningEvent:
+      name: SystemWarning
+      title: System Warning
+      description: Event emitted for system warnings
+      payload:
+        $ref: '#/components/schemas/SystemWarningPayload'
+
+    SystemInfoEvent:
+      name: SystemInfo
+      title: System Info
+      description: Event emitted for system information
+      payload:
+        $ref: '#/components/schemas/SystemInfoPayload'
+
+  schemas:
+    # Base Schemas
+    RealtimeBasePayload:
+      type: object
+      properties:
+        timestamp:
+          type: string
+          format: date-time
+          description: Event timestamp
+        eventType:
+          type: string
+          description: Event type identifier
+        userId:
+          type: string
+          format: uuid
+          description: User identifier (if applicable)
+
+    # Authentication Schemas
+    AuthenticationPayload:
+      type: object
+      properties:
+        token:
+          type: string
+          description: JWT authentication token
+        userId:
+          type: string
+          format: uuid
+
+    ConnectionAckPayload:
+      type: object
+      properties:
+        status:
+          type: string
+          enum: [connected]
+        socketId:
+          type: string
+          description: Socket connection identifier
+        timestamp:
+          type: string
+          format: date-time
+
+    # Job Event Schemas
+    JobStartedPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            jobId:
+              type: string
+              format: uuid
+            queueName:
+              type: string
+              enum: [analysis, generation, export, processing, default]
+            jobName:
+              type: string
+              description: Human-readable job name
+            data:
+              type: object
+              additionalProperties: true
+              description: Job-specific data
+
+    JobProgressPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            jobId:
+              type: string
+              format: uuid
+            queueName:
+              type: string
+              enum: [analysis, generation, export, processing, default]
+            progress:
+              type: number
+              minimum: 0
+              maximum: 100
+              description: Progress percentage
+            status:
+              type: string
+              enum: [active, waiting, completed, failed, delayed]
+            data:
+              type: object
+              additionalProperties: true
+            message:
+              type: string
+              description: Progress message
+            currentStep:
+              type: string
+              description: Current step being executed
+            totalSteps:
+              type: integer
+              description: Total number of steps
+            completedSteps:
+              type: integer
+              description: Number of completed steps
+
+    JobCompletedPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            jobId:
+              type: string
+              format: uuid
+            queueName:
+              type: string
+              enum: [analysis, generation, export, processing, default]
+            result:
+              type: object
+              additionalProperties: true
+              description: Job result data
+            duration:
+              type: integer
+              description: Job duration in milliseconds
+
+    JobFailedPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            jobId:
+              type: string
+              format: uuid
+            queueName:
+              type: string
+              enum: [analysis, generation, export, processing, default]
+            error:
+              type: string
+              description: Error message
+            stackTrace:
+              type: string
+              description: Error stack trace
+            attemptsMade:
+              type: integer
+              description: Number of attempts made
+            attemptsMax:
+              type: integer
+              description: Maximum number of attempts allowed
+
+    # Analysis Event Schemas
+    AnalysisStartedPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            projectId:
+              type: string
+              format: uuid
+            analysisId:
+              type: string
+              format: uuid
+            analysisType:
+              type: string
+              enum: [full, structure, characters, dialogue]
+            screenplayLength:
+              type: integer
+              description: Length of screenplay in characters
+
+    AnalysisProgressPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            projectId:
+              type: string
+              format: uuid
+            analysisId:
+              type: string
+              format: uuid
+            currentStation:
+              type: integer
+              minimum: 1
+              maximum: 7
+              description: Current analysis station (1-7)
+            totalStations:
+              type: integer
+              default: 7
+              description: Total number of stations
+            stationName:
+              type: string
+              description: Name of current station
+            progress:
+              type: number
+              minimum: 0
+              maximum: 100
+              description: Progress percentage for current station
+            message:
+              type: string
+              description: Progress message
+            logs:
+              type: array
+              items:
+                type: string
+              description: Analysis logs
+
+    StationCompletedPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            projectId:
+              type: string
+              format: uuid
+            analysisId:
+              type: string
+              format: uuid
+            stationNumber:
+              type: integer
+              minimum: 1
+              maximum: 7
+            stationName:
+              type: string
+            result:
+              type: object
+              additionalProperties: true
+              description: Station result data
+            duration:
+              type: integer
+              description: Station processing duration in milliseconds
+
+    AnalysisCompletedPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            projectId:
+              type: string
+              format: uuid
+            analysisId:
+              type: string
+              format: uuid
+            overallScore:
+              type: number
+              minimum: 0
+              maximum: 100
+            structureScore:
+              type: number
+              minimum: 0
+              maximum: 100
+            characterScore:
+              type: number
+              minimum: 0
+              maximum: 100
+            dialogueScore:
+              type: number
+              minimum: 0
+              maximum: 100
+            duration:
+              type: integer
+              description: Total analysis duration in milliseconds
+            result:
+              type: object
+              additionalProperties: true
+              description: Complete analysis result
+
+    AnalysisFailedPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            projectId:
+              type: string
+              format: uuid
+            analysisId:
+              type: string
+              format: uuid
+            error:
+              type: string
+              description: Error message
+            stationFailed:
+              type: integer
+              description: Station number where failure occurred
+            progress:
+              type: number
+              minimum: 0
+              maximum: 100
+              description: Progress at time of failure
+
+    # Queue Event Schemas
+    QueueActivePayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            jobId:
+              type: string
+              format: uuid
+            queueName:
+              type: string
+              enum: [analysis, generation, export, processing, default]
+            timestamp:
+              type: string
+              format: date-time
+
+    QueueWaitingPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            jobId:
+              type: string
+              format: uuid
+            queueName:
+              type: string
+              enum: [analysis, generation, export, processing, default]
+            position:
+              type: integer
+              description: Position in queue
+
+    QueueCompletedPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            jobId:
+              type: string
+              format: uuid
+            queueName:
+              type: string
+              enum: [analysis, generation, export, processing, default]
+            result:
+              type: object
+              additionalProperties: true
+
+    QueueFailedPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            jobId:
+              type: string
+              format: uuid
+            queueName:
+              type: string
+              enum: [analysis, generation, export, processing, default]
+            error:
+              type: string
+            attempts:
+              type: integer
+
+    QueueStalledPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            jobId:
+              type: string
+              format: uuid
+            queueName:
+              type: string
+              enum: [analysis, generation, export, processing, default]
+            stalledFor:
+              type: integer
+              description: Time stalled in milliseconds
+
+    QueueCleanedPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            queueName:
+              type: string
+              enum: [analysis, generation, export, processing, default]
+            jobsRemoved:
+              type: integer
+            jobsFailed:
+              type: integer
+            jobsCompleted:
+              type: integer
+
+    QueueStatsPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            queueName:
+              type: string
+              enum: [analysis, generation, export, processing, default]
+            stats:
+              type: object
+              properties:
+                waiting:
+                  type: integer
+                active:
+                  type: integer
+                completed:
+                  type: integer
+                failed:
+                  type: integer
+                delayed:
+                  type: integer
+                total:
+                  type: integer
+
+    # System Event Schemas
+    SystemErrorPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            level:
+              type: string
+              enum: [error]
+            message:
+              type: string
+            details:
+              type: object
+              additionalProperties: true
+            code:
+              type: string
+            component:
+              type: string
+              description: Affected component
+
+    SystemWarningPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            level:
+              type: string
+              enum: [warning]
+            message:
+              type: string
+            details:
+              type: object
+              additionalProperties: true
+            code:
+              type: string
+
+    SystemInfoPayload:
+      allOf:
+        - $ref: '#/components/schemas/RealtimeBasePayload'
+        - type: object
+          properties:
+            level:
+              type: string
+              enum: [info]
+            message:
+              type: string
+            details:
+              type: object
+              additionalProperties: true
+            code:
+              type: string
+
+  securitySchemes:
+    jwtBearer:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: JWT authentication for WebSocket connections
+
+operations:
+  connectToRealtime:
+    action: receive
+    channel:
+      $ref: '#/channels/realtime~1connect'
+    security:
+      - jwtBearer: []
+
+  subscribeToUserEvents:
+    action: send
+    channel:
+      $ref: '#/channels/user~1{userId}'
+
+  subscribeToProjectEvents:
+    action: send
+    channel:
+      $ref: '#/channels/project~1{projectId}'
+
+  subscribeToQueueEvents:
+    action: send
+    channel:
+      $ref: '#/channels/queue~1{queueName}'
+
+  subscribeToGlobalEvents:
+    action: send
+    channel:
+      $ref: '#/channels/global'
+
+_meta:
+- last_commit: 611b9381dcc0d2254c094172bcca1c7edf12fa67
+- date: 2026-05-11
+- reference: docs/api/asyncapi.yaml:1-400

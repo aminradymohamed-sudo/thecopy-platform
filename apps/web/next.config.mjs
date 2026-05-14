@@ -1,0 +1,419 @@
+import path from "path";
+
+import bundleAnalyzer from "@next/bundle-analyzer";
+import { withSentryConfig } from "@sentry/nextjs";
+
+const isWindowsHost = process.platform === "win32";
+const enableStandaloneOutput =
+  process.env["NEXT_OUTPUT_MODE"] === "standalone" || !isWindowsHost;
+
+const parsePositiveInt = (value) => {
+  if (!value) return undefined;
+  const parsed = Number.parseInt(value, 10);
+  return Number.isFinite(parsed) && parsed > 0 ? parsed : undefined;
+};
+
+const buildCpuCount = parsePositiveInt(process.env["NEXT_BUILD_CPUS"]);
+const staticGenerationConcurrency = parsePositiveInt(
+  process.env["NEXT_STATIC_GENERATION_MAX_CONCURRENCY"]
+);
+const enableWebpackMemoryOptimizations =
+  process.env["NEXT_WEBPACK_MEMORY_OPTIMIZATIONS"] === "true";
+const enableProductionSourceMaps =
+  process.env["NEXT_ENABLE_PRODUCTION_SOURCE_MAPS"] === "true" ||
+  !isWindowsHost;
+
+const ensurePagesManifestPlugin = {
+  apply(compiler) {
+    compiler.hooks.thisCompilation.tap(
+      "EnsurePagesManifestPlugin",
+      (compilation) => {
+        compilation.hooks.processAssets.tap(
+          {
+            name: "EnsurePagesManifestPlugin",
+            stage: compiler.webpack.Compilation.PROCESS_ASSETS_STAGE_ADDITIONS,
+          },
+          () => {
+            if (compilation.getAsset("pages-manifest.json")) {
+              return;
+            }
+
+            compilation.emitAsset(
+              "pages-manifest.json",
+              new compiler.webpack.sources.RawSource("{}")
+            );
+          }
+        );
+      }
+    );
+  },
+};
+
+// Remote image patterns configuration
+const remoteImagePatterns = process.env["NEXT_IMAGE_REMOTE_PATTERNS"]
+  ? JSON.parse(process.env["NEXT_IMAGE_REMOTE_PATTERNS"])
+  : [
+      {
+        protocol: "https",
+        hostname: "hebbkx1anhila5yf.public.blob.vercel-storage.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "*.public.blob.vercel-storage.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "placehold.co",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+        port: "",
+        pathname: "/**",
+      },
+      {
+        protocol: "https",
+        hostname: "picsum.photos",
+        port: "",
+        pathname: "/**",
+      },
+    ];
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env["ANALYZE"] === "true",
+});
+
+// CDN Configuration
+const cdnUrl = process.env["NEXT_PUBLIC_CDN_URL"];
+const enableCdn = process.env["NEXT_PUBLIC_ENABLE_CDN"] === "true";
+const assetPrefix = enableCdn && cdnUrl ? cdnUrl : undefined;
+
+const nextConfig = {
+  ...(enableStandaloneOutput ? { output: "standalone" } : {}),
+  reactStrictMode: true,
+  transpilePackages: ["@the-copy/breakapp", "@the-copy/prompt-engineering"],
+  poweredByHeader: false,
+  compress: true,
+
+  allowedDevOrigins: ["127.0.0.1", "localhost"],
+
+  // Force @google/genai to only be loaded server-side
+  serverExternalPackages: ["@google/genai", "puppeteer", "sharp"],
+
+  // خرائط المصدر الإنتاجية تبقى مفعلة في بيئات النشر غير ويندوز.
+  // على ويندوز المحلي يسبب تتبع readlink في حزمة البناء فشلا قبل بدء الاختبارات.
+  productionBrowserSourceMaps: enableProductionSourceMaps,
+
+  // Ensure correct root when multiple lockfiles exist (silences Next.js warning)
+  // يؤشر إلى جذر الـ monorepo لتتبع الملفات من packages/ و apps/ معًا
+  outputFileTracingRoot: path.join(process.cwd(), "../.."),
+
+  // CDN support for static assets
+  assetPrefix,
+
+  // Performance optimizations
+  typescript: {
+    ignoreBuildErrors: false,
+  },
+  compiler: {
+    removeConsole: process.env["NODE_ENV"] === "production",
+  },
+
+  logging: {
+    fetches: {
+      fullUrl: true,
+    },
+  },
+
+  experimental: {
+    ...(buildCpuCount ? { cpus: buildCpuCount } : {}),
+    ...(staticGenerationConcurrency
+      ? { staticGenerationMaxConcurrency: staticGenerationConcurrency }
+      : {}),
+    ...(enableWebpackMemoryOptimizations
+      ? { webpackMemoryOptimizations: true }
+      : {}),
+    ...(enableProductionSourceMaps ? { serverSourceMaps: true } : {}),
+    // SRI disabled: incompatible with standalone output in Next.js 16
+    // sri: { algorithm: "sha256" },
+    optimizePackageImports: [
+      "@radix-ui/react-accordion",
+      "@radix-ui/react-alert-dialog",
+      "@radix-ui/react-avatar",
+      "@radix-ui/react-checkbox",
+      "@radix-ui/react-collapsible",
+      "@radix-ui/react-dialog",
+      "@radix-ui/react-dropdown-menu",
+      "@radix-ui/react-label",
+      "@radix-ui/react-menubar",
+      "@radix-ui/react-popover",
+      "@radix-ui/react-progress",
+      "@radix-ui/react-radio-group",
+      "@radix-ui/react-scroll-area",
+      "@radix-ui/react-select",
+      "@radix-ui/react-separator",
+      "@radix-ui/react-slider",
+      "@radix-ui/react-slot",
+      "@radix-ui/react-switch",
+      "@radix-ui/react-tabs",
+      "@radix-ui/react-toast",
+      "@radix-ui/react-tooltip",
+      "lucide-react",
+      "recharts",
+    ],
+  },
+
+  async rewrites() {
+    return [
+      {
+        source: "/api/__health",
+        destination: "/api/healthz",
+      },
+      // favicon.ico — يُعاد توجيهه إلى icon.svg لتفادي 404
+      // المتصفحات القديمة تطلب /favicon.ico دائماً، Next.js App Router يستخدم icon.tsx convention
+      // لكنّا نخدم نفس icon.svg لكلا المسارين لتلبية جميع العملاء.
+      {
+        source: "/favicon.ico",
+        destination: "/icon.svg",
+      },
+    ];
+  },
+
+  async headers() {
+    const isDev = process.env["NODE_ENV"] !== "production";
+
+    // In development: force no-cache on all routes so browser always fetches fresh content
+    if (isDev) {
+      return [
+        {
+          source: "/(.*)",
+          headers: [
+            {
+              key: "Cache-Control",
+              value: "no-store, no-cache, must-revalidate, proxy-revalidate",
+            },
+            {
+              key: "Pragma",
+              value: "no-cache",
+            },
+            {
+              key: "Expires",
+              value: "0",
+            },
+          ],
+        },
+      ];
+    }
+
+    // Production headers — security + aggressive caching
+    return [
+      {
+        source: "/(.*)",
+        headers: [
+          {
+            key: "Strict-Transport-Security",
+            value: "max-age=31536000; includeSubDomains; preload",
+          },
+          {
+            key: "X-Content-Type-Options",
+            value: "nosniff",
+          },
+          {
+            key: "X-Frame-Options",
+            value: "DENY",
+          },
+          // أُزيلت X-XSS-Protection: مُهملة في المتصفحات الحديثة (Chrome ≥78، Firefox ≥34)،
+          // وقد تُسبّب ثغرات XSS-Auditor في حالات نادرة. CSP موجودة وتغطي السيناريوهات الحديثة.
+          // المرجع: https://owasp.org/www-project-secure-headers/#x-xss-protection
+          {
+            key: "Referrer-Policy",
+            value: "strict-origin-when-cross-origin",
+          },
+          {
+            key: "Cross-Origin-Opener-Policy",
+            value: "same-origin",
+          },
+          {
+            key: "Cross-Origin-Embedder-Policy",
+            value: "credentialless",
+          },
+          {
+            // Permissions-Policy: allow same-origin media and geolocation only.
+            // BreakApp needs camera/geolocation, and ActorAI Arabic needs microphone.
+            // "(self)" keeps third-party iframes blocked while preserving live tools.
+            key: "Permissions-Policy",
+            value: [
+              "camera=(self)",
+              "microphone=(self)",
+              "geolocation=(self)",
+              "interest-cohort=()",
+              "payment=()",
+              "usb=()",
+            ].join(", "),
+          },
+        ],
+      },
+      // Keep font access permissive without overriding framework cache policy.
+      {
+        source: "/fonts/:path*",
+        headers: [
+          {
+            key: "Cross-Origin-Resource-Policy",
+            value: "cross-origin",
+          },
+        ],
+      },
+      {
+        source: "/_next/static/:path*",
+        headers: [
+          {
+            key: "Cross-Origin-Resource-Policy",
+            value: "same-origin",
+          },
+          {
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
+          },
+        ],
+      },
+      {
+        source: "/sitemap.xml",
+        headers: [
+          {
+            key: "Cross-Origin-Resource-Policy",
+            value: "same-origin",
+          },
+          {
+            key: "Cache-Control",
+            value: "public, max-age=3600",
+          },
+        ],
+      },
+    ];
+  },
+
+  images: {
+    remotePatterns: remoteImagePatterns,
+  },
+
+  // Turbopack configuration for Next.js 16
+  turbopack: {
+    resolveAlias: {
+      "@editor/*": "./src/app/(main)/editor/src/*",
+    },
+  },
+
+  // Webpack configuration for handling Node.js built-in modules and critical dependency warnings
+  // Note: In Next.js 16, Turbopack is default. Webpack config is kept for fallback compatibility.
+  webpack: (config, { isServer }) => {
+    if (isWindowsHost) {
+      config.cache = false;
+      config.resolve = {
+        ...config.resolve,
+        symlinks: false,
+      };
+    }
+
+    if (isServer) {
+      config.plugins.push(ensurePagesManifestPlugin);
+    }
+
+    if (!isServer) {
+      // Don't resolve Node.js modules on client side
+      config.resolve.fallback = {
+        ...config.resolve.fallback,
+        fs: false,
+        net: false,
+        tls: false,
+        dns: false,
+        http2: false,
+        child_process: false,
+        stream: false,
+        crypto: false,
+        path: false,
+        os: false,
+        dgram: false,
+        async_hooks: false,
+        "node:async_hooks": false,
+        "graceful-fs": false,
+      };
+    }
+
+    // فحص ignoreWarnings عنصرًا بعنصر حسب المعايير الصريحة
+    config.ignoreWarnings = [
+      // OpenTelemetry instrumentation warnings - third-party معروفة، non-actionable
+      {
+        module: /@opentelemetry\/instrumentation/,
+        message:
+          /Critical dependency: the request of a dependency is an expression/,
+      },
+      // require-in-the-middle - third-party معروفة، non-actionable
+      {
+        module: /require-in-the-middle/,
+        message:
+          /Critical dependency: require function is used in a way in which dependencies cannot be statically extracted/,
+      },
+      // ESLint configuration warnings - third-party معروفة، non-actionable
+      {
+        message: /Unknown options: useEslintrc, extensions/,
+      },
+    ];
+
+    return config;
+  },
+};
+
+// Sentry configuration
+const sentryOrg = process.env["SENTRY_ORG"];
+const sentryProject = process.env["SENTRY_PROJECT"];
+const sentryAuthToken = process.env["SENTRY_AUTH_TOKEN"];
+const sentryDistDir = path.join(process.cwd(), ".next").replace(/\\/g, "/");
+const sentryDistPath = (...segments) =>
+  path.posix.join(sentryDistDir, ...segments);
+const sentrySourceMapIgnore = [
+  sentryDistPath("static/chunks/main-*"),
+  sentryDistPath("static/chunks/framework-*"),
+  sentryDistPath("static/chunks/framework.*"),
+  sentryDistPath("static/chunks/polyfills-*"),
+  sentryDistPath("static/chunks/webpack-*"),
+  sentryDistPath("server/**/*manifest*.js"),
+  sentryDistPath("static/chunks/app/**/loading-*.js"),
+  sentryDistPath("static/chunks/app/**/route-*.js"),
+  sentryDistPath("static/chunks/app/_global-error/page-*.js"),
+  sentryDistPath("static/chunks/next/dist/client/components/builtin/*.js"),
+  sentryDistPath(
+    "static/chunks/app/(main)/arabic-prompt-engineering-studio/layout-*.js"
+  ),
+  sentryDistPath("static/chunks/app/(main)/editor/app/layout-*.js"),
+  sentryDistPath("server/middleware.js"),
+  sentryDistPath("server/proxy.js"),
+];
+const sentryConfig =
+  sentryOrg && sentryProject && sentryAuthToken
+    ? {
+        org: sentryOrg,
+        project: sentryProject,
+        authToken: sentryAuthToken,
+        silent: !process.env["CI"],
+        hideSourceMaps: process.env["NODE_ENV"] === "production",
+        tunnelRoute: "/monitoring",
+        sourcemaps: {
+          disable: false,
+          ignore: sentrySourceMapIgnore,
+          deleteSourcemapsAfterUpload: true,
+        },
+        widenClientFileUpload: false,
+      }
+    : null;
+
+// Export config with Sentry wrapper if configured
+const configWithAnalyzer = withBundleAnalyzer(nextConfig);
+export default sentryConfig
+  ? withSentryConfig(configWithAnalyzer, sentryConfig)
+  : configWithAnalyzer;

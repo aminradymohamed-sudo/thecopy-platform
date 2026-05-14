@@ -1,0 +1,133 @@
+import { readdirSync, statSync } from "node:fs";
+import { relative, resolve, sep } from "node:path";
+import { spawnSync } from "node:child_process";
+import { fileURLToPath } from "node:url";
+
+const appRoot = resolve(fileURLToPath(new URL("..", import.meta.url)));
+const repoRoot = resolve(appRoot, "../..");
+const chunkSize = Number.parseInt(process.env.VITEST_CHUNK_SIZE ?? "4", 10);
+const testFilePattern = /\.(?:test|spec)\.(?:js|mjs|cjs|ts|mts|cts|jsx|tsx)$/u;
+const excludedSegments = new Set([
+  "node_modules",
+  "dist",
+  ".next",
+  "build",
+  "e2e",
+]);
+
+function normalizePath(filePath) {
+  return filePath.split(sep).join("/").replace(/\\/g, "/");
+}
+
+function isExcluded(filePath) {
+  const normalized = normalizePath(filePath);
+  if (normalized.includes("/tests/e2e/")) {
+    return true;
+  }
+  return normalized.split("/").some((segment) => excludedSegments.has(segment));
+}
+
+function collectTestFiles(root) {
+  const results = [];
+
+  function visit(directory) {
+    for (const entry of readdirSync(directory)) {
+      const absolutePath = resolve(directory, entry);
+      if (isExcluded(absolutePath)) {
+        continue;
+      }
+
+      const stats = statSync(absolutePath);
+      if (stats.isDirectory()) {
+        visit(absolutePath);
+        continue;
+      }
+
+      if (stats.isFile() && testFilePattern.test(entry)) {
+        results.push(absolutePath);
+      }
+    }
+  }
+
+  visit(root);
+  return results;
+}
+
+const requestedFilters = process.argv
+  .slice(2)
+  .map((filter) => normalizePath(filter).replace(/^\.\//u, ""))
+  .filter(Boolean);
+
+function matchesRequestedFilter(filePath) {
+  if (requestedFilters.length === 0) {
+    return true;
+  }
+
+  const absolutePath = normalizePath(filePath);
+  const appRelativePath = normalizePath(relative(appRoot, filePath));
+  const repoRelativePath = normalizePath(relative(repoRoot, filePath));
+
+  return requestedFilters.some(
+    (filter) =>
+      absolutePath.includes(filter) ||
+      appRelativePath.includes(filter) ||
+      repoRelativePath.includes(filter)
+  );
+}
+
+const testFiles = [
+  ...collectTestFiles(resolve(appRoot, "src")),
+  ...collectTestFiles(resolve(repoRoot, "qa")),
+]
+  .filter(matchesRequestedFilter)
+  .sort((a, b) => a.localeCompare(b));
+
+if (testFiles.length === 0) {
+  console.error("No Vitest test files were discovered.");
+  process.exit(1);
+}
+
+const vitestBin = resolve(appRoot, "node_modules/vitest/vitest.mjs");
+const chunks = [];
+for (let index = 0; index < testFiles.length; index += chunkSize) {
+  chunks.push(testFiles.slice(index, index + chunkSize));
+}
+
+console.log(`Discovered ${testFiles.length} Vitest test files.`);
+if (requestedFilters.length) {
+  console.log(`Applied filters: ${requestedFilters.join(", ")}`);
+}
+console.log(`Running ${chunks.length} chunks with ${chunkSize} files each.`);
+
+for (const [index, chunk] of chunks.entries()) {
+  const relativeFiles = chunk.map((file) =>
+    normalizePath(relative(appRoot, file))
+  );
+  console.log(`\nVitest chunk ${index + 1}/${chunks.length}`);
+
+  const result = spawnSync(
+    process.execPath,
+    [
+      "--max-old-space-size=8192",
+      vitestBin,
+      "run",
+      "--maxWorkers=1",
+      ...relativeFiles,
+    ],
+    {
+      cwd: appRoot,
+      env: {
+        ...process.env,
+        NODE_OPTIONS: "--max-old-space-size=8192",
+      },
+      shell: false,
+      stdio: "inherit",
+    }
+  );
+
+  if (result.status !== 0) {
+    process.exit(result.status ?? 1);
+  }
+}
+
+console.log("\nAll Vitest chunks passed.");

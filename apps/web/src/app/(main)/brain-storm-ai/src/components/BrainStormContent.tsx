@@ -1,0 +1,430 @@
+/**
+ * @module BrainStormContent
+ * @description المكون المنسّق الرئيسي — يجمع ويربط جميع الأجزاء
+ */
+
+"use client";
+
+import { useCallback, useEffect, useMemo, useState } from "react";
+
+import { useAgentStates } from "../hooks/useAgentStates";
+import { useBrainstormCatalog } from "../hooks/useBrainstormCatalog";
+import { useKeyboardShortcuts } from "../hooks/useKeyboardShortcuts";
+import { useSession } from "../hooks/useSession";
+import { useSessionPersistence } from "../hooks/useSessionPersistence";
+import { exportToJSON, exportToMarkdown } from "../lib/export";
+
+import ControlPanel from "./features/ControlPanel";
+import DebatePanel from "./features/DebatePanel";
+import { ExportControls } from "./features/ExportControls";
+import FeaturesGrid from "./features/FeaturesGrid";
+import { FinalResult } from "./features/FinalResult";
+import { KeyboardShortcutsHelp } from "./features/KeyboardShortcutsHelp";
+import { SessionHistory } from "./features/SessionHistory";
+import AgentsSidebar from "./layout/AgentsSidebar";
+import BrainStormHeader from "./layout/BrainStormHeader";
+
+import type { SavedSession } from "../hooks/useSessionPersistence";
+import type {
+  AgentState,
+  BrainstormCatalog,
+  BrainstormAgentDefinition,
+  BrainstormAgentStats,
+  BrainstormPhase,
+  DebateMessage,
+  PhaseDisplayInfo,
+  Session,
+  AgentCategory,
+} from "../types";
+
+function LoadingState() {
+  return (
+    <div className="container mx-auto px-4 py-8 max-w-7xl" dir="rtl">
+      <div className="flex items-center justify-center min-h-[360px]">
+        <div className="text-center space-y-3">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto" />
+          <p className="text-white/55">
+            جاري تحميل كتالوج الوكلاء من الباك إند...
+          </p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+interface EmptyStateProps {
+  error: string | null;
+}
+
+function EmptyState({ error }: EmptyStateProps) {
+  return (
+    <div className="container mx-auto px-4 py-8 max-w-7xl" dir="rtl">
+      <BrainStormHeader
+        agentStats={{
+          total: 0,
+          withRAG: 0,
+          averageComplexity: 0,
+          withSelfReflection: 0,
+          byCategory: {
+            core: 0,
+            analysis: 0,
+            creative: 0,
+            predictive: 0,
+            advanced: 0,
+          },
+          withMemory: 0,
+        }}
+        error={error ?? "فشل تحميل بيانات Brain Storm AI من الباك إند"}
+        currentSession={null}
+      />
+    </div>
+  );
+}
+
+interface MainWorkspaceProps {
+  catalog: BrainstormCatalog;
+  currentSession: Session | null;
+  debateMessages: DebateMessage[];
+  brief: string;
+  setBrief: React.Dispatch<React.SetStateAction<string>>;
+  isLoading: boolean;
+  isAdvancing: boolean;
+  progressPercent: string;
+  activePhase: BrainstormPhase;
+  setActivePhase: (p: BrainstormPhase) => void;
+  phases: PhaseDisplayInfo[];
+  realAgents: readonly BrainstormAgentDefinition[];
+  displayedAgents: readonly BrainstormAgentDefinition[];
+  showAllAgents: boolean;
+  setShowAllAgents: (v: boolean) => void;
+  phaseAgents: readonly BrainstormAgentDefinition[];
+  agentStats: BrainstormAgentStats;
+  expandedAgents: Set<string>;
+  toggleAgentExpand: (id: string) => void;
+  getAgentState: (id: string) => AgentState;
+  savedSessions: SavedSession[];
+  error: string | null;
+  showShortcutsHelp: boolean;
+  onStartSession: () => Promise<void>;
+  onStopAndArchive: () => void;
+  onAdvancePhase: () => Promise<void>;
+  onFileContent: (content: string) => void;
+  onLoadSavedSession: (id: string) => void;
+  onDeleteSession: (id: string) => void;
+  onClearAllSessions: () => void;
+  onCloseShortcutsHelp: () => void;
+}
+
+function MainWorkspace({
+  currentSession,
+  debateMessages,
+  brief,
+  setBrief,
+  isLoading,
+  isAdvancing,
+  progressPercent,
+  activePhase,
+  setActivePhase,
+  phases,
+  realAgents,
+  displayedAgents,
+  showAllAgents,
+  setShowAllAgents,
+  phaseAgents,
+  agentStats,
+  expandedAgents,
+  toggleAgentExpand,
+  getAgentState,
+  savedSessions,
+  error,
+  showShortcutsHelp,
+  onStartSession,
+  onStopAndArchive,
+  onAdvancePhase,
+  onFileContent,
+  onLoadSavedSession,
+  onDeleteSession,
+  onClearAllSessions,
+  onCloseShortcutsHelp,
+}: MainWorkspaceProps) {
+  const [categoryFilter, setCategoryFilter] = useState<AgentCategory | "all">(
+    "all"
+  );
+  const availableCategories = useMemo(
+    () =>
+      Array.from(
+        new Set(displayedAgents.map((agent) => agent.category))
+      ).sort(),
+    [displayedAgents]
+  );
+  const effectiveCategoryFilter =
+    categoryFilter !== "all" && availableCategories.includes(categoryFilter)
+      ? categoryFilter
+      : "all";
+  const filteredAgents = useMemo(
+    () =>
+      effectiveCategoryFilter === "all"
+        ? displayedAgents
+        : displayedAgents.filter(
+            (agent) => agent.category === effectiveCategoryFilter
+          ),
+    [displayedAgents, effectiveCategoryFilter]
+  );
+
+  return (
+    <div className="container mx-auto max-w-7xl px-4 py-8" dir="rtl">
+      <BrainStormHeader
+        agentStats={agentStats}
+        error={error}
+        currentSession={currentSession}
+      />
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+        <div className="min-w-0 space-y-6 lg:col-span-2">
+          <ControlPanel
+            phases={phases}
+            activePhase={activePhase}
+            setActivePhase={(p) => setActivePhase(p)}
+            currentSession={currentSession}
+            brief={brief}
+            setBrief={setBrief}
+            isLoading={isLoading}
+            isAdvancing={isAdvancing}
+            progressPercent={progressPercent}
+            onStartSession={onStartSession}
+            onStopSession={onStopAndArchive}
+            onAdvancePhase={onAdvancePhase}
+            onFileContent={onFileContent}
+          />
+
+          {currentSession && <DebatePanel messages={debateMessages} />}
+
+          {currentSession?.status === "completed" && (
+            <FinalResult
+              session={currentSession}
+              messages={debateMessages}
+              progressPercent={progressPercent}
+            />
+          )}
+
+          {currentSession && (
+            <ExportControls
+              session={currentSession}
+              messages={debateMessages}
+            />
+          )}
+        </div>
+
+        <div className="min-w-0 space-y-6">
+          <AgentsSidebar
+            displayedAgents={filteredAgents}
+            allAgents={realAgents}
+            showAllAgents={showAllAgents}
+            setShowAllAgents={setShowAllAgents}
+            totalAgentCount={realAgents.length}
+            phaseAgentCount={phaseAgents.length}
+            activePhase={activePhase}
+            availableCategories={availableCategories}
+            categoryFilter={effectiveCategoryFilter}
+            setCategoryFilter={setCategoryFilter}
+            getAgentState={getAgentState}
+            expandedAgents={expandedAgents}
+            toggleAgentExpand={toggleAgentExpand}
+          />
+
+          <SessionHistory
+            sessions={savedSessions}
+            onLoad={onLoadSavedSession}
+            onDelete={onDeleteSession}
+            onClearAll={onClearAllSessions}
+          />
+        </div>
+      </div>
+
+      <FeaturesGrid agentStats={agentStats} />
+
+      <KeyboardShortcutsHelp
+        isOpen={showShortcutsHelp}
+        onClose={onCloseShortcutsHelp}
+      />
+    </div>
+  );
+}
+
+export default function BrainStormContent() {
+  const {
+    catalog,
+    isLoading: isCatalogLoading,
+    error: catalogError,
+  } = useBrainstormCatalog();
+
+  const agents = catalog?.agents ?? [];
+  const phaseDefinitions = catalog?.phases ?? [];
+
+  const {
+    realAgents,
+    expandedAgents,
+    updateAgentState,
+    resetAllAgents,
+    toggleAgentExpand,
+    getAgentState,
+  } = useAgentStates(agents);
+
+  const {
+    currentSession,
+    isLoading,
+    isAdvancing,
+    error: sessionError,
+    activePhase,
+    setActivePhase,
+    brief,
+    setBrief,
+    debateMessages,
+    showAllAgents,
+    setShowAllAgents,
+    agentStats,
+    phaseAgents,
+    displayedAgents,
+    phases,
+    progressPercent,
+    handleStartSession,
+    handleStopSession,
+    handleAdvancePhase,
+    restoreSession,
+  } = useSession({
+    updateAgentState,
+    resetAllAgents,
+    realAgents,
+    phaseDefinitions,
+  });
+
+  const {
+    savedSessions,
+    isLoaded,
+    saveSession,
+    deleteSession,
+    loadSession,
+    clearAllSessions,
+    setCurrentSessionId,
+  } = useSessionPersistence();
+
+  const [showShortcutsHelp, setShowShortcutsHelp] = useState(false);
+
+  useEffect(() => {
+    document.documentElement.classList.add("brainstorm-responsive-page");
+    document.body.classList.add("brainstorm-responsive-page");
+
+    return () => {
+      document.documentElement.classList.remove("brainstorm-responsive-page");
+      document.body.classList.remove("brainstorm-responsive-page");
+    };
+  }, []);
+
+  const handleFileContent = useCallback(
+    (content: string) => {
+      setBrief((prev: string) => (prev ? `${prev}\n\n${content}` : content));
+    },
+    [setBrief]
+  );
+
+  useEffect(() => {
+    if (!isLoaded) return;
+    if (currentSession) {
+      saveSession(currentSession, debateMessages);
+      setCurrentSessionId(currentSession.id);
+      return;
+    }
+    setCurrentSessionId(null);
+  }, [
+    currentSession,
+    debateMessages,
+    isLoaded,
+    saveSession,
+    setCurrentSessionId,
+  ]);
+
+  const handleLoadSavedSession = useCallback(
+    (sessionId: string) => {
+      const saved = loadSession(sessionId);
+      if (!saved) return;
+      restoreSession(saved.session, saved.messages);
+      setCurrentSessionId(saved.session.id);
+    },
+    [loadSession, restoreSession, setCurrentSessionId]
+  );
+
+  const handleStopAndArchive = useCallback(() => {
+    if (currentSession) {
+      saveSession({ ...currentSession, status: "paused" }, debateMessages);
+    }
+    setCurrentSessionId(null);
+    handleStopSession();
+  }, [
+    currentSession,
+    debateMessages,
+    handleStopSession,
+    saveSession,
+    setCurrentSessionId,
+  ]);
+
+  useKeyboardShortcuts({
+    onStartSession: () => {
+      void handleStartSession();
+    },
+    onStopSession: handleStopAndArchive,
+    onAdvancePhase: () => {
+      void handleAdvancePhase();
+    },
+    onSaveSession: () => {
+      if (currentSession) saveSession(currentSession, debateMessages);
+    },
+    onExportJSON: () => {
+      if (currentSession) exportToJSON(currentSession, debateMessages);
+    },
+    onExportMarkdown: () => {
+      if (currentSession) exportToMarkdown(currentSession, debateMessages);
+    },
+    onToggleHelp: () => setShowShortcutsHelp((prev) => !prev),
+  });
+
+  const error = catalogError ?? sessionError;
+
+  if (isCatalogLoading) return <LoadingState />;
+  if (!catalog || agents.length === 0) return <EmptyState error={error} />;
+
+  return (
+    <MainWorkspace
+      catalog={catalog}
+      currentSession={currentSession}
+      debateMessages={debateMessages}
+      brief={brief}
+      setBrief={setBrief}
+      isLoading={isLoading}
+      isAdvancing={isAdvancing}
+      progressPercent={progressPercent}
+      activePhase={activePhase}
+      setActivePhase={setActivePhase}
+      phases={phases}
+      realAgents={realAgents}
+      displayedAgents={displayedAgents}
+      showAllAgents={showAllAgents}
+      setShowAllAgents={setShowAllAgents}
+      phaseAgents={phaseAgents}
+      agentStats={agentStats}
+      expandedAgents={expandedAgents}
+      toggleAgentExpand={toggleAgentExpand}
+      getAgentState={getAgentState}
+      savedSessions={savedSessions}
+      error={error}
+      showShortcutsHelp={showShortcutsHelp}
+      onStartSession={handleStartSession}
+      onStopAndArchive={handleStopAndArchive}
+      onAdvancePhase={handleAdvancePhase}
+      onFileContent={handleFileContent}
+      onLoadSavedSession={handleLoadSavedSession}
+      onDeleteSession={deleteSession}
+      onClearAllSessions={clearAllSessions}
+      onCloseShortcutsHelp={() => setShowShortcutsHelp(false)}
+    />
+  );
+}

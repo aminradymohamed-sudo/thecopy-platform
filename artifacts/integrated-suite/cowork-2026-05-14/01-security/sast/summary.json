@@ -1,0 +1,32 @@
+{
+  "category": "sast",
+  "startedAt": "2026-05-14T00:11:53.8670335+03:00",
+  "tools": [
+    {
+      "tool": "semgrep",
+      "status": "pass",
+      "exitCode": 0,
+      "output": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\artifacts\\integrated-suite\\cowork-2026-05-14\\01-security\\sast\\semgrep.json"
+    },
+    {
+      "tool": "gitleaks",
+      "status": "pass",
+      "exitCode": 0,
+      "output": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\artifacts\\integrated-suite\\cowork-2026-05-14\\01-security\\sast\\gitleaks.json"
+    },
+    {
+      "tool": "eslint-web",
+      "status": "pass",
+      "exitCode": 1,
+      "output": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\artifacts\\integrated-suite\\cowork-2026-05-14\\01-security\\sast\\eslint-security.json"
+    },
+    {
+      "tool": "codeql-reference",
+      "status": "pass",
+      "exitCode": 0,
+      "output": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\artifacts\\integrated-suite\\cowork-2026-05-14\\01-security\\sast\\codeql-summary.md"
+    }
+  ],
+  "endedAt": "2026-05-14T00:13:06.1575816+03:00",
+  "failures": 0
+}

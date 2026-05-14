@@ -1,0 +1,13 @@
+{
+  "extends": "./tsconfig.check.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "src/env.d.ts",
+    "src/global.d.ts",
+    "scripts/prepare-standalone-assets.mjs"
+  ],
+  "exclude": ["node_modules", ".next", "out", "dist", "build", "coverage"]
+}

@@ -1,0 +1,24 @@
+{
+  "extends": "./tsconfig.check.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "src/env.d.ts",
+    "src/global.d.ts",
+    "src/components/PerformanceOptimizer.tsx",
+    "src/components/VideoTextMask.tsx",
+    "src/components/WebVitalsReporter.tsx",
+    "src/components/agent-report-viewer.d.ts",
+    "src/components/agent-report-viewer.tsx",
+    "src/components/agent-reports-exporter.d.ts",
+    "src/components/agent-reports-exporter.tsx",
+    "src/components/analysis-submit-button.tsx",
+    "src/components/device-detection.ts",
+    "src/components/dotted-glow-background-demo.tsx",
+    "src/components/dynamic-particle-background.tsx",
+    "src/components/particle-background-optimized.tsx"
+  ],
+  "exclude": ["node_modules", ".next", "out", "dist", "build", "coverage"]
+}

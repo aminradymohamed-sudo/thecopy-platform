@@ -1,0 +1,50 @@
+{
+  "category": "deps",
+  "startedAt": "2026-05-14T00:15:01.7383043+03:00",
+  "tools": [
+    {
+      "tool": "env-safe",
+      "status": "pass",
+      "exitCode": 0,
+      "output": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\artifacts\\integrated-suite\\cowork-2026-05-14\\01-security\\deps\\env-safe.txt"
+    },
+    {
+      "tool": "pnpm-audit",
+      "status": "pass",
+      "exitCode": 0,
+      "output": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\artifacts\\integrated-suite\\cowork-2026-05-14\\01-security\\deps\\pnpm-audit.json"
+    },
+    {
+      "tool": "snyk",
+      "status": "fail",
+      "exitCode": 1,
+      "output": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\artifacts\\integrated-suite\\cowork-2026-05-14\\01-security\\deps\\snyk.json"
+    },
+    {
+      "tool": "snyk-code",
+      "status": "fail",
+      "exitCode": 2,
+      "output": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\artifacts\\integrated-suite\\cowork-2026-05-14\\01-security\\deps\\snyk-code.json"
+    },
+    {
+      "tool": "trivy-fs",
+      "status": "fail",
+      "exitCode": 127,
+      "output": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\artifacts\\integrated-suite\\cowork-2026-05-14\\01-security\\deps\\trivy-fs.log"
+    },
+    {
+      "tool": "sbom-cyclonedx",
+      "status": "fail",
+      "exitCode": 1,
+      "output": ""
+    },
+    {
+      "tool": "license-audit",
+      "status": "fail",
+      "exitCode": 1,
+      "output": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\artifacts\\integrated-suite\\cowork-2026-05-14\\01-security\\deps\\license-report.md"
+    }
+  ],
+  "endedAt": "2026-05-14T00:16:09.6960833+03:00",
+  "failures": 5
+}

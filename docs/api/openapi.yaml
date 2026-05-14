@@ -1,0 +1,870 @@
+openapi: 3.1.0
+info:
+  title: The Copy Platform API
+  description: |
+    واجهة برمجة تطبيقات منصة The Copy للإبداع والإنتاج السينمائي.
+    هذه المواصفة توثق جميع نقاط النهاية المتاحة للواجهة الأمامية والتكاملات الخارجية.
+  version: 1.0.0
+  contact:
+    name: فريق The Copy
+    email: support@thecopy.ai
+    url: https://thecopy.ai
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+servers:
+  - url: https://api.thecopy.ai
+    description: بيئة الإنتاج
+  - url: https://staging.thecopy.ai
+    description: بيئة الاختبار
+  - url: http://localhost:3001
+    description: بيئة التطوير المحلية
+tags:
+  - name: Health
+    description: نقاط نهاية فحص الصحة
+  - name: Authentication
+    description: مصادقة المستخدم وإدارة الجلسة
+  - name: Projects
+    description: إدارة المشاريع السينمائية
+  - name: Scenes
+    description: إدارة المشاهد
+  - name: Characters
+    description: إدارة الشخصيات
+  - name: Shots
+    description: إدارة اللقطات
+  - name: AI
+    description: خدمات الذكاء الاصطناعي
+  - name: Analysis
+    description: تحليل السيناريوهات
+  - name: Brainstorm
+    description: جلسات العصف الذهني
+  - name: Breakdown
+    description: تفكيك السيناريوهات
+  - name: Queue
+    description: إدارة الطوابير
+  - name: Workflow
+    description: تنفيذ سير العمل
+  - name: Memory
+    description: نظام الذاكرة
+  - name: AppState
+    description: حالة التطبيق
+  - name: Telemetry
+    description: بيانات التتبع
+paths:
+  /health:
+    get:
+      tags:
+        - Health
+      summary: فحص صحة النظام
+      description: يعود بحالة النظام العامة
+      responses:
+        '200':
+          description: النظام يعمل بشكل صحيح
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: ok
+                  version:
+                    type: string
+                    example: 1.0.0
+                  timestamp:
+                    type: string
+                    format: date-time
+        '503':
+          description: النظام غير متاح
+  /health/live:
+    get:
+      tags:
+        - Health
+      summary: فحص الحيوية
+      description: فحص حيوية Kubernetes
+      responses:
+        '200':
+          description: النظام حي
+        '503':
+          description: النظام غير حي
+  /health/ready:
+    get:
+      tags:
+        - Health
+      summary: فحص الجاهزية
+      description: فحص جاهزية Kubernetes
+      responses:
+        '200':
+          description: النظام جاهز
+        '503':
+          description: النظام غير جاهز
+  /health/detailed:
+    get:
+      tags:
+        - Health
+      summary: فحص الصحة المفصل
+      description: يعود بتفاصيل صحة النظام
+      responses:
+        '200':
+          description: تفاصيل الصحة
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  components:
+                    type: object
+                    properties:
+                      database:
+                        type: string
+                      redis:
+                        type: string
+                      aiServices:
+                        type: string
+  /api/auth/signup:
+    post:
+      tags:
+        - Authentication
+      summary: تسجيل مستخدم جديد
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                name:
+                  type: string
+      responses:
+        '201':
+          description: تم إنشاء المستخدم
+        '400':
+          description: طلب غير صالح
+        '409':
+          description: المستخدم موجود بالفعل
+  /api/auth/login:
+    post:
+      tags:
+        - Authentication
+      summary: تسجيل دخول
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+      responses:
+        '200':
+          description: تسجيل دخول ناجح
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  token:
+                    type: string
+                  user:
+                    $ref: '#/components/schemas/User'
+        '401':
+          description: اعتمادات غير صالحة
+  /api/auth/me:
+    get:
+      tags:
+        - Authentication
+      summary: الحصول على بيانات المستخدم الحالية
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: بيانات المستخدم
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        '401':
+          description: غير مصدق
+  /api/projects:
+    get:
+      tags:
+        - Projects
+      summary: قائمة جميع المشاريع
+      security:
+        - bearerAuth: []
+      responses:
+        '200':
+          description: قائمة المشاريع
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Project'
+    post:
+      tags:
+        - Projects
+      summary: إنشاء مشروع جديد
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ProjectInput'
+      responses:
+        '201':
+          description: مشروع تم إنشاؤه
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Project'
+  /api/projects/{projectId}/scenes:
+    get:
+      tags:
+        - Scenes
+      summary: الحصول على مشاهد المشروع
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: projectId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: قائمة المشاهد
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Scene'
+  /api/scenes:
+    post:
+      tags:
+        - Scenes
+      summary: إنشاء مشهد جديد
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SceneInput'
+      responses:
+        '201':
+          description: مشهد تم إنشاؤه
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scene'
+  /api/scenes/{id}:
+    get:
+      tags:
+        - Scenes
+      summary: الحصول على مشهد
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: بيانات المشهد
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scene'
+    put:
+      tags:
+        - Scenes
+      summary: تحديث مشهد
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/SceneInput'
+      responses:
+        '200':
+          description: مشهد تم تحديثه
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Scene'
+    delete:
+      tags:
+        - Scenes
+      summary: حذف مشهد
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: مشهد تم حذفه
+  /api/characters:
+    post:
+      tags:
+        - Characters
+      summary: إنشاء شخصية جديدة
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CharacterInput'
+      responses:
+        '201':
+          description: شخصية تم إنشاؤها
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Character'
+  /api/characters/{id}:
+    get:
+      tags:
+        - Characters
+      summary: الحصول على شخصية
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: بيانات الشخصية
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Character'
+  /api/shots:
+    post:
+      tags:
+        - Shots
+      summary: إنشاء لقطه جديدة
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/ShotInput'
+      responses:
+        '201':
+          description: لقطه تم إنشاؤها
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Shot'
+  /api/shots/suggestion:
+    post:
+      tags:
+        - Shots
+      summary: توليد اقتراح لقطه باستخدام الذكاء الاصطناعي
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                sceneDescription:
+                  type: string
+                stylePreferences:
+                  type: string
+      responses:
+        '200':
+          description: اقتراح اللقطه
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  suggestion:
+                    type: string
+                  confidence:
+                    type: number
+  /api/ai/chat:
+    post:
+      tags:
+        - AI
+      summary: محادثة مع الذكاء الاصطناعي
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message:
+                  type: string
+                context:
+                  type: string
+                model:
+                  type: string
+                  example: gemini-2.5-flash
+      responses:
+        '200':
+          description: استجابة الذكاء الاصطناعي
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  response:
+                    type: string
+                  tokensUsed:
+                    type: integer
+  /api/analysis/seven-stations:
+    post:
+      tags:
+        - Analysis
+      summary: تشغيل خط أنابيب تحليل المحطات السبع
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                screenplayText:
+                  type: string
+                analysisOptions:
+                  type: object
+      responses:
+        '200':
+          description: نتائج التحليل
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  analysisId:
+                    type: string
+                  status:
+                    type: string
+  /api/brainstorm/sessions:
+    post:
+      tags:
+        - Brainstorm
+      summary: بدء جلسة عصف ذهني جديدة
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                topic:
+                  type: string
+                objectives:
+                  type: array
+                  items:
+                    type: string
+      responses:
+        '201':
+          description: جلسة تم إنشاؤها
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  sessionId:
+                    type: string
+                  status:
+                    type: string
+  /api/breakdown/projects/bootstrap:
+    post:
+      tags:
+        - Breakdown
+      summary: تهيئة مشروع تفكيك
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                projectName:
+                  type: string
+                screenplayText:
+                  type: string
+      responses:
+        '201':
+          description: مشروع تم تهيئته
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  projectId:
+                    type: string
+                  status:
+                    type: string
+  /api/queue/jobs/{jobId}:
+    get:
+      tags:
+        - Queue
+      summary: الحصول على حالة العمل
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: jobId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: حالة العمل
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    enum: [waiting, active, completed, failed]
+                  progress:
+                    type: number
+                  result:
+                    type: object
+  /api/workflow/execute:
+    post:
+      tags:
+        - Workflow
+      summary: تنفيذ سير عمل
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                workflowName:
+                  type: string
+                parameters:
+                  type: object
+      responses:
+        '202':
+          description: سير العمل قيد التنفيذ
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  workflowId:
+                    type: string
+                  status:
+                    type: string
+  /api/memory/health:
+    get:
+      tags:
+        - Memory
+      summary: فحص صحة نظام الذاكرة
+      responses:
+        '200':
+          description: حالة نظام الذاكرة
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                  enabled:
+                    type: boolean
+  /api/app-state/{appId}:
+    get:
+      tags:
+        - AppState
+      summary: الحصول على حالة التطبيق
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: حالة التطبيق
+          content:
+            application/json:
+              schema:
+                type: object
+    put:
+      tags:
+        - AppState
+      summary: حفظ حالة التطبيق
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                state:
+                  type: object
+      responses:
+        '200':
+          description: حالة تم حفظها
+    delete:
+      tags:
+        - AppState
+      summary: مسح حالة التطبيق
+      parameters:
+        - name: appId
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '204':
+          description: حالة تم مسحها
+  /api/telemetry:
+    post:
+      tags:
+        - Telemetry
+      summary: إرسال بيانات التتبع
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                event:
+                  type: string
+                payload:
+                  type: object
+      responses:
+        '204':
+          description: بيانات التتبع تم استلامها
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    Project:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+        status:
+          type: string
+          enum: [draft, active, completed, archived]
+    ProjectInput:
+      type: object
+      required:
+        - name
+      properties:
+        name:
+          type: string
+        description:
+          type: string
+        status:
+          type: string
+          enum: [draft, active]
+    Scene:
+      type: object
+      properties:
+        id:
+          type: string
+        projectId:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        content:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    SceneInput:
+      type: object
+      required:
+        - projectId
+        - title
+      properties:
+        projectId:
+          type: string
+        title:
+          type: string
+        description:
+          type: string
+        content:
+          type: string
+    Character:
+      type: object
+      properties:
+        id:
+          type: string
+        projectId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        personality:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    CharacterInput:
+      type: object
+      required:
+        - projectId
+        - name
+      properties:
+        projectId:
+          type: string
+        name:
+          type: string
+        description:
+          type: string
+        personality:
+          type: string
+    Shot:
+      type: object
+      properties:
+        id:
+          type: string
+        sceneId:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        angle:
+          type: string
+        movement:
+          type: string
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    ShotInput:
+      type: object
+      required:
+        - sceneId
+        - description
+      properties:
+        sceneId:
+          type: string
+        description:
+          type: string
+        type:
+          type: string
+        angle:
+          type: string
+        movement:
+          type: string
+    ErrorResponse:
+      type: object
+      properties:
+        success:
+          type: boolean
+          example: false
+        error:
+          type: string
+        message:
+          type: string
+        details:
+          type: object
+externalDocs:
+  description: توثيق منصة The Copy
+  url: https://docs.thecopy.ai

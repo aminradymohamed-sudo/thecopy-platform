@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.check.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "tsBuildInfoFile": "./.tsbuildinfo.prompt-studio.tmp"
+  },
+  "include": [
+    "next-env.d.ts",
+    "src/global.d.ts",
+    "src/env.d.ts",
+    "src/app/(main)/layout.tsx",
+    "src/app/(main)/arabic-prompt-engineering-studio/**/*.ts",
+    "src/app/(main)/arabic-prompt-engineering-studio/**/*.tsx",
+    "src/lib/sentry-client.ts",
+    "tests/e2e/arabic-prompt-engineering-studio-remediation.spec.ts"
+  ]
+}

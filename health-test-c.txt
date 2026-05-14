@@ -1,0 +1,10 @@
+
+ RUN  v4.1.5 C:/Users/Mohmed Aimen Raed/Claude/Projects/the copy/apps/backend
+
+ ✓ src/controllers/health.controller.test.ts (5 tests) 9ms
+
+ Test Files  1 passed (1)
+      Tests  5 passed (5)
+   Start at  00:20:34
+   Duration  448ms (transform 90ms, setup 37ms, import 255ms, tests 9ms, environment 0ms)
+

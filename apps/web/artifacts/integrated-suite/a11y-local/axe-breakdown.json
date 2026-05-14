@@ -1,0 +1,163 @@
+{
+  "target": {
+    "id": "breakdown",
+    "path": "/breakdown"
+  },
+  "timestamp": "2026-05-10T02:47:29.438Z",
+  "url": "http://localhost:6080/breakdown",
+  "violations": [
+    {
+      "id": "landmark-main-is-top-level",
+      "impact": "moderate",
+      "tags": ["cat.semantics", "best-practice"],
+      "description": "Ensure the main landmark is at top level",
+      "help": "Main landmark should not be contained in another landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-main-is-top-level?application=playwright",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "landmark-is-top-level",
+              "data": {
+                "role": "main"
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "The main landmark is contained in another landmark."
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<main class=\"flex-1 p-6\">",
+          "target": [".bg-background > main"],
+          "failureSummary": "Fix any of the following:\n  The main landmark is contained in another landmark."
+        },
+        {
+          "any": [
+            {
+              "id": "landmark-is-top-level",
+              "data": {
+                "role": "main"
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "The main landmark is contained in another landmark."
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<main dir=\"rtl\" class=\"relative isolate min-h-screen overflow-hidden bg-[var(--background,oklch(0.145_0_0))]\" style=\"--page-accent:var(--brand-bronze, #746842);--page-accent-2:var(--accent-technical, #3b5bdb);--page-border:rgba(255,255,255,0.08)\">",
+          "target": [".isolate"],
+          "failureSummary": "Fix any of the following:\n  The main landmark is contained in another landmark."
+        },
+        {
+          "any": [
+            {
+              "id": "landmark-is-top-level",
+              "data": {
+                "role": "main"
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "The main landmark is contained in another landmark."
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<main class=\"mx-auto max-w-7xl px-4 py-8\">",
+          "target": [".py-8"],
+          "failureSummary": "Fix any of the following:\n  The main landmark is contained in another landmark."
+        }
+      ]
+    },
+    {
+      "id": "landmark-no-duplicate-main",
+      "impact": "moderate",
+      "tags": ["cat.semantics", "best-practice"],
+      "description": "Ensure the document has at most one main landmark",
+      "help": "Document should not have more than one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-no-duplicate-main?application=playwright",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "page-no-duplicate-main",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<main class=\"flex-1 p-6\">",
+                  "target": [".bg-background > main"]
+                },
+                {
+                  "html": "<main dir=\"rtl\" class=\"relative isolate min-h-screen overflow-hidden bg-[var(--background,oklch(0.145_0_0))]\" style=\"--page-accent:var(--brand-bronze, #746842);--page-accent-2:var(--accent-technical, #3b5bdb);--page-border:rgba(255,255,255,0.08)\">",
+                  "target": [".isolate"]
+                },
+                {
+                  "html": "<main class=\"mx-auto max-w-7xl px-4 py-8\">",
+                  "target": [".py-8"]
+                }
+              ],
+              "impact": "moderate",
+              "message": "Document has more than one main landmark"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<main class=\"relative flex min-h-...\">",
+          "target": [".bg-background"],
+          "failureSummary": "Fix any of the following:\n  Document has more than one main landmark"
+        }
+      ]
+    },
+    {
+      "id": "landmark-unique",
+      "impact": "moderate",
+      "tags": ["cat.semantics", "best-practice"],
+      "description": "Ensure landmarks are unique",
+      "help": "Landmarks should have a unique role or role/label/title (i.e. accessible name) combination",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-unique?application=playwright",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "landmark-is-unique",
+              "data": {
+                "role": "main",
+                "accessibleText": null
+              },
+              "relatedNodes": [
+                {
+                  "html": "<main class=\"flex-1 p-6\">",
+                  "target": [".bg-background > main"]
+                },
+                {
+                  "html": "<main dir=\"rtl\" class=\"relative isolate min-h-screen overflow-hidden bg-[var(--background,oklch(0.145_0_0))]\" style=\"--page-accent:var(--brand-bronze, #746842);--page-accent-2:var(--accent-technical, #3b5bdb);--page-border:rgba(255,255,255,0.08)\">",
+                  "target": [".isolate"]
+                },
+                {
+                  "html": "<main class=\"mx-auto max-w-7xl px-4 py-8\">",
+                  "target": [".py-8"]
+                }
+              ],
+              "impact": "moderate",
+              "message": "The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<main class=\"relative flex min-h-...\">",
+          "target": [".bg-background"],
+          "failureSummary": "Fix any of the following:\n  The landmark must have a unique aria-label, aria-labelledby, or title to make landmarks distinguishable"
+        }
+      ]
+    }
+  ],
+  "passes": 40,
+  "incomplete": 1,
+  "inapplicable": 48
+}

@@ -1,0 +1,141 @@
+{
+  "$schema": "./manifest.schema.json",
+  "name": "the-copy.integrated-test-suite",
+  "version": "1.1.0",
+  "description": "حزمة الاختبارات المتكاملة لما قبل النشر — security/performance/compatibility/regression/exploratory/pre-deployment",
+  "governance": {
+    "topContract": "AGENTS.md",
+    "operatingContract": ".repo-agent/OPERATING-CONTRACT.md",
+    "noWeakeningRule": true,
+    "stateSource": "output/session-state.md",
+    "roundLog": "output/round-notes.md"
+  },
+  "runtime": {
+    "packageManager": "pnpm@10.33.3",
+    "shell": "pwsh",
+    "node": "24.x",
+    "ports": { "frontend": 5000, "backend": 3001 }
+  },
+  "executionOrder": [
+    "01-security",
+    "02-performance",
+    "03-compatibility",
+    "04-regression",
+    "05-exploratory",
+    "06-pre-deployment"
+  ],
+  "blockingPolicy": {
+    "01-security": "blocks-all-subsequent-on-high-or-critical",
+    "02-performance": "blocks-on-threshold-breach",
+    "03-compatibility": "blocks-on-critical-view-failure-or-a11y-critical",
+    "04-regression": "blocks-on-any-failure",
+    "05-exploratory": "blocks-on-critical-finding (الآن آلي بالكامل، يولّد قرارات بنفس صرامة الباقي)",
+    "06-pre-deployment": "final-gate"
+  },
+  "packages": [
+    {
+      "id": "01-security",
+      "title": "اختبارات الأمان",
+      "categories": ["sast", "dast", "deps", "pentest"],
+      "tools": ["semgrep", "codeql", "zap", "snyk", "trivy", "gitleaks", "pnpm-audit"],
+      "runner": "01-security/run.ps1",
+      "artifactsDir": "01-security",
+      "dependencies": []
+    },
+    {
+      "id": "02-performance",
+      "title": "اختبارات الأداء",
+      "categories": ["load", "stress", "soak", "spike", "scalability", "web-vitals"],
+      "tools": ["k6", "lighthouse-ci"],
+      "runner": "02-performance/run.ps1",
+      "artifactsDir": "02-performance",
+      "thresholdsFile": "02-performance/thresholds.json",
+      "additionalSources": ["apps/web/lighthouserc.json"],
+      "dependencies": ["infra:up", "dev:web"]
+    },
+    {
+      "id": "03-compatibility",
+      "title": "اختبارات التوافق + الوصولية",
+      "categories": ["cross-browser", "cross-device", "cross-os", "accessibility"],
+      "tools": ["playwright", "axe-core", "@axe-core/playwright"],
+      "runner": "03-compatibility/run.ps1",
+      "artifactsDir": "03-compatibility",
+      "matrixFile": "03-compatibility/matrix.json",
+      "subRunners": [
+        "03-compatibility/run.ps1",
+        "03-compatibility/accessibility/run.ps1"
+      ],
+      "dependencies": ["dev:web"]
+    },
+    {
+      "id": "04-regression",
+      "title": "اختبار الانحدار النهائي",
+      "categories": ["critical-paths", "feature-regression"],
+      "tools": ["playwright", "vitest"],
+      "runner": "04-regression/run.ps1",
+      "artifactsDir": "04-regression",
+      "criticalPathsFile": "04-regression/critical-paths.json",
+      "dependencies": ["dev:all"]
+    },
+    {
+      "id": "05-exploratory",
+      "title": "اختبار الاستكشاف الآلي",
+      "categories": ["agentic-charters"],
+      "tools": ["playwright", "field-test-reporter"],
+      "runner": "05-exploratory/run.ps1",
+      "artifactsDir": "05-exploratory",
+      "specs": [
+        "05-exploratory/specs/editor-explore.spec.ts",
+        "05-exploratory/specs/studios-explore.spec.ts",
+        "05-exploratory/specs/memory-explore.spec.ts",
+        "05-exploratory/specs/auth-explore.spec.ts",
+        "05-exploratory/specs/i18n-explore.spec.ts"
+      ],
+      "automationLevel": "fully-automated",
+      "manual": false,
+      "dependencies": ["dev:all"]
+    },
+    {
+      "id": "06-pre-deployment",
+      "title": "اختبارات ما قبل النشر",
+      "categories": ["smoke", "uat", "rc", "staging", "system", "regression-final"],
+      "tools": ["playwright"],
+      "runner": "06-pre-deployment/run.ps1",
+      "artifactsDir": "06-pre-deployment",
+      "dependencies": ["staging-environment"]
+    }
+  ],
+  "baselines": {
+    "description": "تقارير سابقة في المستودع تُستخدم كـ baselines للمقارنة. أي تدهور في عدد violations يفشّل الجولة.",
+    "references": [
+      {
+        "id": "art-director-field-test",
+        "path": "artifacts/art-director/",
+        "use": "baseline لـ a11y/contrast/keyboard/perf/sessions في 03-compatibility و 05-exploratory"
+      },
+      {
+        "id": "editor-e2e-audit",
+        "path": "artifacts/editor-e2e/latest-report.json",
+        "use": "baseline لـ editor-explore في 05-exploratory"
+      },
+      {
+        "id": "breakapp-axe",
+        "path": "output/playwright/BREAKAPP/axe-report.json",
+        "use": "baseline لـ axe-scan في 03-compatibility/accessibility"
+      },
+      {
+        "id": "live-verification-perf",
+        "path": "output/live-verification/breakdown-performance",
+        "use": "baseline لـ breakdown perf في 02-performance"
+      },
+      {
+        "id": "lighthouse-ci-config",
+        "path": "apps/web/lighthouserc.json",
+        "use": "source-of-truth لعتبات web-vitals في 02-performance/web-vitals"
+      }
+    ]
+  },
+  "artifactsRoot": "artifacts/integrated-suite",
+  "summaryFile": "SUMMARY.md",
+  "rcDecisionFile": "06-pre-deployment/rc-decision.md"
+}

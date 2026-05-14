@@ -1,0 +1,55 @@
+{
+  "version": "1.0",
+  "gate": {
+    "load_2_1": {
+      "p95_ms_max": 500,
+      "p99_ms_max": 1500,
+      "error_rate_max": 0.001
+    },
+    "stress_2_2": {
+      "p95_degradation_pct_fail": 50,
+      "p95_degradation_pct_warn": 20
+    },
+    "spike_2_3": {
+      "recovery_seconds_max": 30
+    },
+    "scalability_2_4": {
+      "breaking_point_vus_min_fail": 100,
+      "breaking_point_vus_min_warn": 150
+    },
+    "soak_2_5": {
+      "memory_growth_pct_max_fail": 50,
+      "memory_growth_pct_max_warn": 30,
+      "drift_p95_pct_max_fail": 30,
+      "drift_p95_pct_max_warn": 15
+    },
+    "lighthouse_2_6": {
+      "performance_min_fail": 0.70,
+      "performance_min_warn": 0.80,
+      "accessibility_min_fail": 0.85,
+      "best_practices_min_fail": 0.80,
+      "seo_min_fail": 0.85
+    }
+  },
+  "pages": [
+    "/",
+    "/products",
+    "/products/sample",
+    "/checkout"
+  ],
+  "form_factors": ["desktop", "mobile"],
+  "modes": {
+    "pr":      { "k6_scenarios": ["2.1"],                            "soak_mode": "skip"      },
+    "quick":   { "k6_scenarios": ["2.1","2.2","2.3","2.4","2.5"],    "soak_mode": "quick"     },
+    "nightly": { "k6_scenarios": ["2.1","2.2","2.3","2.4","2.5"],    "soak_mode": "production"}
+  },
+  "waivers": [
+    {
+      "id": "WAIVER-PERF-001",
+      "violation_match": { "slo": "lighthouse.performance", "page": "/legacy-admin", "form_factor": "mobile" },
+      "reason": "Legacy admin UI, not on the mobile roadmap. Internal only.",
+      "expires": "2026-09-01",
+      "owner": "platform-team@company.example"
+    }
+  ]
+}

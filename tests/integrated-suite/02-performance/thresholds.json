@@ -1,0 +1,85 @@
+{
+  "$schema": "./thresholds.schema.json",
+  "name": "the-copy.performance.thresholds",
+  "version": "1.0.0",
+  "policy": "any reduction is forbidden by AGENTS.md — tightening only",
+
+  "global": {
+    "http_req_failed": {
+      "rate": 0.01,
+      "comment": "نسبة الفشل ≤ 1%"
+    },
+    "http_req_duration": {
+      "p95": 800,
+      "p99": 1500,
+      "comment": "p95 ≤ 800ms, p99 ≤ 1500ms"
+    },
+    "checks": {
+      "rate": 0.99,
+      "comment": "checks pass rate ≥ 99%"
+    }
+  },
+
+  "load": {
+    "vus": 50,
+    "duration": "5m",
+    "http_req_duration": { "p95": 800, "p99": 1500 },
+    "http_req_failed": { "rate": 0.01 },
+    "iterations_per_vu_per_min": { "min": 10 }
+  },
+
+  "stress": {
+    "stages": [
+      { "duration": "2m", "target": 100 },
+      { "duration": "5m", "target": 300 },
+      { "duration": "5m", "target": 500 },
+      { "duration": "2m", "target": 0 }
+    ],
+    "http_req_duration": { "p95": 2000 },
+    "http_req_failed": { "rate": 0.05 },
+    "comment": "نسمح برفع latency حتى 2s و failure rate حتى 5% لكشف نقطة الانهيار"
+  },
+
+  "soak": {
+    "vus": 30,
+    "duration": "2h",
+    "http_req_duration": { "p95": 800, "p99": 1500 },
+    "http_req_failed": { "rate": 0.01 },
+    "memory_growth_mb_per_hour": { "max": 50 },
+    "comment": "يجب ألا تزيد الذاكرة > 50MB/hour خلال الـ soak"
+  },
+
+  "spike": {
+    "stages": [
+      { "duration": "30s", "target": 5 },
+      { "duration": "30s", "target": 200 },
+      { "duration": "1m", "target": 200 },
+      { "duration": "30s", "target": 5 },
+      { "duration": "1m", "target": 5 }
+    ],
+    "http_req_duration": { "p95": 1500 },
+    "http_req_failed": { "rate": 0.03 },
+    "recovery_time_seconds": { "max": 60 },
+    "comment": "بعد عودة الحمل، يجب أن يستعيد الأداء خلال 60s"
+  },
+
+  "scalability": {
+    "stages": [
+      { "duration": "2m", "target": 25 },
+      { "duration": "2m", "target": 50 },
+      { "duration": "2m", "target": 100 },
+      { "duration": "2m", "target": 200 }
+    ],
+    "throughput_efficiency": { "min": 0.7 },
+    "comment": "throughput عند 200 VUs ≥ 70% من throughput-per-VU عند 25 VUs"
+  },
+
+  "endpoints": {
+    "/api/auth/login":         { "p95": 600 },
+    "/api/projects":           { "p95": 500 },
+    "/api/breakdown/health":   { "p95": 5000, "comment": "AI endpoint — حد أعلى" },
+    "/api/decoupage":          { "p95": 5000 },
+    "/api/memory/health":      { "p95": 1000 },
+    "/health":                 { "p95": 100 }
+  }
+}

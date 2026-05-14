@@ -1,0 +1,21 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "noEmit": true,
+    "declaration": false,
+    "declarationMap": false,
+    "sourceMap": false,
+    "rootDir": ".",
+    "types": ["node", "vitest/globals"],
+    "incremental": true,
+    "tsBuildInfoFile": "./.tsbuildinfo.check"
+  },
+  "include": [
+    "src/**/*.ts",
+    "scripts/**/*.ts",
+    "agents/**/*.ts",
+    "examples/**/*.ts",
+    "mcp-server.ts"
+  ],
+  "exclude": ["node_modules", "dist", "db-performance-analysis"]
+}

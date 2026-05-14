@@ -1,0 +1,141 @@
+version: 2
+
+# ---------------------------------------------------------------
+# تعريف المستودع الخاص (Tiptap Pro)
+# ---------------------------------------------------------------
+registries:
+  tiptap-pro:
+    type: npm-registry
+    url: https://registry.tiptap.dev
+    token: ${{ secrets.TIPTAP_PRO_TOKEN }}
+
+updates:
+  # ---------------------------------------------------------------
+  # 1. تحديث حزم npm/pnpm لكامل الـ monorepo من جذر الـ workspace
+  #
+  # ملاحظة: مستودع pnpm workspace (pnpm-workspace.yaml + pnpm-lock.yaml
+  # موجودان في الجذر) لا يدعم تحديث Dependabot من داخل subdirectory.
+  # نستخدم directory: "/" فقط ونعتمد على groups لتقسيم التبعيات
+  # حسب الـ workspace (frontend / backend / shared root).
+  # ---------------------------------------------------------------
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "23:45"
+      timezone: "Africa/Cairo"
+    open-pull-requests-limit: 20
+    labels:
+      - "dependencies"
+      - "javascript"
+    rebase-strategy: "auto"
+    registries:
+      - tiptap-pro
+    groups:
+      frontend:
+        patterns:
+          - "next"
+          - "next-*"
+          - "@next/*"
+          - "react"
+          - "react-*"
+          - "@react/*"
+          - "@tiptap/*"
+          - "three"
+          - "@three/*"
+          - "@sentry/nextjs"
+          - "@opentelemetry/*"
+      backend:
+        patterns:
+          - "express"
+          - "express-*"
+          - "@express/*"
+          - "fastify"
+          - "fastify-*"
+          - "@fastify/*"
+          - "convex"
+          - "@convex-dev/*"
+          - "firebase"
+          - "firebase-admin"
+      ai-sdk:
+        patterns:
+          - "@ai-sdk/*"
+          - "ai"
+      types:
+        patterns:
+          - "@types/*"
+      tooling:
+        patterns:
+          - "eslint"
+          - "eslint-*"
+          - "@eslint/*"
+          - "prettier"
+          - "prettier-*"
+          - "typescript"
+          - "ts-*"
+          - "@typescript-eslint/*"
+          - "turbo"
+          - "vitest"
+          - "@vitest/*"
+          - "jest"
+          - "jest-*"
+          - "@types/jest"
+          - "playwright"
+          - "@playwright/*"
+          - "cross-env"
+
+  # ---------------------------------------------------------------
+  # 2. تحديث صور الـ Docker (Frontend + Backend)
+  # ---------------------------------------------------------------
+  - package-ecosystem: "docker"
+    directory: "/apps/web"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "23:45"
+      timezone: "Africa/Cairo"
+    labels:
+      - "docker"
+      - "security"
+      - "infrastructure"
+
+  - package-ecosystem: "docker"
+    directory: "/apps/backend"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "23:45"
+      timezone: "Africa/Cairo"
+    labels:
+      - "docker"
+      - "security"
+      - "infrastructure"
+
+  # ---------------------------------------------------------------
+  # 3. تحديث حزم Python (directors-studio backend)
+  # ---------------------------------------------------------------
+  - package-ecosystem: "pip"
+    directory: "/apps/web/src/app/(main)/directors-studio/director_copilot_arabic_mvp_runtime_pack/backend"
+    schedule:
+      interval: "weekly"
+      day: "tuesday"
+      time: "17:15"
+      timezone: "Africa/Cairo"
+    labels:
+      - "dependencies"
+      - "python"
+
+  # ---------------------------------------------------------------
+  # 4. تحديث الـ GitHub Actions
+  # ---------------------------------------------------------------
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "wednesday"
+      time: "23:45"
+      timezone: "Africa/Cairo"
+    labels:
+      - "ci-cd"
+      - "devops"

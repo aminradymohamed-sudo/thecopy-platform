@@ -1,0 +1,53 @@
+# Build outputs
+**/.next/
+**/dist/
+**/build/
+**/out/
+**/coverage/
+**/.turbo/
+
+# Package managers
+**/node_modules/
+
+# Logs / tmp
+*.log
+**/tmp/
+**/temp/
+
+# Generated or archived cowork/runtime copies
+/.cowork-postmerge-runtime-b/
+
+# Docs / references / skills that are intentionally noisy
+/apps/web/src/app/(main)/editor/skills/
+/apps/web/src/app/(main)/BREAKAPP/docs/
+
+# Assets
+**/*.png
+**/*.jpg
+**/*.jpeg
+**/*.webp
+**/*.gif
+**/*.svg
+**/*.pdf
+
+# ============================================================================
+# Test files and fixtures (Wave1-Final 2026-05-10)
+# ============================================================================
+# اختبارات الوحدة والتكامل تحوي بشكل مقصود secrets/tokens مزيّفة لاختبار
+# مدير JWT secret ومحلل سياسات التحقق. هذه ليست vulnerabilities حقيقية
+# بل fixtures مطلوبة لـ negative testing. تستثنى من قواعد الأمن.
+**/__tests__/**
+**/*.test.ts
+**/*.test.tsx
+**/*.spec.ts
+**/*.spec.tsx
+apps/backend/src/test/
+apps/backend/tests/
+apps/web/tests/
+test-results/
+playwright-report/
+
+# الملفات المُولّدة من runs آلية وفحوصات CI — ليست application source
+artifacts/
+output/
+.repo-agent/state-fingerprint.json

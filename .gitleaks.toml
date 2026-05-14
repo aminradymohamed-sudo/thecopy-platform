@@ -1,0 +1,164 @@
+# ===================================================================
+# Gitleaks configuration for the-copy-monorepo
+# ===================================================================
+# يمتد على القواعد الافتراضية لـ Gitleaks ويضيف قواعد مخصصة للمستودع.
+# Extends Gitleaks defaults and adds project-specific rules.
+# ===================================================================
+
+title = "the-copy gitleaks config"
+
+[extend]
+useDefault = true
+
+# ===================================================================
+# Custom rules (project-specific)
+# ===================================================================
+
+[[rules]]
+id = "the-copy-postgres-connection-with-credentials"
+description = "PostgreSQL connection URL containing inline credentials"
+regex = '''postgres(?:ql)?:\/\/[A-Za-z0-9._-]+:[^@\s'"]+@[A-Za-z0-9.-]+'''
+tags = ["database", "credentials"]
+
+[[rules]]
+id = "the-copy-mongodb-connection-with-credentials"
+description = "MongoDB connection URL containing inline credentials"
+regex = '''mongodb(?:\+srv)?:\/\/[A-Za-z0-9._-]+:[^@\s'"]+@[A-Za-z0-9.-]+'''
+tags = ["database", "credentials"]
+
+[[rules]]
+id = "the-copy-mysql-connection-with-credentials"
+description = "MySQL connection URL containing inline credentials"
+regex = '''mysql:\/\/[A-Za-z0-9._-]+:[^@\s'"]+@[A-Za-z0-9.-]+'''
+tags = ["database", "credentials"]
+
+[[rules]]
+id = "the-copy-redis-connection-with-credentials"
+description = "Redis connection URL containing inline credentials"
+regex = '''redis:\/\/[A-Za-z0-9._-]+:[^@\s'"]+@[A-Za-z0-9.-]+'''
+tags = ["cache", "credentials"]
+
+[[rules]]
+id = "the-copy-private-key-block"
+description = "Hard-coded private key material"
+regex = '''-----BEGIN (?:RSA|DSA|EC|OPENSSH|PGP|ENCRYPTED)? ?PRIVATE KEY( BLOCK)?-----'''
+tags = ["key", "asymmetric-private-key"]
+
+[[rules]]
+id = "the-copy-inline-bearer-token"
+description = "Inline bearer token in source"
+regex = '''(?i)bearer\s+[A-Za-z0-9._~+/=-]{20,}'''
+tags = ["auth", "token"]
+
+# ===================================================================
+# Allowlist — placeholders and example files
+# ===================================================================
+
+[allowlist]
+description = "Global allowlist for example files and documented placeholders"
+
+paths = [
+  '''(^|/)\.env\.example$''',
+  '''(^|/)\.env\.sample$''',
+  '''(^|/)\.env\.tiptap$''',
+  '''(^|/)README\.md$''',
+  '''(^|/)docs/''',
+  '''(^|/)output/''',
+  '''(^|/)specs/''',
+  '''(^|/)node_modules/''',
+  '''(^|/)\.next/''',
+  '''(^|/)\.next-[A-Za-z0-9_-]+/''',
+  '''(^|/)dist/''',
+  '''(^|/)build/''',
+  '''(^|/)coverage/''',
+  '''(^|/)\.turbo/''',
+  '''(^|/)WORKSPACE-EMBEDDING-INDEX\.json$''',
+  '''(^|/)\.embedding-hash-cache\.json$''',
+  '''(^|/)pnpm-lock\.yaml$''',
+  # ---------------------------------------------------------------
+  # Test files and test fixtures (verified false positives)
+  # ---------------------------------------------------------------
+  # Vitest / Jest / Playwright test files anywhere in the tree.
+  # All "secrets" in these files are literal placeholders for negative
+  # tests of auth, env validation, log sanitization, and secret scanners.
+  '''.*\.(test|spec)\.(ts|tsx|js|jsx|mts|cts)$''',
+  # Backend test directories (setup, helpers, integration, security tests)
+  '''(^|/)apps/backend/src/test/''',
+  '''(^|/)apps/backend/src/__tests__/''',
+  '''(^|/)apps/backend/tests/''',
+  # Web E2E and integration test directories
+  '''(^|/)apps/web/tests/''',
+  # Persistent-memory secret-scanner module: contains the scanner's own
+  # detection regex literals, which trigger their own rules by design.
+  '''(^|/)scripts/agent/lib/persistent-memory/secrets\.ts$''',
+  '''(^|/)scripts/agent/persistent-memory-eval\.ts$''',
+  # Integrated-suite penetration-test probes (deliberately invalid tokens)
+  '''(^|/)tests/integrated-suite/01-security/pentest/''',
+  # Playwright auto-generated test-results (error-context.md، traces، screenshots).
+  # تحوي mock JWT stubs (`<value>.stub.signature`) لاختبارات BreakApp QR — false positives.
+  '''(^|/)test-results/''',
+  '''(^|/)playwright-report/''',
+  # ---------------------------------------------------------------
+  # Build / lint / agent artifacts (not application source)
+  # ---------------------------------------------------------------
+  # ESLint full-report dumps committed for diagnostics; the "secrets"
+  # they contain are inlined source code excerpts already covered above.
+  '''(^|/)apps/web/eslint-web-full\.json$''',
+  '''(^|/)apps/web/\.eslint-full-[A-Za-z0-9_-]+\.json$''',
+  '''(^|/)apps/web/\.full-[A-Za-z0-9_-]+\.json$''',
+  '''(^|/)apps/web/reports/lint-full\.json$''',
+  # Repo-agent state fingerprint (auto-generated cache file)
+  '''(^|/)\.repo-agent/state-fingerprint\.json$''',
+  # Generated test-evidence artifacts (browser screenshots/JSON dumps
+  # capturing XSRF cookies from automated runs against local mirror)
+  '''(^|/)artifacts/''',
+  # Skill / integration documentation (illustrative examples only)
+  '''(^|/).*SKILL\.md$''',
+  '''(^|/)apps/web/src/app/\(main\)/BUDGET/PARENT_PLATFORM_INTEGRATION\.md$''',
+]
+
+regexes = [
+  # Documented placeholder values in .env files and docs
+  '''change-me-to-[A-Za-z0-9-]+''',
+  '''CHANGE-THIS[-_A-Z0-9]*''',
+  '''your[-_][A-Za-z0-9-]+[-_](?:key|secret|token|password)''',
+  '''(?i)example[-_](?:key|secret|token|password)''',
+  '''user:password@''',
+  '''postgres:postgres@''',
+  '''thecopy:thecopy_dev@''',
+  '''sslmode=require''',
+  # Test placeholder credentials that appear in unit/integration tests
+  # (postgres URLs with literal "test:test" or "prod:prod" credentials,
+  # used by env validation and migration tests).
+  '''postgres(?:ql)?:\/\/test:test@''',
+  '''postgres(?:ql)?:\/\/prod:prod@''',
+  '''postgres(?:ql)?:\/\/user:secret\d*@''',
+  '''redis:\/\/default:secret@''',
+  # Standard demo JWT used by jwt.io and security tutorials, present in
+  # log-sanitization and security-middleware test fixtures.
+  '''eyJhbGciOiJIUzI1NiI[A-Za-z0-9._-]+\.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c''',
+  # Tampered/expired token strings used by pentest probes and mock helpers.
+  '''Bearer\s+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9\.tamperedXXX''',
+  '''Bearer\s+(?:expired|tampered|manipulated|invalid|mock|fake)\.[A-Za-z0-9._-]+''',
+  '''Bearer\s+abcdefghijklm[A-Za-z0-9]+''',
+  # XSRF/CSRF cookie tokens captured by browser-driven evidence dumps.
+  '''XSRF-TOKEN=[A-Za-z0-9._%-]+''',
+  # Connection strings whose "password" field is a shell variable
+  # interpolation ($VAR or ${VAR[:?...]}) — the actual secret is
+  # supplied at runtime from .env, never committed.
+  '''postgres(?:ql)?:\/\/[A-Za-z0-9._-]+:\$\{[A-Za-z_][A-Za-z0-9_]*(?::[?-][^}]*)?\}@''',
+  '''mongodb(?:\+srv)?:\/\/[A-Za-z0-9._-]+:\$\{[A-Za-z_][A-Za-z0-9_]*(?::[?-][^}]*)?\}@''',
+  '''mysql:\/\/[A-Za-z0-9._-]+:\$\{[A-Za-z_][A-Za-z0-9_]*(?::[?-][^}]*)?\}@''',
+  '''redis:\/\/[A-Za-z0-9._-]+:\$\{[A-Za-z_][A-Za-z0-9_]*(?::[?-][^}]*)?\}@''',
+  # Mirror-only test JWT secret documented in podman-compose.mirror.yml.
+  # This is an isolated container stack (ports 6080/3002), not production.
+  '''mirror-secret-random-string-at-least-32-chars''',
+  '''mirror-pg-secret-[A-Za-z0-9-]+''',
+]
+
+stopwords = [
+  "example",
+  "placeholder",
+  "sample",
+  "dummy",
+]

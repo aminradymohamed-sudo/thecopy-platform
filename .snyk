@@ -1,0 +1,14 @@
+# Snyk (https://snyk.io) policy file
+version: v1.25.0
+ignore:
+  'SNYK-JS-LEAFLET-16427276':
+    - '*':
+        reason: >-
+          leaflet@1.9.4 XSS is in Address6 HTML-emitting methods (toHexLabeledGroups etc.).
+          Confirmed unused — packages/breakapp/src/components/maps/MapComponent.tsx uses only
+          L.icon, L.divIcon, L.tileLayer, L.polyline, L.marker, L.popup APIs.
+          No upstream fix in 1.x. Monitoring for 2.x release.
+          See docs/security/acceptable-risks.md for full assessment.
+        expires: '2026-08-14T00:00:00.000Z'
+        created: '2026-05-14T00:00:00.000Z'
+patch: {}

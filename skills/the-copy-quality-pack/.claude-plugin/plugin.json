@@ -1,0 +1,24 @@
+{
+  "name": "the-copy-quality-pack",
+  "version": "0.1.0",
+  "description": "تسع مهارات لمنع الأنماط المتكررة في مستودع the-copy: تجاوز سقف الأسطر، ثغرات أمنية بعد الدمج، تذبذب صيغة next.config، تكرار إصلاحات Sentry sourcemaps، غياب Zod validation عند حدود الـ controllers، تذبذب طبقة eslint contract، تكرار جولات e2e production readiness، تشتت أنظمة RAG الخمسة، وأتمتة جولات A-* triage.",
+  "author": {
+    "name": "the-copy maintainers",
+    "email": "mohamedamin.radyahmed@gmail.com"
+  },
+  "license": "UNLICENSED",
+  "keywords": [
+    "the-copy",
+    "monorepo",
+    "quality",
+    "security",
+    "governance",
+    "pnpm",
+    "next.js",
+    "sentry",
+    "zod",
+    "eslint",
+    "rag",
+    "triage"
+  ]
+}

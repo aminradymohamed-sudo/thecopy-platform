@@ -1,0 +1,6 @@
+<testsuites id="" name="" tests="1" failures="0" skipped="0" errors="0" time="8.339636999999998">
+<testsuite name="actorai-arabic-studio-smoke.spec.ts" timestamp="2026-05-06T00:02:27.259Z" hostname="chromium" tests="1" failures="0" skipped="0" time="1.93" errors="0">
+<testcase name="actorai arabic base route opens the interactive studio" classname="actorai-arabic-studio-smoke.spec.ts" time="1.93">
+</testcase>
+</testsuite>
+</testsuites>

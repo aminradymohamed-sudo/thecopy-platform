@@ -1,0 +1,4201 @@
+[
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 182,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "the-copy-monorepo",
+    "foundProjectCount": 16,
+    "displayTargetFile": "package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 735,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "@the-copy/backend",
+    "foundProjectCount": 16,
+    "displayTargetFile": "apps\\backend\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy/backend"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 1193,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "@the-copy/web",
+    "foundProjectCount": 16,
+    "displayTargetFile": "apps\\web\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy/web"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 1,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "@the-copy/ai-orchestration",
+    "foundProjectCount": 16,
+    "displayTargetFile": "packages\\ai-orchestration\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy/ai-orchestration"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 0,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "@the-copy/api-client",
+    "foundProjectCount": 16,
+    "displayTargetFile": "packages\\api-client\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy/api-client"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 83,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "@the-copy/breakapp",
+    "foundProjectCount": 16,
+    "displayTargetFile": "packages\\breakapp\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy/breakapp"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 1,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "@the-copy/copyproj-schema",
+    "foundProjectCount": 16,
+    "displayTargetFile": "packages\\copyproj-schema\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy/copyproj-schema"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 0,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "@the-copy/core-memory",
+    "foundProjectCount": 16,
+    "displayTargetFile": "packages\\core-memory\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy/core-memory"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 1,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "@the-copy/error-boundary",
+    "foundProjectCount": 16,
+    "displayTargetFile": "packages\\error-boundary\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy/error-boundary"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 3,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "@the-copy/export",
+    "foundProjectCount": 16,
+    "displayTargetFile": "packages\\export\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy/export"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 2,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "@the-copy/persistence",
+    "foundProjectCount": 16,
+    "displayTargetFile": "packages\\persistence\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy/persistence"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 0,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "@the-copy/prompt-engineering",
+    "foundProjectCount": 16,
+    "displayTargetFile": "packages\\prompt-engineering\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy/prompt-engineering"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 1,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "@the-copy/security-middleware",
+    "foundProjectCount": 16,
+    "displayTargetFile": "packages\\security-middleware\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy/security-middleware"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 0,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "@the-copy/tsconfig",
+    "foundProjectCount": 16,
+    "displayTargetFile": "packages\\tsconfig\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy/tsconfig"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 2,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "@the-copy/validation",
+    "foundProjectCount": 16,
+    "displayTargetFile": "packages\\validation\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy/validation"
+  },
+  {
+    "vulnerabilities": [
+      {
+        "id": "SNYK-JS-UUID-16133035",
+        "title": "Improper Validation of Specified Index, Position, or Offset in Input",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N/E:P",
+        "credit": [
+          "0xStraw-Hat"
+        ],
+        "semver": {
+          "vulnerable": [
+            "<11.1.1",
+            ">=12.0.0 <14.0.0"
+          ]
+        },
+        "exploit": "Proof of Concept",
+        "fixedIn": [
+          "11.1.1",
+          "14.0.0"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "js",
+        "severity": "high",
+        "cvssScore": 8.2,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "uuid",
+        "references": [
+          {
+            "url": "https://github.com/uuidjs/uuid/commit/32389c887c9e75f90442ee4cc95bbab0c4e8346e",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/uuidjs/uuid/commit/3d2c5b0342f0fcb52a5ac681c3d47c13e7444b34",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/uuidjs/uuid/releases/tag/v14.0.0",
+            "title": "GitHub Release"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "NVD",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+            "cvssV3BaseScore": 7.5,
+            "modificationTime": "2026-05-12T01:14:02.230690Z"
+          },
+          {
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L",
+            "cvssV3BaseScore": 4.8,
+            "modificationTime": "2026-05-08T12:59:51.566928Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N/E:P",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.2,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-05-12T14:03:56.412031Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N/E:P",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-05-12T14:03:56.412031Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+            "assigner": "NVD",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-05-12T01:14:02.230690Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L",
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "baseScore": 4.8,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-05-08T12:59:51.566928Z"
+          }
+        ],
+        "description": "## Overview\n[uuid](https://github.com/kelektiv/node-uuid) is a RFC4122 (v1, v4, and v5) compliant UUID library.\n\nAffected versions of this package are vulnerable to Improper Validation of Specified Index, Position, or Offset in Input due to accepting external output buffers but not rejecting out-of-range writes (small `buf` or large `offset`). This inconsistency allows silent partial writes into caller-provided buffers.\n## PoC\n```\r\ncd /home/StrawHat/uuid\r\nnpm ci\r\nnpm run build\r\n\r\nnode --input-type=module -e \"\r\nimport {v4,v5,v6} from './dist-node/index.js';\r\nconst ns='6ba7b810-9dad-11d1-80b4-00c04fd430c8';\r\nfor (const [name,fn] of [\r\n  ['v4',()=>v4({},new Uint8Array(8),4)],\r\n  ['v5',()=>v5('x',ns,new Uint8Array(8),4)],\r\n  ['v6',()=>v6({},new Uint8Array(8),4)],\r\n]) {\r\n  try { fn(); console.log(name,'NO_THROW'); }\r\n  catch(e){ console.log(name,'THREW',e.name); }\r\n}\"\r\n```\n## Remediation\nUpgrade `uuid` to version 11.1.1, 14.0.0 or higher.\n## References\n- [GitHub Commit](https://github.com/uuidjs/uuid/commit/32389c887c9e75f90442ee4cc95bbab0c4e8346e)\n- [GitHub Commit](https://github.com/uuidjs/uuid/commit/3d2c5b0342f0fcb52a5ac681c3d47c13e7444b34)\n- [GitHub Release](https://github.com/uuidjs/uuid/releases/tag/v14.0.0)\n",
+        "epssDetails": {
+          "percentile": "0.12049",
+          "probability": "0.00040",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2026-41907"
+          ],
+          "CWE": [
+            "CWE-1285"
+          ],
+          "GHSA": [
+            "GHSA-w5hq-g745-h8pq"
+          ]
+        },
+        "packageName": "uuid",
+        "proprietary": false,
+        "creationTime": "2026-04-23T08:34:15.552273Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-04-18T21:00:00Z",
+        "exploitDetails": {
+          "sources": [
+            "Snyk"
+          ],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Proof of Concept",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Proof of Concept",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "npm",
+        "publicationTime": "2026-04-23T08:34:16.017476Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-05-12T14:03:56.412031Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "package.json@*",
+          "@kilocode/plugin@7.2.48",
+          "effect@4.0.0-beta.57",
+          "uuid@13.0.2"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "uuid",
+        "version": "13.0.2"
+      }
+    ],
+    "ok": false,
+    "dependencyCount": 30,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "npm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "1 high or critical severity vulnerable dependency path",
+    "severityThreshold": "high",
+    "remediation": {
+      "unresolved": [
+        {
+          "id": "SNYK-JS-UUID-16133035",
+          "title": "Improper Validation of Specified Index, Position, or Offset in Input",
+          "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N/E:P",
+          "credit": [
+            "0xStraw-Hat"
+          ],
+          "semver": {
+            "vulnerable": [
+              "<11.1.1",
+              ">=12.0.0 <14.0.0"
+            ]
+          },
+          "exploit": "Proof of Concept",
+          "fixedIn": [
+            "11.1.1",
+            "14.0.0"
+          ],
+          "patches": [],
+          "insights": {
+            "triageAdvice": null
+          },
+          "language": "js",
+          "severity": "high",
+          "cvssScore": 8.2,
+          "functions": [],
+          "malicious": false,
+          "isDisputed": false,
+          "moduleName": "uuid",
+          "references": [
+            {
+              "url": "https://github.com/uuidjs/uuid/commit/32389c887c9e75f90442ee4cc95bbab0c4e8346e",
+              "title": "GitHub Commit"
+            },
+            {
+              "url": "https://github.com/uuidjs/uuid/commit/3d2c5b0342f0fcb52a5ac681c3d47c13e7444b34",
+              "title": "GitHub Commit"
+            },
+            {
+              "url": "https://github.com/uuidjs/uuid/releases/tag/v14.0.0",
+              "title": "GitHub Release"
+            }
+          ],
+          "cvssDetails": [
+            {
+              "assigner": "NVD",
+              "severity": "high",
+              "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+              "cvssV3BaseScore": 7.5,
+              "modificationTime": "2026-05-12T01:14:02.230690Z"
+            },
+            {
+              "assigner": "Red Hat",
+              "severity": "medium",
+              "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L",
+              "cvssV3BaseScore": 4.8,
+              "modificationTime": "2026-05-08T12:59:51.566928Z"
+            }
+          ],
+          "cvssSources": [
+            {
+              "type": "primary",
+              "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:H/VA:N/SC:N/SI:N/SA:N/E:P",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 8.2,
+              "cvssVersion": "4.0",
+              "modificationTime": "2026-05-12T14:03:56.412031Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N/E:P",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 7.5,
+              "cvssVersion": "3.1",
+              "modificationTime": "2026-05-12T14:03:56.412031Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:H/A:N",
+              "assigner": "NVD",
+              "severity": "high",
+              "baseScore": 7.5,
+              "cvssVersion": "3.1",
+              "modificationTime": "2026-05-12T01:14:02.230690Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:L/A:L",
+              "assigner": "Red Hat",
+              "severity": "medium",
+              "baseScore": 4.8,
+              "cvssVersion": "3.1",
+              "modificationTime": "2026-05-08T12:59:51.566928Z"
+            }
+          ],
+          "description": "## Overview\n[uuid](https://github.com/kelektiv/node-uuid) is a RFC4122 (v1, v4, and v5) compliant UUID library.\n\nAffected versions of this package are vulnerable to Improper Validation of Specified Index, Position, or Offset in Input due to accepting external output buffers but not rejecting out-of-range writes (small `buf` or large `offset`). This inconsistency allows silent partial writes into caller-provided buffers.\n## PoC\n```\r\ncd /home/StrawHat/uuid\r\nnpm ci\r\nnpm run build\r\n\r\nnode --input-type=module -e \"\r\nimport {v4,v5,v6} from './dist-node/index.js';\r\nconst ns='6ba7b810-9dad-11d1-80b4-00c04fd430c8';\r\nfor (const [name,fn] of [\r\n  ['v4',()=>v4({},new Uint8Array(8),4)],\r\n  ['v5',()=>v5('x',ns,new Uint8Array(8),4)],\r\n  ['v6',()=>v6({},new Uint8Array(8),4)],\r\n]) {\r\n  try { fn(); console.log(name,'NO_THROW'); }\r\n  catch(e){ console.log(name,'THREW',e.name); }\r\n}\"\r\n```\n## Remediation\nUpgrade `uuid` to version 11.1.1, 14.0.0 or higher.\n## References\n- [GitHub Commit](https://github.com/uuidjs/uuid/commit/32389c887c9e75f90442ee4cc95bbab0c4e8346e)\n- [GitHub Commit](https://github.com/uuidjs/uuid/commit/3d2c5b0342f0fcb52a5ac681c3d47c13e7444b34)\n- [GitHub Release](https://github.com/uuidjs/uuid/releases/tag/v14.0.0)\n",
+          "epssDetails": {
+            "percentile": "0.12049",
+            "probability": "0.00040",
+            "modelVersion": "v2025.03.14"
+          },
+          "identifiers": {
+            "CVE": [
+              "CVE-2026-41907"
+            ],
+            "CWE": [
+              "CWE-1285"
+            ],
+            "GHSA": [
+              "GHSA-w5hq-g745-h8pq"
+            ]
+          },
+          "packageName": "uuid",
+          "proprietary": false,
+          "creationTime": "2026-04-23T08:34:15.552273Z",
+          "functions_new": [],
+          "alternativeIds": [],
+          "disclosureTime": "2026-04-18T21:00:00Z",
+          "exploitDetails": {
+            "sources": [
+              "Snyk"
+            ],
+            "maturityLevels": [
+              {
+                "type": "secondary",
+                "level": "Proof of Concept",
+                "format": "CVSSv3"
+              },
+              {
+                "type": "primary",
+                "level": "Proof of Concept",
+                "format": "CVSSv4"
+              }
+            ]
+          },
+          "packageManager": "npm",
+          "publicationTime": "2026-04-23T08:34:16.017476Z",
+          "severityBasedOn": "CVSS",
+          "modificationTime": "2026-05-12T14:03:56.412031Z",
+          "socialTrendAlert": false,
+          "packagePopularityRank": 99,
+          "from": [
+            "package.json@*",
+            "@kilocode/plugin@7.2.48",
+            "effect@4.0.0-beta.57",
+            "uuid@13.0.2"
+          ],
+          "upgradePath": [],
+          "isUpgradable": false,
+          "isPatchable": false,
+          "isPinnable": false,
+          "isRuntime": false,
+          "name": "uuid",
+          "version": "13.0.2",
+          "severityWithCritical": "high"
+        }
+      ],
+      "upgrade": {},
+      "patch": {},
+      "ignore": {},
+      "pin": {}
+    },
+    "filesystemPolicy": false,
+    "filtered": {
+      "ignore": [],
+      "patch": []
+    },
+    "uniqueCount": 1,
+    "projectName": "package.json",
+    "foundProjectCount": 16,
+    "displayTargetFile": ".kilo\\package-lock.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 1,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pip",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "karank_engine",
+    "foundProjectCount": 16,
+    "displayTargetFile": "apps\\backend\\editor-runtime\\karank_engine\\requirements.txt",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 92,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "mistral-ocr-mcp-server",
+    "foundProjectCount": 16,
+    "displayTargetFile": "apps\\backend\\src\\ocr-arabic-pdf-to-txt-pipeline\\mcp-server\\pnpm-lock.yaml",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 0,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "npm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "package.json",
+    "foundProjectCount": 16,
+    "displayTargetFile": "apps\\web\\.next\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 0,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "npm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "package.json",
+    "foundProjectCount": 16,
+    "displayTargetFile": "apps\\web\\.next\\types\\package.json",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy"
+  },
+  {
+    "vulnerabilities": [
+      {
+        "id": "SNYK-PYTHON-LXML-16119103",
+        "title": "XML External Entity (XXE) Injection",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+        "credit": [
+          "Qiu Sihao"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[,6.1.0)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "6.1.0"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "python",
+        "severity": "high",
+        "cvssScore": 8.7,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "lxml",
+        "references": [
+          {
+            "url": "https://github.com/lxml/lxml/security/advisories/GHSA-vfmq-68hx-4jfw",
+            "title": "GitHub Advisory"
+          },
+          {
+            "url": "https://github.com/lxml/lxml/commit/ab431ea0b9a7357d968f1d1c5c614649e9aaf358",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/lxml/lxml/releases/tag/lxml-6.1.0",
+            "title": "GitHub Release"
+          },
+          {
+            "url": "https://bugs.launchpad.net/lxml/%2Bbug/2146291",
+            "title": "Launchpad Bug"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.9,
+            "modificationTime": "2026-04-29T05:18:41.831136Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.7,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-04-29T05:18:41.831136Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-04-29T05:18:41.831136Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "baseScore": 5.9,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-04-29T05:18:41.831136Z"
+          }
+        ],
+        "description": "## Overview\n\nAffected versions of this package are vulnerable to XML External Entity (XXE) Injection via the `iterparse` or `ETCompatXMLParser` functions when `resolve_entities` is set to allow external entities. An attacker can access local files by providing crafted XML input containing external entity references. \n\n## Workaround \n\nThis vulnerability can be mitigated by explicitly setting the `resolve_entities` option to `resolve_entities='internal'` or `resolve_entities=False`.\n\n## Details\nXXE Injection is a type of attack against an application that parses XML input.\nXML is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable. By default, many XML processors allow specification of an external entity, a URI that is dereferenced and evaluated during XML processing. When an XML document is being parsed, the parser can make a request and include the content at the specified URI inside of the XML document.\n\nAttacks can include disclosing local files, which may contain sensitive data such as passwords or private user data, using file: schemes or relative paths in the system identifier.\n\nFor example, below is a sample XML document, containing an XML element- username.\n\n```\n<xml>\n<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n   <username>John</username>\n</xml>\n```\n\nAn external XML entity - `xxe`, is defined using a system identifier and present within a DOCTYPE header. These entities can access local or remote content. For example the below code contains an external XML entity that would fetch the content of  `/etc/passwd` and display it to the user rendered by `username`.\n\n```\n<xml>\n<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<!DOCTYPE foo [\n   <!ENTITY xxe SYSTEM \"file:///etc/passwd\" >]>\n   <username>&xxe;</username>\n</xml>\n```\n\nOther XXE Injection attacks can access local resources that may not stop returning data, possibly impacting application availability and leading to Denial of Service.\n\n## Remediation\nUpgrade `lxml` to version 6.1.0 or higher.\n## References\n- [GitHub Advisory](https://github.com/lxml/lxml/security/advisories/GHSA-vfmq-68hx-4jfw)\n- [GitHub Commit](https://github.com/lxml/lxml/commit/ab431ea0b9a7357d968f1d1c5c614649e9aaf358)\n- [GitHub Release](https://github.com/lxml/lxml/releases/tag/lxml-6.1.0)\n- [Launchpad Bug](https://bugs.launchpad.net/lxml/+bug/2146291)\n",
+        "epssDetails": {
+          "percentile": "0.12186",
+          "probability": "0.00041",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2026-41066"
+          ],
+          "CWE": [
+            "CWE-611"
+          ],
+          "GHSA": [
+            "GHSA-vfmq-68hx-4jfw"
+          ]
+        },
+        "packageName": "lxml",
+        "proprietary": false,
+        "creationTime": "2026-04-22T07:31:12.911358Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-04-21T20:38:44Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "pip",
+        "publicationTime": "2026-04-22T07:31:13.225163Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-04-29T05:18:41.831136Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "backend@0.0.0",
+          "lxml@6.0.2"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "lxml",
+        "version": "6.0.2"
+      },
+      {
+        "id": "SNYK-PYTHON-LXML-16119103",
+        "title": "XML External Entity (XXE) Injection",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+        "credit": [
+          "Qiu Sihao"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[,6.1.0)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "6.1.0"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "python",
+        "severity": "high",
+        "cvssScore": 8.7,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "lxml",
+        "references": [
+          {
+            "url": "https://github.com/lxml/lxml/security/advisories/GHSA-vfmq-68hx-4jfw",
+            "title": "GitHub Advisory"
+          },
+          {
+            "url": "https://github.com/lxml/lxml/commit/ab431ea0b9a7357d968f1d1c5c614649e9aaf358",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/lxml/lxml/releases/tag/lxml-6.1.0",
+            "title": "GitHub Release"
+          },
+          {
+            "url": "https://bugs.launchpad.net/lxml/%2Bbug/2146291",
+            "title": "Launchpad Bug"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "cvssV3BaseScore": 5.9,
+            "modificationTime": "2026-04-29T05:18:41.831136Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.7,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-04-29T05:18:41.831136Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-04-29T05:18:41.831136Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+            "assigner": "Red Hat",
+            "severity": "medium",
+            "baseScore": 5.9,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-04-29T05:18:41.831136Z"
+          }
+        ],
+        "description": "## Overview\n\nAffected versions of this package are vulnerable to XML External Entity (XXE) Injection via the `iterparse` or `ETCompatXMLParser` functions when `resolve_entities` is set to allow external entities. An attacker can access local files by providing crafted XML input containing external entity references. \n\n## Workaround \n\nThis vulnerability can be mitigated by explicitly setting the `resolve_entities` option to `resolve_entities='internal'` or `resolve_entities=False`.\n\n## Details\nXXE Injection is a type of attack against an application that parses XML input.\nXML is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable. By default, many XML processors allow specification of an external entity, a URI that is dereferenced and evaluated during XML processing. When an XML document is being parsed, the parser can make a request and include the content at the specified URI inside of the XML document.\n\nAttacks can include disclosing local files, which may contain sensitive data such as passwords or private user data, using file: schemes or relative paths in the system identifier.\n\nFor example, below is a sample XML document, containing an XML element- username.\n\n```\n<xml>\n<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n   <username>John</username>\n</xml>\n```\n\nAn external XML entity - `xxe`, is defined using a system identifier and present within a DOCTYPE header. These entities can access local or remote content. For example the below code contains an external XML entity that would fetch the content of  `/etc/passwd` and display it to the user rendered by `username`.\n\n```\n<xml>\n<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<!DOCTYPE foo [\n   <!ENTITY xxe SYSTEM \"file:///etc/passwd\" >]>\n   <username>&xxe;</username>\n</xml>\n```\n\nOther XXE Injection attacks can access local resources that may not stop returning data, possibly impacting application availability and leading to Denial of Service.\n\n## Remediation\nUpgrade `lxml` to version 6.1.0 or higher.\n## References\n- [GitHub Advisory](https://github.com/lxml/lxml/security/advisories/GHSA-vfmq-68hx-4jfw)\n- [GitHub Commit](https://github.com/lxml/lxml/commit/ab431ea0b9a7357d968f1d1c5c614649e9aaf358)\n- [GitHub Release](https://github.com/lxml/lxml/releases/tag/lxml-6.1.0)\n- [Launchpad Bug](https://bugs.launchpad.net/lxml/+bug/2146291)\n",
+        "epssDetails": {
+          "percentile": "0.12186",
+          "probability": "0.00041",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2026-41066"
+          ],
+          "CWE": [
+            "CWE-611"
+          ],
+          "GHSA": [
+            "GHSA-vfmq-68hx-4jfw"
+          ]
+        },
+        "packageName": "lxml",
+        "proprietary": false,
+        "creationTime": "2026-04-22T07:31:12.911358Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-04-21T20:38:44Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "pip",
+        "publicationTime": "2026-04-22T07:31:13.225163Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-04-29T05:18:41.831136Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "backend@0.0.0",
+          "python-docx@1.2.0",
+          "lxml@6.0.2"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "lxml",
+        "version": "6.0.2"
+      },
+      {
+        "id": "SNYK-PYTHON-PYPDF-15353400",
+        "title": "Allocation of Resources Without Limits or Throttling",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+        "credit": [
+          "bekkaze"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[,6.7.3)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "6.7.3"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "python",
+        "severity": "high",
+        "cvssScore": 8.7,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "pypdf",
+        "references": [
+          {
+            "url": "https://github.com/py-pdf/pypdf/commit/7a4c8246ed48d9d328fb596942271da47b6d109c",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/py-pdf/pypdf/pull/3658",
+            "title": "GitHub PR"
+          },
+          {
+            "url": "https://github.com/py-pdf/pypdf/releases/tag/6.7.3",
+            "title": "GitHub Release"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "NVD",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "cvssV3BaseScore": 7.5,
+            "modificationTime": "2026-02-28T01:19:41.311495Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.7,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-05-05T14:02:35.221356Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-05-05T14:02:35.221356Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "NVD",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-02-28T01:19:41.311495Z"
+          }
+        ],
+        "description": "## Overview\n[pypdf](https://pypi.org/project/pypdf) is an A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files\n\nAffected versions of this package are vulnerable to Allocation of Resources Without Limits or Throttling via the `xfa` property of the reader or the writer when the corresponding streams compressed with `/FlateDecode`. An attacker can cause excessive memory consumption by supplying a specially crafted PDF file.\n## Remediation\nUpgrade `pypdf` to version 6.7.3 or higher.\n## References\n- [GitHub Commit](https://github.com/py-pdf/pypdf/commit/7a4c8246ed48d9d328fb596942271da47b6d109c)\n- [GitHub PR](https://github.com/py-pdf/pypdf/pull/3658)\n- [GitHub Release](https://github.com/py-pdf/pypdf/releases/tag/6.7.3)\n",
+        "epssDetails": {
+          "percentile": "0.16821",
+          "probability": "0.00055",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2026-27888"
+          ],
+          "CWE": [
+            "CWE-770"
+          ],
+          "GHSA": [
+            "GHSA-x7hp-r3qg-r3cj"
+          ]
+        },
+        "packageName": "pypdf",
+        "proprietary": false,
+        "creationTime": "2026-02-26T09:17:33.782456Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-02-26T03:13:37Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "pip",
+        "publicationTime": "2026-02-26T14:18:01.716640Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-05-05T14:02:35.221356Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "backend@0.0.0",
+          "pypdf@6.6.2"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "pypdf",
+        "version": "6.6.2"
+      },
+      {
+        "id": "SNYK-PYTHON-PYPDF-15766701",
+        "title": "Infinite loop",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+        "credit": [
+          "Kevin Cao"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[,6.9.2)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "6.9.2"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "python",
+        "severity": "high",
+        "cvssScore": 8.2,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "pypdf",
+        "references": [
+          {
+            "url": "https://github.com/py-pdf/pypdf/security/advisories/GHSA-87mj-5ggw-8qc3",
+            "title": "GitHub Advisory"
+          },
+          {
+            "url": "https://github.com/py-pdf/pypdf/commit/02b1345f77fdbc006faccc301507df4fb1855413",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/py-pdf/pypdf/pull/3693",
+            "title": "GitHub PR"
+          },
+          {
+            "url": "https://github.com/py-pdf/pypdf/releases/tag/6.9.2",
+            "title": "GitHub Release"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "NVD",
+            "severity": "high",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "cvssV3BaseScore": 7.5,
+            "modificationTime": "2026-04-02T01:30:02.660812Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.2,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-04-02T01:30:02.660812Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 5.9,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-04-02T01:30:02.660812Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "NVD",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-04-02T01:30:02.660812Z"
+          }
+        ],
+        "description": "## Overview\n[pypdf](https://pypi.org/project/pypdf) is an A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files\n\nAffected versions of this package are vulnerable to Infinite loop in the `read_from_stream` function of `DictionaryObject`. An attacker can cause the application to enter an infinite loop by providing a specially crafted PDF file when the file is read in non-strict mode.\n\n**Note:**\n\nThis is only exploitable if non-strict mode is enabled.\n## Remediation\nUpgrade `pypdf` to version 6.9.2 or higher.\n## References\n- [GitHub Advisory](https://github.com/py-pdf/pypdf/security/advisories/GHSA-87mj-5ggw-8qc3)\n- [GitHub Commit](https://github.com/py-pdf/pypdf/commit/02b1345f77fdbc006faccc301507df4fb1855413)\n- [GitHub PR](https://github.com/py-pdf/pypdf/pull/3693)\n- [GitHub Release](https://github.com/py-pdf/pypdf/releases/tag/6.9.2)\n",
+        "epssDetails": {
+          "percentile": "0.04254",
+          "probability": "0.00017",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2026-33699"
+          ],
+          "CWE": [
+            "CWE-835"
+          ],
+          "GHSA": [
+            "GHSA-87mj-5ggw-8qc3"
+          ]
+        },
+        "packageName": "pypdf",
+        "proprietary": false,
+        "creationTime": "2026-03-26T12:29:12.997278Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-03-25T20:05:22Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "pip",
+        "publicationTime": "2026-03-26T12:29:13.249804Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-04-02T01:30:02.660812Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "backend@0.0.0",
+          "pypdf@6.6.2"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "pypdf",
+        "version": "6.6.2"
+      },
+      {
+        "id": "SNYK-PYTHON-PYPDF-16081092",
+        "title": "Improper Validation of Specified Quantity in Input",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+        "credit": [
+          "alpakalee"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[,6.10.1)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "6.10.1"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "python",
+        "severity": "high",
+        "cvssScore": 7.1,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "pypdf",
+        "references": [
+          {
+            "url": "https://github.com/py-pdf/pypdf/commit/62338e9d36419cf193ccec7331784f45df1d70b3",
+            "title": "GitHub Commit"
+          },
+          {
+            "url": "https://github.com/py-pdf/pypdf/pull/3733",
+            "title": "GitHub PR"
+          },
+          {
+            "url": "https://github.com/py-pdf/pypdf/releases/tag/6.10.1",
+            "title": "GitHub Release"
+          },
+          {
+            "url": "https://github.com/py-pdf/pypdf/security/advisories/GHSA-jj6c-8h6c-hppx",
+            "title": "Maintainer's Advisory"
+          }
+        ],
+        "cvssDetails": [
+          {
+            "assigner": "NVD",
+            "severity": "medium",
+            "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "cvssV3BaseScore": 5.3,
+            "modificationTime": "2026-04-25T01:19:26.618023Z"
+          }
+        ],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 7.1,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-04-25T01:19:26.618023Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+            "assigner": "Snyk",
+            "severity": "medium",
+            "baseScore": 6.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-04-25T01:19:26.618023Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+            "assigner": "NVD",
+            "severity": "medium",
+            "baseScore": 5.3,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-04-25T01:19:26.618023Z"
+          }
+        ],
+        "description": "## Overview\n[pypdf](https://pypi.org/project/pypdf) is an A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files\n\nAffected versions of this package are vulnerable to Improper Validation of Specified Quantity in Input through the `PdfReader` object stream and xref stream parsers in `pypdf/_reader.py`. An attacker can trigger excessive allocation and recursive page/object processing by supplying a crafted PDF with oversized `/N` or `/Index` values in an object stream or cross-reference stream. This can crash or hang the parser as it tries to read far more entries than the stream contains, preventing the user from opening the document and consuming CPU and memory during parsing.\n## Remediation\nUpgrade `pypdf` to version 6.10.1 or higher.\n## References\n- [GitHub Commit](https://github.com/py-pdf/pypdf/commit/62338e9d36419cf193ccec7331784f45df1d70b3)\n- [GitHub PR](https://github.com/py-pdf/pypdf/pull/3733)\n- [GitHub Release](https://github.com/py-pdf/pypdf/releases/tag/6.10.1)\n- [Maintainer's Advisory](https://github.com/py-pdf/pypdf/security/advisories/GHSA-jj6c-8h6c-hppx)\n",
+        "epssDetails": {
+          "percentile": "0.14637",
+          "probability": "0.00048",
+          "modelVersion": "v2025.03.14"
+        },
+        "identifiers": {
+          "CVE": [
+            "CVE-2026-41168"
+          ],
+          "CWE": [
+            "CWE-1284",
+            "CWE-770"
+          ],
+          "GHSA": [
+            "GHSA-jj6c-8h6c-hppx"
+          ]
+        },
+        "packageName": "pypdf",
+        "proprietary": false,
+        "creationTime": "2026-04-16T09:30:22.371889Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-04-15T19:43:09Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "pip",
+        "publicationTime": "2026-04-21T14:48:18.639620Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-04-25T01:19:26.618023Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "backend@0.0.0",
+          "pypdf@6.6.2"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "pypdf",
+        "version": "6.6.2"
+      },
+      {
+        "id": "SNYK-PYTHON-PYTHONMULTIPART-16438952",
+        "title": "Allocation of Resources Without Limits or Throttling",
+        "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+        "credit": [
+          "SinhSinh An,intadd"
+        ],
+        "semver": {
+          "vulnerable": [
+            "[,0.0.27)"
+          ]
+        },
+        "exploit": "Not Defined",
+        "fixedIn": [
+          "0.0.27"
+        ],
+        "patches": [],
+        "insights": {
+          "triageAdvice": null
+        },
+        "language": "python",
+        "severity": "high",
+        "cvssScore": 8.7,
+        "functions": [],
+        "malicious": false,
+        "isDisputed": false,
+        "moduleName": "python-multipart",
+        "references": [
+          {
+            "url": "https://github.com/Kludex/python-multipart/security/advisories/GHSA-pp6c-gr5w-3c5g",
+            "title": "GitHub Advisory"
+          },
+          {
+            "url": "https://github.com/Kludex/python-multipart/commit/3e64f5f8caba0e5d391b0c1ad0f1c2edf9e8f911",
+            "title": "GitHub Commit"
+          }
+        ],
+        "cvssDetails": [],
+        "cvssSources": [
+          {
+            "type": "primary",
+            "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 8.7,
+            "cvssVersion": "4.0",
+            "modificationTime": "2026-05-07T09:59:28.800412Z"
+          },
+          {
+            "type": "secondary",
+            "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+            "assigner": "Snyk",
+            "severity": "high",
+            "baseScore": 7.5,
+            "cvssVersion": "3.1",
+            "modificationTime": "2026-05-07T09:59:28.800412Z"
+          }
+        ],
+        "description": "## Overview\n[python-multipart](https://pypi.org/project/python-multipart) is an A streaming multipart parser for Python\n\nAffected versions of this package are vulnerable to Allocation of Resources Without Limits or Throttling when parsing multipart headers in `MultipartParser`, which can hang without failing in the following states: `HEADER_FIELD_START`, `HEADER_FIELD`, `HEADER_VALUE_START`, `HEADER_VALUE`, and `HEADER_VALUE_ALMOST_DONE`. An attacker can cause excessive CPU consumption and disrupt service availability by sending requests with either a very large individual header value or numerous repeated headers without terminating the header block.\n## Remediation\nUpgrade `python-multipart` to version 0.0.27 or higher.\n## References\n- [GitHub Advisory](https://github.com/Kludex/python-multipart/security/advisories/GHSA-pp6c-gr5w-3c5g)\n- [GitHub Commit](https://github.com/Kludex/python-multipart/commit/3e64f5f8caba0e5d391b0c1ad0f1c2edf9e8f911)\n",
+        "epssDetails": null,
+        "identifiers": {
+          "CVE": [
+            "CVE-2026-42561"
+          ],
+          "CWE": [
+            "CWE-770"
+          ],
+          "GHSA": [
+            "GHSA-pp6c-gr5w-3c5g"
+          ]
+        },
+        "packageName": "python-multipart",
+        "proprietary": false,
+        "creationTime": "2026-05-07T09:59:28.390043Z",
+        "functions_new": [],
+        "alternativeIds": [],
+        "disclosureTime": "2026-05-06T21:56:14Z",
+        "exploitDetails": {
+          "sources": [],
+          "maturityLevels": [
+            {
+              "type": "secondary",
+              "level": "Not Defined",
+              "format": "CVSSv3"
+            },
+            {
+              "type": "primary",
+              "level": "Not Defined",
+              "format": "CVSSv4"
+            }
+          ]
+        },
+        "packageManager": "pip",
+        "publicationTime": "2026-05-07T09:59:28.633084Z",
+        "severityBasedOn": "CVSS",
+        "modificationTime": "2026-05-07T09:59:28.800412Z",
+        "socialTrendAlert": false,
+        "severityWithCritical": "high",
+        "from": [
+          "backend@0.0.0",
+          "python-multipart@0.0.22"
+        ],
+        "upgradePath": [],
+        "isUpgradable": false,
+        "isPatchable": false,
+        "name": "python-multipart",
+        "version": "0.0.22"
+      }
+    ],
+    "ok": false,
+    "dependencyCount": 23,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pip",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "6 high or critical severity vulnerable dependency paths",
+    "severityThreshold": "high",
+    "remediation": {
+      "unresolved": [
+        {
+          "id": "SNYK-PYTHON-LXML-16119103",
+          "title": "XML External Entity (XXE) Injection",
+          "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+          "credit": [
+            "Qiu Sihao"
+          ],
+          "semver": {
+            "vulnerable": [
+              "[,6.1.0)"
+            ]
+          },
+          "exploit": "Not Defined",
+          "fixedIn": [
+            "6.1.0"
+          ],
+          "patches": [],
+          "insights": {
+            "triageAdvice": null
+          },
+          "language": "python",
+          "severity": "high",
+          "cvssScore": 8.7,
+          "functions": [],
+          "malicious": false,
+          "isDisputed": false,
+          "moduleName": "lxml",
+          "references": [
+            {
+              "url": "https://github.com/lxml/lxml/security/advisories/GHSA-vfmq-68hx-4jfw",
+              "title": "GitHub Advisory"
+            },
+            {
+              "url": "https://github.com/lxml/lxml/commit/ab431ea0b9a7357d968f1d1c5c614649e9aaf358",
+              "title": "GitHub Commit"
+            },
+            {
+              "url": "https://github.com/lxml/lxml/releases/tag/lxml-6.1.0",
+              "title": "GitHub Release"
+            },
+            {
+              "url": "https://bugs.launchpad.net/lxml/%2Bbug/2146291",
+              "title": "Launchpad Bug"
+            }
+          ],
+          "cvssDetails": [
+            {
+              "assigner": "Red Hat",
+              "severity": "medium",
+              "cvssV3Vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "cvssV3BaseScore": 5.9,
+              "modificationTime": "2026-04-29T05:18:41.831136Z"
+            }
+          ],
+          "cvssSources": [
+            {
+              "type": "primary",
+              "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:H/VI:N/VA:N/SC:N/SI:N/SA:N",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 8.7,
+              "cvssVersion": "4.0",
+              "modificationTime": "2026-04-29T05:18:41.831136Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 7.5,
+              "cvssVersion": "3.1",
+              "modificationTime": "2026-04-29T05:18:41.831136Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:N/A:N",
+              "assigner": "Red Hat",
+              "severity": "medium",
+              "baseScore": 5.9,
+              "cvssVersion": "3.1",
+              "modificationTime": "2026-04-29T05:18:41.831136Z"
+            }
+          ],
+          "description": "## Overview\n\nAffected versions of this package are vulnerable to XML External Entity (XXE) Injection via the `iterparse` or `ETCompatXMLParser` functions when `resolve_entities` is set to allow external entities. An attacker can access local files by providing crafted XML input containing external entity references. \n\n## Workaround \n\nThis vulnerability can be mitigated by explicitly setting the `resolve_entities` option to `resolve_entities='internal'` or `resolve_entities=False`.\n\n## Details\nXXE Injection is a type of attack against an application that parses XML input.\nXML is a markup language that defines a set of rules for encoding documents in a format that is both human-readable and machine-readable. By default, many XML processors allow specification of an external entity, a URI that is dereferenced and evaluated during XML processing. When an XML document is being parsed, the parser can make a request and include the content at the specified URI inside of the XML document.\n\nAttacks can include disclosing local files, which may contain sensitive data such as passwords or private user data, using file: schemes or relative paths in the system identifier.\n\nFor example, below is a sample XML document, containing an XML element- username.\n\n```\n<xml>\n<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n   <username>John</username>\n</xml>\n```\n\nAn external XML entity - `xxe`, is defined using a system identifier and present within a DOCTYPE header. These entities can access local or remote content. For example the below code contains an external XML entity that would fetch the content of  `/etc/passwd` and display it to the user rendered by `username`.\n\n```\n<xml>\n<?xml version=\"1.0\" encoding=\"ISO-8859-1\"?>\n<!DOCTYPE foo [\n   <!ENTITY xxe SYSTEM \"file:///etc/passwd\" >]>\n   <username>&xxe;</username>\n</xml>\n```\n\nOther XXE Injection attacks can access local resources that may not stop returning data, possibly impacting application availability and leading to Denial of Service.\n\n## Remediation\nUpgrade `lxml` to version 6.1.0 or higher.\n## References\n- [GitHub Advisory](https://github.com/lxml/lxml/security/advisories/GHSA-vfmq-68hx-4jfw)\n- [GitHub Commit](https://github.com/lxml/lxml/commit/ab431ea0b9a7357d968f1d1c5c614649e9aaf358)\n- [GitHub Release](https://github.com/lxml/lxml/releases/tag/lxml-6.1.0)\n- [Launchpad Bug](https://bugs.launchpad.net/lxml/+bug/2146291)\n",
+          "epssDetails": {
+            "percentile": "0.12186",
+            "probability": "0.00041",
+            "modelVersion": "v2025.03.14"
+          },
+          "identifiers": {
+            "CVE": [
+              "CVE-2026-41066"
+            ],
+            "CWE": [
+              "CWE-611"
+            ],
+            "GHSA": [
+              "GHSA-vfmq-68hx-4jfw"
+            ]
+          },
+          "packageName": "lxml",
+          "proprietary": false,
+          "creationTime": "2026-04-22T07:31:12.911358Z",
+          "functions_new": [],
+          "alternativeIds": [],
+          "disclosureTime": "2026-04-21T20:38:44Z",
+          "exploitDetails": {
+            "sources": [],
+            "maturityLevels": [
+              {
+                "type": "secondary",
+                "level": "Not Defined",
+                "format": "CVSSv3"
+              },
+              {
+                "type": "primary",
+                "level": "Not Defined",
+                "format": "CVSSv4"
+              }
+            ]
+          },
+          "packageManager": "pip",
+          "publicationTime": "2026-04-22T07:31:13.225163Z",
+          "severityBasedOn": "CVSS",
+          "modificationTime": "2026-04-29T05:18:41.831136Z",
+          "socialTrendAlert": false,
+          "packagePopularityRank": 99,
+          "from": [
+            "backend@0.0.0",
+            "python-docx@1.2.0",
+            "lxml@6.0.2"
+          ],
+          "upgradePath": [],
+          "isUpgradable": false,
+          "isPatchable": false,
+          "isPinnable": true,
+          "isRuntime": false,
+          "name": "lxml",
+          "version": "6.0.2",
+          "severityWithCritical": "high"
+        },
+        {
+          "id": "SNYK-PYTHON-PYPDF-15353400",
+          "title": "Allocation of Resources Without Limits or Throttling",
+          "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "credit": [
+            "bekkaze"
+          ],
+          "semver": {
+            "vulnerable": [
+              "[,6.7.3)"
+            ]
+          },
+          "exploit": "Not Defined",
+          "fixedIn": [
+            "6.7.3"
+          ],
+          "patches": [],
+          "insights": {
+            "triageAdvice": null
+          },
+          "language": "python",
+          "severity": "high",
+          "cvssScore": 8.7,
+          "functions": [],
+          "malicious": false,
+          "isDisputed": false,
+          "moduleName": "pypdf",
+          "references": [
+            {
+              "url": "https://github.com/py-pdf/pypdf/commit/7a4c8246ed48d9d328fb596942271da47b6d109c",
+              "title": "GitHub Commit"
+            },
+            {
+              "url": "https://github.com/py-pdf/pypdf/pull/3658",
+              "title": "GitHub PR"
+            },
+            {
+              "url": "https://github.com/py-pdf/pypdf/releases/tag/6.7.3",
+              "title": "GitHub Release"
+            }
+          ],
+          "cvssDetails": [
+            {
+              "assigner": "NVD",
+              "severity": "high",
+              "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "cvssV3BaseScore": 7.5,
+              "modificationTime": "2026-02-28T01:19:41.311495Z"
+            }
+          ],
+          "cvssSources": [
+            {
+              "type": "primary",
+              "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 8.7,
+              "cvssVersion": "4.0",
+              "modificationTime": "2026-05-05T14:02:35.221356Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 7.5,
+              "cvssVersion": "3.1",
+              "modificationTime": "2026-05-05T14:02:35.221356Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "assigner": "NVD",
+              "severity": "high",
+              "baseScore": 7.5,
+              "cvssVersion": "3.1",
+              "modificationTime": "2026-02-28T01:19:41.311495Z"
+            }
+          ],
+          "description": "## Overview\n[pypdf](https://pypi.org/project/pypdf) is an A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files\n\nAffected versions of this package are vulnerable to Allocation of Resources Without Limits or Throttling via the `xfa` property of the reader or the writer when the corresponding streams compressed with `/FlateDecode`. An attacker can cause excessive memory consumption by supplying a specially crafted PDF file.\n## Remediation\nUpgrade `pypdf` to version 6.7.3 or higher.\n## References\n- [GitHub Commit](https://github.com/py-pdf/pypdf/commit/7a4c8246ed48d9d328fb596942271da47b6d109c)\n- [GitHub PR](https://github.com/py-pdf/pypdf/pull/3658)\n- [GitHub Release](https://github.com/py-pdf/pypdf/releases/tag/6.7.3)\n",
+          "epssDetails": {
+            "percentile": "0.16821",
+            "probability": "0.00055",
+            "modelVersion": "v2025.03.14"
+          },
+          "identifiers": {
+            "CVE": [
+              "CVE-2026-27888"
+            ],
+            "CWE": [
+              "CWE-770"
+            ],
+            "GHSA": [
+              "GHSA-x7hp-r3qg-r3cj"
+            ]
+          },
+          "packageName": "pypdf",
+          "proprietary": false,
+          "creationTime": "2026-02-26T09:17:33.782456Z",
+          "functions_new": [],
+          "alternativeIds": [],
+          "disclosureTime": "2026-02-26T03:13:37Z",
+          "exploitDetails": {
+            "sources": [],
+            "maturityLevels": [
+              {
+                "type": "secondary",
+                "level": "Not Defined",
+                "format": "CVSSv3"
+              },
+              {
+                "type": "primary",
+                "level": "Not Defined",
+                "format": "CVSSv4"
+              }
+            ]
+          },
+          "packageManager": "pip",
+          "publicationTime": "2026-02-26T14:18:01.716640Z",
+          "severityBasedOn": "CVSS",
+          "modificationTime": "2026-05-05T14:02:35.221356Z",
+          "socialTrendAlert": false,
+          "packagePopularityRank": 99,
+          "from": [
+            "backend@0.0.0",
+            "pypdf@6.6.2"
+          ],
+          "upgradePath": [],
+          "isUpgradable": false,
+          "isPatchable": false,
+          "isPinnable": true,
+          "isRuntime": false,
+          "name": "pypdf",
+          "version": "6.6.2",
+          "severityWithCritical": "high"
+        },
+        {
+          "id": "SNYK-PYTHON-PYPDF-15766701",
+          "title": "Infinite loop",
+          "CVSSv3": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "credit": [
+            "Kevin Cao"
+          ],
+          "semver": {
+            "vulnerable": [
+              "[,6.9.2)"
+            ]
+          },
+          "exploit": "Not Defined",
+          "fixedIn": [
+            "6.9.2"
+          ],
+          "patches": [],
+          "insights": {
+            "triageAdvice": null
+          },
+          "language": "python",
+          "severity": "high",
+          "cvssScore": 8.2,
+          "functions": [],
+          "malicious": false,
+          "isDisputed": false,
+          "moduleName": "pypdf",
+          "references": [
+            {
+              "url": "https://github.com/py-pdf/pypdf/security/advisories/GHSA-87mj-5ggw-8qc3",
+              "title": "GitHub Advisory"
+            },
+            {
+              "url": "https://github.com/py-pdf/pypdf/commit/02b1345f77fdbc006faccc301507df4fb1855413",
+              "title": "GitHub Commit"
+            },
+            {
+              "url": "https://github.com/py-pdf/pypdf/pull/3693",
+              "title": "GitHub PR"
+            },
+            {
+              "url": "https://github.com/py-pdf/pypdf/releases/tag/6.9.2",
+              "title": "GitHub Release"
+            }
+          ],
+          "cvssDetails": [
+            {
+              "assigner": "NVD",
+              "severity": "high",
+              "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "cvssV3BaseScore": 7.5,
+              "modificationTime": "2026-04-02T01:30:02.660812Z"
+            }
+          ],
+          "cvssSources": [
+            {
+              "type": "primary",
+              "vector": "CVSS:4.0/AV:N/AC:L/AT:P/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 8.2,
+              "cvssVersion": "4.0",
+              "modificationTime": "2026-04-02T01:30:02.660812Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "assigner": "Snyk",
+              "severity": "medium",
+              "baseScore": 5.9,
+              "cvssVersion": "3.1",
+              "modificationTime": "2026-04-02T01:30:02.660812Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "assigner": "NVD",
+              "severity": "high",
+              "baseScore": 7.5,
+              "cvssVersion": "3.1",
+              "modificationTime": "2026-04-02T01:30:02.660812Z"
+            }
+          ],
+          "description": "## Overview\n[pypdf](https://pypi.org/project/pypdf) is an A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files\n\nAffected versions of this package are vulnerable to Infinite loop in the `read_from_stream` function of `DictionaryObject`. An attacker can cause the application to enter an infinite loop by providing a specially crafted PDF file when the file is read in non-strict mode.\n\n**Note:**\n\nThis is only exploitable if non-strict mode is enabled.\n## Remediation\nUpgrade `pypdf` to version 6.9.2 or higher.\n## References\n- [GitHub Advisory](https://github.com/py-pdf/pypdf/security/advisories/GHSA-87mj-5ggw-8qc3)\n- [GitHub Commit](https://github.com/py-pdf/pypdf/commit/02b1345f77fdbc006faccc301507df4fb1855413)\n- [GitHub PR](https://github.com/py-pdf/pypdf/pull/3693)\n- [GitHub Release](https://github.com/py-pdf/pypdf/releases/tag/6.9.2)\n",
+          "epssDetails": {
+            "percentile": "0.04254",
+            "probability": "0.00017",
+            "modelVersion": "v2025.03.14"
+          },
+          "identifiers": {
+            "CVE": [
+              "CVE-2026-33699"
+            ],
+            "CWE": [
+              "CWE-835"
+            ],
+            "GHSA": [
+              "GHSA-87mj-5ggw-8qc3"
+            ]
+          },
+          "packageName": "pypdf",
+          "proprietary": false,
+          "creationTime": "2026-03-26T12:29:12.997278Z",
+          "functions_new": [],
+          "alternativeIds": [],
+          "disclosureTime": "2026-03-25T20:05:22Z",
+          "exploitDetails": {
+            "sources": [],
+            "maturityLevels": [
+              {
+                "type": "secondary",
+                "level": "Not Defined",
+                "format": "CVSSv3"
+              },
+              {
+                "type": "primary",
+                "level": "Not Defined",
+                "format": "CVSSv4"
+              }
+            ]
+          },
+          "packageManager": "pip",
+          "publicationTime": "2026-03-26T12:29:13.249804Z",
+          "severityBasedOn": "CVSS",
+          "modificationTime": "2026-04-02T01:30:02.660812Z",
+          "socialTrendAlert": false,
+          "packagePopularityRank": 99,
+          "from": [
+            "backend@0.0.0",
+            "pypdf@6.6.2"
+          ],
+          "upgradePath": [],
+          "isUpgradable": false,
+          "isPatchable": false,
+          "isPinnable": true,
+          "isRuntime": false,
+          "name": "pypdf",
+          "version": "6.6.2",
+          "severityWithCritical": "high"
+        },
+        {
+          "id": "SNYK-PYTHON-PYPDF-16081092",
+          "title": "Improper Validation of Specified Quantity in Input",
+          "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+          "credit": [
+            "alpakalee"
+          ],
+          "semver": {
+            "vulnerable": [
+              "[,6.10.1)"
+            ]
+          },
+          "exploit": "Not Defined",
+          "fixedIn": [
+            "6.10.1"
+          ],
+          "patches": [],
+          "insights": {
+            "triageAdvice": null
+          },
+          "language": "python",
+          "severity": "high",
+          "cvssScore": 7.1,
+          "functions": [],
+          "malicious": false,
+          "isDisputed": false,
+          "moduleName": "pypdf",
+          "references": [
+            {
+              "url": "https://github.com/py-pdf/pypdf/commit/62338e9d36419cf193ccec7331784f45df1d70b3",
+              "title": "GitHub Commit"
+            },
+            {
+              "url": "https://github.com/py-pdf/pypdf/pull/3733",
+              "title": "GitHub PR"
+            },
+            {
+              "url": "https://github.com/py-pdf/pypdf/releases/tag/6.10.1",
+              "title": "GitHub Release"
+            },
+            {
+              "url": "https://github.com/py-pdf/pypdf/security/advisories/GHSA-jj6c-8h6c-hppx",
+              "title": "Maintainer's Advisory"
+            }
+          ],
+          "cvssDetails": [
+            {
+              "assigner": "NVD",
+              "severity": "medium",
+              "cvssV3Vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "cvssV3BaseScore": 5.3,
+              "modificationTime": "2026-04-25T01:19:26.618023Z"
+            }
+          ],
+          "cvssSources": [
+            {
+              "type": "primary",
+              "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:P/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 7.1,
+              "cvssVersion": "4.0",
+              "modificationTime": "2026-04-25T01:19:26.618023Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:N/I:N/A:H",
+              "assigner": "Snyk",
+              "severity": "medium",
+              "baseScore": 6.5,
+              "cvssVersion": "3.1",
+              "modificationTime": "2026-04-25T01:19:26.618023Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:L",
+              "assigner": "NVD",
+              "severity": "medium",
+              "baseScore": 5.3,
+              "cvssVersion": "3.1",
+              "modificationTime": "2026-04-25T01:19:26.618023Z"
+            }
+          ],
+          "description": "## Overview\n[pypdf](https://pypi.org/project/pypdf) is an A pure-python PDF library capable of splitting, merging, cropping, and transforming PDF files\n\nAffected versions of this package are vulnerable to Improper Validation of Specified Quantity in Input through the `PdfReader` object stream and xref stream parsers in `pypdf/_reader.py`. An attacker can trigger excessive allocation and recursive page/object processing by supplying a crafted PDF with oversized `/N` or `/Index` values in an object stream or cross-reference stream. This can crash or hang the parser as it tries to read far more entries than the stream contains, preventing the user from opening the document and consuming CPU and memory during parsing.\n## Remediation\nUpgrade `pypdf` to version 6.10.1 or higher.\n## References\n- [GitHub Commit](https://github.com/py-pdf/pypdf/commit/62338e9d36419cf193ccec7331784f45df1d70b3)\n- [GitHub PR](https://github.com/py-pdf/pypdf/pull/3733)\n- [GitHub Release](https://github.com/py-pdf/pypdf/releases/tag/6.10.1)\n- [Maintainer's Advisory](https://github.com/py-pdf/pypdf/security/advisories/GHSA-jj6c-8h6c-hppx)\n",
+          "epssDetails": {
+            "percentile": "0.14637",
+            "probability": "0.00048",
+            "modelVersion": "v2025.03.14"
+          },
+          "identifiers": {
+            "CVE": [
+              "CVE-2026-41168"
+            ],
+            "CWE": [
+              "CWE-1284",
+              "CWE-770"
+            ],
+            "GHSA": [
+              "GHSA-jj6c-8h6c-hppx"
+            ]
+          },
+          "packageName": "pypdf",
+          "proprietary": false,
+          "creationTime": "2026-04-16T09:30:22.371889Z",
+          "functions_new": [],
+          "alternativeIds": [],
+          "disclosureTime": "2026-04-15T19:43:09Z",
+          "exploitDetails": {
+            "sources": [],
+            "maturityLevels": [
+              {
+                "type": "secondary",
+                "level": "Not Defined",
+                "format": "CVSSv3"
+              },
+              {
+                "type": "primary",
+                "level": "Not Defined",
+                "format": "CVSSv4"
+              }
+            ]
+          },
+          "packageManager": "pip",
+          "publicationTime": "2026-04-21T14:48:18.639620Z",
+          "severityBasedOn": "CVSS",
+          "modificationTime": "2026-04-25T01:19:26.618023Z",
+          "socialTrendAlert": false,
+          "packagePopularityRank": 99,
+          "from": [
+            "backend@0.0.0",
+            "pypdf@6.6.2"
+          ],
+          "upgradePath": [],
+          "isUpgradable": false,
+          "isPatchable": false,
+          "isPinnable": true,
+          "isRuntime": false,
+          "name": "pypdf",
+          "version": "6.6.2",
+          "severityWithCritical": "high"
+        },
+        {
+          "id": "SNYK-PYTHON-PYTHONMULTIPART-16438952",
+          "title": "Allocation of Resources Without Limits or Throttling",
+          "CVSSv3": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+          "credit": [
+            "SinhSinh An,intadd"
+          ],
+          "semver": {
+            "vulnerable": [
+              "[,0.0.27)"
+            ]
+          },
+          "exploit": "Not Defined",
+          "fixedIn": [
+            "0.0.27"
+          ],
+          "patches": [],
+          "insights": {
+            "triageAdvice": null
+          },
+          "language": "python",
+          "severity": "high",
+          "cvssScore": 8.7,
+          "functions": [],
+          "malicious": false,
+          "isDisputed": false,
+          "moduleName": "python-multipart",
+          "references": [
+            {
+              "url": "https://github.com/Kludex/python-multipart/security/advisories/GHSA-pp6c-gr5w-3c5g",
+              "title": "GitHub Advisory"
+            },
+            {
+              "url": "https://github.com/Kludex/python-multipart/commit/3e64f5f8caba0e5d391b0c1ad0f1c2edf9e8f911",
+              "title": "GitHub Commit"
+            }
+          ],
+          "cvssDetails": [],
+          "cvssSources": [
+            {
+              "type": "primary",
+              "vector": "CVSS:4.0/AV:N/AC:L/AT:N/PR:N/UI:N/VC:N/VI:N/VA:H/SC:N/SI:N/SA:N",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 8.7,
+              "cvssVersion": "4.0",
+              "modificationTime": "2026-05-07T09:59:28.800412Z"
+            },
+            {
+              "type": "secondary",
+              "vector": "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+              "assigner": "Snyk",
+              "severity": "high",
+              "baseScore": 7.5,
+              "cvssVersion": "3.1",
+              "modificationTime": "2026-05-07T09:59:28.800412Z"
+            }
+          ],
+          "description": "## Overview\n[python-multipart](https://pypi.org/project/python-multipart) is an A streaming multipart parser for Python\n\nAffected versions of this package are vulnerable to Allocation of Resources Without Limits or Throttling when parsing multipart headers in `MultipartParser`, which can hang without failing in the following states: `HEADER_FIELD_START`, `HEADER_FIELD`, `HEADER_VALUE_START`, `HEADER_VALUE`, and `HEADER_VALUE_ALMOST_DONE`. An attacker can cause excessive CPU consumption and disrupt service availability by sending requests with either a very large individual header value or numerous repeated headers without terminating the header block.\n## Remediation\nUpgrade `python-multipart` to version 0.0.27 or higher.\n## References\n- [GitHub Advisory](https://github.com/Kludex/python-multipart/security/advisories/GHSA-pp6c-gr5w-3c5g)\n- [GitHub Commit](https://github.com/Kludex/python-multipart/commit/3e64f5f8caba0e5d391b0c1ad0f1c2edf9e8f911)\n",
+          "epssDetails": null,
+          "identifiers": {
+            "CVE": [
+              "CVE-2026-42561"
+            ],
+            "CWE": [
+              "CWE-770"
+            ],
+            "GHSA": [
+              "GHSA-pp6c-gr5w-3c5g"
+            ]
+          },
+          "packageName": "python-multipart",
+          "proprietary": false,
+          "creationTime": "2026-05-07T09:59:28.390043Z",
+          "functions_new": [],
+          "alternativeIds": [],
+          "disclosureTime": "2026-05-06T21:56:14Z",
+          "exploitDetails": {
+            "sources": [],
+            "maturityLevels": [
+              {
+                "type": "secondary",
+                "level": "Not Defined",
+                "format": "CVSSv3"
+              },
+              {
+                "type": "primary",
+                "level": "Not Defined",
+                "format": "CVSSv4"
+              }
+            ]
+          },
+          "packageManager": "pip",
+          "publicationTime": "2026-05-07T09:59:28.633084Z",
+          "severityBasedOn": "CVSS",
+          "modificationTime": "2026-05-07T09:59:28.800412Z",
+          "socialTrendAlert": false,
+          "packagePopularityRank": 99,
+          "from": [
+            "backend@0.0.0",
+            "python-multipart@0.0.22"
+          ],
+          "upgradePath": [],
+          "isUpgradable": false,
+          "isPatchable": false,
+          "isPinnable": true,
+          "isRuntime": false,
+          "name": "python-multipart",
+          "version": "0.0.22",
+          "severityWithCritical": "high"
+        }
+      ],
+      "upgrade": {},
+      "patch": {},
+      "ignore": {},
+      "pin": {
+        "lxml@6.0.2": {
+          "upgradeTo": "lxml@6.1.0",
+          "vulns": [
+            "SNYK-PYTHON-LXML-16119103"
+          ],
+          "isTransitive": false
+        },
+        "pypdf@6.6.2": {
+          "upgradeTo": "pypdf@6.10.1",
+          "vulns": [
+            "SNYK-PYTHON-PYPDF-15353400",
+            "SNYK-PYTHON-PYPDF-15766701",
+            "SNYK-PYTHON-PYPDF-16081092"
+          ],
+          "isTransitive": false
+        },
+        "python-multipart@0.0.22": {
+          "upgradeTo": "python-multipart@0.0.27",
+          "vulns": [
+            "SNYK-PYTHON-PYTHONMULTIPART-16438952"
+          ],
+          "isTransitive": false
+        }
+      }
+    },
+    "filesystemPolicy": false,
+    "filtered": {
+      "ignore": [],
+      "patch": []
+    },
+    "uniqueCount": 5,
+    "projectName": "backend",
+    "foundProjectCount": 16,
+    "displayTargetFile": "apps\\web\\src\\app\\(main)\\directors-studio\\director_copilot_arabic_mvp_runtime_pack\\backend\\requirements.txt",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy"
+  },
+  {
+    "vulnerabilities": [],
+    "ok": true,
+    "dependencyCount": 92,
+    "org": "mohamedamin.radyahmed",
+    "policy": "# Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.\nversion: v1.25.1\nignore: {}\npatch: {}\n",
+    "isPrivate": true,
+    "licensesPolicy": {
+      "severities": {},
+      "orgLicenseRules": {
+        "AGPL-1.0": {
+          "licenseType": "AGPL-1.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "AGPL-3.0": {
+          "licenseType": "AGPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "Artistic-1.0": {
+          "licenseType": "Artistic-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "Artistic-2.0": {
+          "licenseType": "Artistic-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CDDL-1.0": {
+          "licenseType": "CDDL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "CPOL-1.02": {
+          "licenseType": "CPOL-1.02",
+          "severity": "high",
+          "instructions": ""
+        },
+        "EPL-1.0": {
+          "licenseType": "EPL-1.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "GPL-2.0": {
+          "licenseType": "GPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "GPL-3.0": {
+          "licenseType": "GPL-3.0",
+          "severity": "high",
+          "instructions": ""
+        },
+        "LGPL-2.0": {
+          "licenseType": "LGPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-2.1": {
+          "licenseType": "LGPL-2.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "LGPL-3.0": {
+          "licenseType": "LGPL-3.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-1.1": {
+          "licenseType": "MPL-1.1",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MPL-2.0": {
+          "licenseType": "MPL-2.0",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "MS-RL": {
+          "licenseType": "MS-RL",
+          "severity": "medium",
+          "instructions": ""
+        },
+        "SimPL-2.0": {
+          "licenseType": "SimPL-2.0",
+          "severity": "high",
+          "instructions": ""
+        }
+      }
+    },
+    "packageManager": "pnpm",
+    "ignoreSettings": {
+      "adminOnly": false,
+      "reasonRequired": false,
+      "disregardFilesystemIgnores": false
+    },
+    "summary": "No high or critical severity vulnerabilities",
+    "severityThreshold": "high",
+    "filesystemPolicy": false,
+    "uniqueCount": 0,
+    "projectName": "mistral-ocr-mcp-server",
+    "foundProjectCount": 16,
+    "displayTargetFile": "apps\\web\\src\\mcp\\ocr-arabic-pdf-to-txt-pipeline-server\\pnpm-lock.yaml",
+    "hasUnknownVersions": false,
+    "path": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy"
+  }
+]

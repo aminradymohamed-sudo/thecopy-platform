@@ -1,0 +1,116 @@
+/**
+ * Performance Optimizer Component
+ *
+ * Provides performance optimizations including:
+ * - Image lazy loading
+ * - Resource hints
+ * - Component code splitting
+ */
+
+"use client";
+
+import { usePathname, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
+
+import { createModuleLogger } from "@/lib/logger";
+
+const logger = createModuleLogger("components.performance-optimizer");
+
+// Extend Window interface for TypeScript
+declare global {
+  interface Window {
+    gtag?: (...args: unknown[]) => void;
+  }
+}
+
+/**
+ * Track page views and performance metrics
+ */
+export function PerformanceOptimizer() {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    // Report Web Vitals on route change
+    if (typeof window !== "undefined" && "performance" in window) {
+      // Log navigation timing
+      const navigationTiming = performance.getEntriesByType("navigation")[0]!;
+
+      if (navigationTiming) {
+        const pageLoadTime =
+          navigationTiming.loadEventEnd - navigationTiming.fetchStart;
+        logger.info({ pageLoadTime, pathname }, "page load time");
+
+        // Report to analytics if needed
+        if (window.gtag) {
+          window.gtag("event", "page_load_time", {
+            value: pageLoadTime,
+            page_path: pathname,
+          });
+        }
+      }
+    }
+  }, [pathname, searchParams]);
+
+  useEffect(() => {
+    // Implement Intersection Observer for lazy loading images
+    if ("IntersectionObserver" in window) {
+      const imageObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const img = entry.target as HTMLImageElement;
+              const src = img.dataset["src"];
+
+              if (src) {
+                img.src = src;
+                img.removeAttribute("data-src");
+                imageObserver.unobserve(img);
+              }
+            }
+          });
+        },
+        {
+          rootMargin: "50px 0px",
+          threshold: 0.01,
+        }
+      );
+
+      // Observe all images with data-src attribute
+      document.querySelectorAll("img[data-src]").forEach((img) => {
+        imageObserver.observe(img);
+      });
+
+      return () => {
+        imageObserver.disconnect();
+      };
+    }
+
+    return undefined;
+  }, [pathname]);
+
+  return null;
+}
+
+/**
+ * Preload critical resources
+ */
+export function PreloadResources() {
+  return (
+    <>
+      {/* Preload critical CSS */}
+      <link
+        rel="preload"
+        href="/fonts/literata.woff2"
+        as="font"
+        type="font/woff2"
+        crossOrigin="anonymous"
+      />
+
+      {/* Prefetch for next likely navigation */}
+      <link rel="prefetch" href="/api/health" />
+    </>
+  );
+}
+
+export default PerformanceOptimizer;

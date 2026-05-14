@@ -1,0 +1,160 @@
+{
+  "route": "/art-director",
+  "trace": [
+    {
+      "step": 8,
+      "tag": "a",
+      "role": null,
+      "label": "العودة للصفحة الرئيسية",
+      "visible": true
+    },
+    {
+      "step": 9,
+      "tag": "a",
+      "role": null,
+      "label": "كتابة",
+      "visible": true
+    },
+    {
+      "step": 10,
+      "tag": "a",
+      "role": null,
+      "label": "استوديو الكتابة",
+      "visible": true
+    },
+    {
+      "step": 11,
+      "tag": "a",
+      "role": null,
+      "label": "استوديو الإخراج",
+      "visible": true
+    },
+    {
+      "step": 12,
+      "tag": "a",
+      "role": null,
+      "label": "استوديو السينما",
+      "visible": true
+    },
+    {
+      "step": 13,
+      "tag": "a",
+      "role": null,
+      "label": "المحطات",
+      "visible": true
+    },
+    {
+      "step": 14,
+      "tag": "a",
+      "role": null,
+      "label": "المختبر",
+      "visible": true
+    },
+    {
+      "step": 15,
+      "tag": "a",
+      "role": null,
+      "label": "الورشة",
+      "visible": true
+    },
+    {
+      "step": 16,
+      "tag": "div",
+      "role": "tablist",
+      "label": "التنقل الرئيسي",
+      "visible": true
+    },
+    {
+      "step": 17,
+      "tag": "button",
+      "role": "tab",
+      "label": "لوحة التحكم",
+      "visible": true
+    },
+    {
+      "step": 18,
+      "tag": "button",
+      "role": null,
+      "label": "إنشاء Mood Board: لوحة إلهام بصرية جديدة",
+      "visible": true
+    },
+    {
+      "step": 19,
+      "tag": "button",
+      "role": null,
+      "label": "إضافة موقع: تسجيل موقع تصوير جديد",
+      "visible": true
+    },
+    {
+      "step": 20,
+      "tag": "button",
+      "role": null,
+      "label": "تحليل ديكور: فحص إعادة الاستخدام",
+      "visible": true
+    },
+    {
+      "step": 21,
+      "tag": "button",
+      "role": null,
+      "label": "إنشاء تقرير: توليد كتاب الإنتاج",
+      "visible": true
+    },
+    {
+      "step": 23,
+      "tag": "a",
+      "role": null,
+      "label": "العودة للصفحة الرئيسية",
+      "visible": true
+    },
+    {
+      "step": 24,
+      "tag": "a",
+      "role": null,
+      "label": "كتابة",
+      "visible": true
+    },
+    {
+      "step": 25,
+      "tag": "a",
+      "role": null,
+      "label": "استوديو الكتابة",
+      "visible": true
+    },
+    {
+      "step": 26,
+      "tag": "a",
+      "role": null,
+      "label": "استوديو الإخراج",
+      "visible": true
+    },
+    {
+      "step": 27,
+      "tag": "a",
+      "role": null,
+      "label": "استوديو السينما",
+      "visible": true
+    },
+    {
+      "step": 28,
+      "tag": "a",
+      "role": null,
+      "label": "المحطات",
+      "visible": true
+    },
+    {
+      "step": 29,
+      "tag": "a",
+      "role": null,
+      "label": "المختبر",
+      "visible": true
+    },
+    {
+      "step": 30,
+      "tag": "a",
+      "role": null,
+      "label": "الورشة",
+      "visible": true
+    }
+  ],
+  "totalSteps": 22
+}

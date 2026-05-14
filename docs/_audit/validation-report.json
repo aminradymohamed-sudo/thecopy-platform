@@ -1,0 +1,32 @@
+{
+  "timestamp": "2026-05-10T22:46:07.540Z",
+  "checks": {
+    "coverage": {
+      "status": "pass",
+      "coverage": "100.00",
+      "missingFiles": 0
+    },
+    "drift": {
+      "status": "error",
+      "error": "Drift report not found"
+    },
+    "linting": {
+      "status": "pass",
+      "message": "Markdown linting passed"
+    },
+    "links": {
+      "status": "pass",
+      "message": "Link validation passed"
+    },
+    "openapi": {
+      "status": "pass",
+      "message": "OpenAPI validation passed"
+    },
+    "mermaid": {
+      "status": "pass",
+      "message": "Mermaid diagram validation passed"
+    }
+  },
+  "overallStatus": "pass",
+  "score": 100
+}

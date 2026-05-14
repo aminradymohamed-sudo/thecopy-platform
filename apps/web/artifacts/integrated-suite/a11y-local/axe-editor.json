@@ -1,0 +1,132 @@
+{
+  "target": {
+    "id": "editor",
+    "path": "/editor"
+  },
+  "timestamp": "2026-05-10T02:47:28.071Z",
+  "url": "http://localhost:6080/editor",
+  "violations": [
+    {
+      "id": "landmark-banner-is-top-level",
+      "impact": "moderate",
+      "tags": ["cat.semantics", "best-practice"],
+      "description": "Ensure the banner landmark is at top level",
+      "help": "Banner landmark should not be contained in another landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-banner-is-top-level?application=playwright",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "landmark-is-top-level",
+              "data": {
+                "role": "banner"
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "The banner landmark is contained in another landmark."
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<header class=\"app-header relative z-40 flex h-[68px] flex-shrink-0 items-center justify-between px-6\" data-app-menu-root=\"true\" data-testid=\"app-header\" role=\"banner\">",
+          "target": ["header"],
+          "failureSummary": "Fix any of the following:\n  The banner landmark is contained in another landmark."
+        }
+      ]
+    },
+    {
+      "id": "landmark-contentinfo-is-top-level",
+      "impact": "moderate",
+      "tags": ["cat.semantics", "best-practice"],
+      "description": "Ensure the contentinfo landmark is at top level",
+      "help": "Contentinfo landmark should not be contained in another landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-contentinfo-is-top-level?application=playwright",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "landmark-is-top-level",
+              "data": {
+                "role": "contentinfo"
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "The contentinfo landmark is contained in another landmark."
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<footer class=\"app-footer pointer-events-none relative z-30 flex-shrink-0 px-6 pt-2 pb-4 text-[11px]\" data-testid=\"app-footer\" role=\"contentinfo\" aria-label=\"شريط إحصائيات المستند\" style=\"direction: rtl;\">",
+          "target": ["footer"],
+          "failureSummary": "Fix any of the following:\n  The contentinfo landmark is contained in another landmark."
+        }
+      ]
+    },
+    {
+      "id": "landmark-main-is-top-level",
+      "impact": "moderate",
+      "tags": ["cat.semantics", "best-practice"],
+      "description": "Ensure the main landmark is at top level",
+      "help": "Main landmark should not be contained in another landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-main-is-top-level?application=playwright",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "landmark-is-top-level",
+              "data": {
+                "role": "main"
+              },
+              "relatedNodes": [],
+              "impact": "moderate",
+              "message": "The main landmark is contained in another landmark."
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<main class=\"app-editor-main relative flex min-w-0 flex-1 flex-col overflow-hidden\">",
+          "target": [".app-editor-main"],
+          "failureSummary": "Fix any of the following:\n  The main landmark is contained in another landmark."
+        }
+      ]
+    },
+    {
+      "id": "landmark-no-duplicate-main",
+      "impact": "moderate",
+      "tags": ["cat.semantics", "best-practice"],
+      "description": "Ensure the document has at most one main landmark",
+      "help": "Document should not have more than one main landmark",
+      "helpUrl": "https://dequeuniversity.com/rules/axe/4.11/landmark-no-duplicate-main?application=playwright",
+      "nodes": [
+        {
+          "any": [
+            {
+              "id": "page-no-duplicate-main",
+              "data": null,
+              "relatedNodes": [
+                {
+                  "html": "<main class=\"app-editor-main relative flex min-w-0 flex-1 flex-col overflow-hidden\">",
+                  "target": [".app-editor-main"]
+                }
+              ],
+              "impact": "moderate",
+              "message": "Document has more than one main landmark"
+            }
+          ],
+          "all": [],
+          "none": [],
+          "impact": "moderate",
+          "html": "<main role=\"main\" data-editor-sheet=\"true\" aria-label=\"محرر النص الإبداعي\" class=\"relative h-screen\">",
+          "target": ["main[role=\"main\"]"],
+          "failureSummary": "Fix any of the following:\n  Document has more than one main landmark"
+        }
+      ]
+    }
+  ],
+  "passes": 35,
+  "incomplete": 2,
+  "inapplicable": 51
+}

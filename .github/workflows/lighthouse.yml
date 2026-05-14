@@ -1,0 +1,102 @@
+name: Lighthouse Audit
+
+on:
+  pull_request:
+    branches: [main, develop]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+  pull-requests: write
+
+concurrency:
+  group: lighthouse-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+env:
+  PNPM_VERSION: "10.33.3"
+  FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+  TURBO_TELEMETRY_DISABLED: "1"
+  NEXT_TELEMETRY_DISABLED: "1"
+
+jobs:
+  lighthouse:
+    name: Lighthouse Audit
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v6
+        with:
+          version: ${{ env.PNPM_VERSION }}
+          run_install: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+          cache: pnpm
+          cache-dependency-path: pnpm-lock.yaml
+
+      - name: Install dependencies
+        env:
+          SECRETS_JSON: ${{ toJson(secrets) }}
+        run: |
+          export TIPTAP_PRO_TOKEN="$(echo "$SECRETS_JSON" | jq -r '.TIPTAP_PRO_TOKEN // empty')"
+          pnpm install --frozen-lockfile
+
+      - name: Install Chrome for Testing
+        run: pnpm --filter @the-copy/web exec npx @puppeteer/browsers install chrome@stable
+
+      - name: Resolve Chrome path
+        id: chrome
+        run: |
+          CHROME_PATH="$(pnpm --filter @the-copy/web exec npx @puppeteer/browsers install chrome@stable 2>/dev/null | tail -n 1 | tr -d '\r')"
+          echo "CHROME_PATH=$CHROME_PATH"
+          echo "CHROME_PATH=$CHROME_PATH" >> "$GITHUB_ENV"
+
+      - name: Run Lighthouse CI
+        run: pnpm --filter @the-copy/web exec lhci autorun
+        env:
+          CHROME_PATH: ${{ env.CHROME_PATH }}
+          LHCI_GITHUB_APP_TOKEN: ${{ secrets.LHCI_GITHUB_APP_TOKEN }}
+
+      - name: Upload Lighthouse report
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: lighthouse-report
+          path: apps/web/.lighthouseci/
+          retention-days: 7
+
+      - name: Comment PR with Lighthouse results
+        if: github.event_name == 'pull_request' && always()
+        uses: actions/github-script@v9
+        with:
+          script: |
+            const fs = require('fs');
+            const path = require('path');
+            const lhciDir = 'apps/web/.lighthouseci';
+            const files = fs.readdirSync(lhciDir).filter(f => f.endsWith('.json'));
+            if (files.length === 0) return;
+            const latest = files.sort().reverse()[0];
+            const lhr = JSON.parse(fs.readFileSync(path.join(lhciDir, latest), 'utf8'));
+            const categories = lhr.categories;
+            const body = `## Lighthouse Report
+            | Category | Score |
+            | --- | --- |
+            | Performance | ${Math.round(categories.performance.score * 100)} |
+            | Accessibility | ${Math.round(categories.accessibility.score * 100)} |
+            | Best Practices | ${Math.round(categories['best-practices'].score * 100)} |
+            | SEO | ${Math.round(categories.seo.score * 100)} |
+            `;
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body
+            });

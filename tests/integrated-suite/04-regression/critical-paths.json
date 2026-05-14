@@ -1,0 +1,100 @@
+{
+  "$schema": "./critical-paths.schema.json",
+  "name": "the-copy.regression.critical-paths",
+  "version": "1.0.0",
+  "policy": "any path removed from this list requires explicit product owner sign-off in output/round-notes.md",
+
+  "criticalPaths": [
+    {
+      "id": "CP-001",
+      "name": "Auth — login + logout",
+      "specs": [
+        "apps/web/tests/e2e/breakapp-qr-login.spec.ts"
+      ],
+      "owner": "auth-team"
+    },
+    {
+      "id": "CP-002",
+      "name": "Project — analysis flow",
+      "specs": [
+        "apps/web/tests/e2e/analysis-public-flow.spec.ts",
+        "apps/web/tests/e2e/analysis-rate-limit.integration.spec.ts"
+      ],
+      "owner": "analysis-team"
+    },
+    {
+      "id": "CP-003",
+      "name": "Breakdown — script analysis",
+      "specs": [
+        "apps/web/tests/e2e/breakdown-analysis.spec.ts",
+        "apps/web/tests/e2e/breakdown-error-classification.integration.spec.ts",
+        "apps/web/tests/e2e/breakdown-sessions.spec.ts"
+      ],
+      "owner": "breakdown-team"
+    },
+    {
+      "id": "CP-004",
+      "name": "Cinematography studio",
+      "specs": [
+        "apps/web/tests/e2e/cinematography-studio.e2e.spec.ts",
+        "apps/web/tests/e2e/decoupage-smoke.spec.ts"
+      ],
+      "owner": "cinematography-team"
+    },
+    {
+      "id": "CP-005",
+      "name": "ActorAI Arabic",
+      "specs": [
+        "apps/web/tests/e2e/actorai-arabic-analyze.integration.spec.ts",
+        "apps/web/tests/e2e/actorai-arabic-studio-smoke.spec.ts",
+        "apps/web/tests/e2e/actorai-media-fallback.spec.ts"
+      ],
+      "owner": "actorai-team"
+    },
+    {
+      "id": "CP-006",
+      "name": "Art Director",
+      "specs": [
+        "apps/web/tests/e2e/art-director.spec.ts",
+        "apps/web/tests/e2e/art-director-isolation.integration.spec.ts",
+        "apps/web/tests/e2e/art-director-regression.spec.ts"
+      ],
+      "owner": "art-director-team"
+    },
+    {
+      "id": "CP-007",
+      "name": "Brain Storm",
+      "specs": [
+        "apps/web/tests/e2e/brainstorm-sessions.spec.ts"
+      ],
+      "owner": "brainstorm-team"
+    },
+    {
+      "id": "CP-008",
+      "name": "Editor Flow",
+      "specs": [
+        "apps/web/tests/e2e/directors-editor-flow.e2e.spec.ts"
+      ],
+      "owner": "editor-team"
+    },
+    {
+      "id": "CP-009",
+      "name": "Budget runtime",
+      "specs": [
+        "apps/web/tests/e2e/budget-runtime.spec.ts",
+        "apps/web/tests/integration/budget-routes.integration.test.ts",
+        "apps/backend/tests/integration/budget-runtime.integration.test.ts"
+      ],
+      "owner": "budget-team"
+    },
+    {
+      "id": "CP-010",
+      "name": "Development tools",
+      "specs": [
+        "apps/web/tests/e2e/development-empty-response.integration.spec.ts",
+        "apps/web/tests/e2e/development-tool-execution.spec.ts"
+      ],
+      "owner": "development-team"
+    }
+  ]
+}

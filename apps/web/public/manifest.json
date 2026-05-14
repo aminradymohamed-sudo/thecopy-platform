@@ -1,0 +1,52 @@
+{
+  "name": "TheCopy Platform — منصة الكتابة الإبداعية",
+  "short_name": "TheCopy",
+  "description": "منصة عربية متكاملة للكتابة الإبداعية والإنتاج السينمائي مدعومة بالذكاء الاصطناعي",
+  "lang": "ar",
+  "dir": "rtl",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#0a0e1a",
+  "theme_color": "#0a0e1a",
+  "categories": ["productivity", "education", "entertainment"],
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "محرر النص",
+      "short_name": "Editor",
+      "description": "افتح محرر النص الإبداعي",
+      "url": "/editor",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "ورشة الكتابة الإبداعية",
+      "short_name": "Studio",
+      "description": "افتح استوديو الكتابة الإبداعية العربية",
+      "url": "/arabic-creative-writing-studio",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    },
+    {
+      "name": "استوديو المخرجين",
+      "short_name": "Directors",
+      "description": "افتح استوديو المخرجين",
+      "url": "/directors-studio",
+      "icons": [{ "src": "/icon.svg", "sizes": "any" }]
+    }
+  ],
+  "prefer_related_applications": false
+}

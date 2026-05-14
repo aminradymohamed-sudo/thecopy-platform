@@ -1,0 +1,17 @@
+{
+  "extends": "./tsconfig.check.json",
+  "compilerOptions": {
+    "noEmit": true
+  },
+  "include": [
+    "next-env.d.ts",
+    "src/env.d.ts",
+    "src/global.d.ts",
+    "src/**/*.ts",
+    "src/**/*.tsx",
+    "src/**/*.js",
+    "src/**/*.mjs",
+    "src/**/*.cjs"
+  ],
+  "exclude": ["node_modules", ".next", "out", "dist", "build", "coverage"]
+}
