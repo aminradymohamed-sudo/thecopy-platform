@@ -51,6 +51,87 @@ regex = '''(?i)bearer\s+[A-Za-z0-9._~+/=-]{20,}'''
 tags = ["auth", "token"]
 
 # ===================================================================
+# Provider-specific API key rules (AI / infra vendors)
+# ===================================================================
+
+[[rules]]
+id = "anthropic-api-key"
+description = "Anthropic API key"
+regex = '''sk-ant-[a-zA-Z0-9_-]{20,}'''
+keywords = ["sk-ant"]
+tags = ["api-key", "anthropic"]
+
+[[rules]]
+id = "openai-api-key"
+description = "OpenAI API key"
+regex = '''sk-[a-zA-Z0-9]{40,}'''
+keywords = ["sk-"]
+tags = ["api-key", "openai"]
+
+[[rules]]
+id = "openai-project-key"
+description = "OpenAI project-scoped key"
+regex = '''sk-proj-[a-zA-Z0-9_-]{40,}'''
+keywords = ["sk-proj"]
+tags = ["api-key", "openai"]
+
+[[rules]]
+id = "vercel-token"
+description = "Vercel API token"
+regex = '''(?i)(vercel[_-]?token)[\s=:"']+[a-zA-Z0-9]{24}'''
+keywords = ["VERCEL_TOKEN", "vercel_token"]
+tags = ["api-key", "vercel"]
+
+[[rules]]
+id = "supabase-service-role"
+description = "Supabase service role key"
+regex = '''eyJ[a-zA-Z0-9_-]+\.eyJ[a-zA-Z0-9_-]+\.[a-zA-Z0-9_-]+'''
+keywords = ["service_role", "SUPABASE_SERVICE_ROLE_KEY"]
+tags = ["api-key", "supabase"]
+
+[[rules]]
+id = "google-cloud-service-account"
+description = "Google Cloud service account private key marker"
+regex = '''"type":\s*"service_account"'''
+keywords = ["service_account"]
+tags = ["api-key", "google-cloud"]
+
+[[rules]]
+id = "huggingface-token"
+description = "Hugging Face access token"
+regex = '''hf_[a-zA-Z0-9]{30,}'''
+keywords = ["hf_"]
+tags = ["api-key", "huggingface"]
+
+[[rules]]
+id = "replicate-token"
+description = "Replicate API token"
+regex = '''r8_[a-zA-Z0-9]{30,}'''
+keywords = ["r8_", "REPLICATE_API_TOKEN"]
+tags = ["api-key", "replicate"]
+
+[[rules]]
+id = "fal-key"
+description = "fal.ai API key"
+regex = '''(?i)fal_[a-zA-Z0-9_-]{30,}'''
+keywords = ["fal_", "FAL_KEY"]
+tags = ["api-key", "fal"]
+
+[[rules]]
+id = "mistral-api-key"
+description = "Mistral AI API key"
+regex = '''(?i)(mistral[_-]?api[_-]?key)[\s=:"']+[a-zA-Z0-9]{32,}'''
+keywords = ["MISTRAL_API_KEY"]
+tags = ["api-key", "mistral"]
+
+[[rules]]
+id = "jwt-token-generic"
+description = "JSON Web Token (generic)"
+regex = '''eyJ[A-Za-z0-9_-]+\.eyJ[A-Za-z0-9_-]+\.[A-Za-z0-9_.+/=-]+'''
+keywords = ["eyJ"]
+tags = ["jwt", "token"]
+
+# ===================================================================
 # Allowlist — placeholders and example files
 # ===================================================================
 

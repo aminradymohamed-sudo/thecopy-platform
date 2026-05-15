@@ -1,0 +1,141 @@
+name: E2E Staging
+
+on:
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: "Target environment"
+        required: false
+        default: "staging"
+        type: choice
+        options:
+          - staging
+          - production
+      browsers:
+        description: "Comma-separated browser list"
+        required: false
+        default: "chromium,firefox,edge"
+  schedule:
+    - cron: "0 6 * * *"
+  push:
+    branches: [main]
+    paths:
+      - "packages/thecopy-e2e-tests/**"
+      - "apps/**"
+      - ".github/workflows/e2e-staging.yml"
+
+concurrency:
+  group: e2e-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  e2e:
+    name: E2E (${{ matrix.suite }})
+    runs-on: ubuntu-22.04
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      matrix:
+        suite:
+          - smoke
+          - functional
+          - integration
+          - system
+          - performance
+          - regression
+          - bdd
+          - tdd
+
+    services:
+      selenium-hub:
+        image: selenium/hub:4.43.0-20260404
+        ports:
+          - 4444:4444
+          - 4442:4442
+          - 4443:4443
+        options: >-
+          --health-cmd "curl -fsS http://localhost:4444/wd/hub/status || exit 1"
+          --health-interval 5s
+          --health-timeout 5s
+          --health-retries 30
+      selenium-node-chromium:
+        image: selenium/node-chromium:4.43.0-20260404
+        env:
+          SE_EVENT_BUS_HOST: selenium-hub
+          SE_EVENT_BUS_PUBLISH_PORT: 4442
+          SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
+          SE_NODE_MAX_SESSIONS: 2
+          SE_NODE_OVERRIDE_MAX_SESSIONS: "true"
+        options: --shm-size=2g
+      selenium-node-firefox:
+        image: selenium/node-firefox:4.43.0-20260404
+        env:
+          SE_EVENT_BUS_HOST: selenium-hub
+          SE_EVENT_BUS_PUBLISH_PORT: 4442
+          SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
+          SE_NODE_MAX_SESSIONS: 2
+        options: --shm-size=2g
+      selenium-node-edge:
+        image: selenium/node-edge:4.43.0-20260404
+        env:
+          SE_EVENT_BUS_HOST: selenium-hub
+          SE_EVENT_BUS_PUBLISH_PORT: 4442
+          SE_EVENT_BUS_SUBSCRIBE_PORT: 4443
+          SE_NODE_MAX_SESSIONS: 2
+        options: --shm-size=2g
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.33.3
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+
+      - name: Install dependencies
+        run: pnpm install --filter @thecopy/e2e-tests... --frozen-lockfile=false
+
+      - name: Wait for Selenium Grid
+        env:
+          SELENIUM_HUB_URL: http://localhost:4444
+        run: pnpm --filter @thecopy/e2e-tests grid:status
+
+      - name: Run ${{ matrix.suite }} suite
+        env:
+          TEST_ENV: ${{ inputs.environment || 'staging' }}
+          E2E_BROWSERS: ${{ inputs.browsers || 'chromium,firefox,edge' }}
+          SELENIUM_HUB_URL: http://localhost:4444
+          VERCEL_AUTOMATION_BYPASS_SECRET: ${{ secrets.VERCEL_AUTOMATION_BYPASS_SECRET }}
+          CI: "true"
+        run: pnpm --filter @thecopy/e2e-tests ${{ matrix.suite }}
+
+      - name: Merge Mochawesome reports
+        if: always()
+        run: pnpm --filter @thecopy/e2e-tests report:merge || true
+
+      - name: Upload reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: e2e-${{ matrix.suite }}-${{ github.run_id }}
+          path: |
+            packages/thecopy-e2e-tests/reports/**
+            packages/thecopy-e2e-tests/screenshots/**
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Slack notify on failure
+        if: failure() && env.SLACK_WEBHOOK_URL != ''
+        env:
+          SLACK_WEBHOOK_URL: ${{ secrets.SLACK_WEBHOOK_URL }}
+        run: |
+          curl -X POST -H "Content-Type: application/json" \
+            -d "{\"text\":\"E2E ${{ matrix.suite }} failed on ${{ inputs.environment || 'staging' }} (run ${{ github.run_id }})\"}" \
+            "$SLACK_WEBHOOK_URL"

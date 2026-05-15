@@ -1,0 +1,8 @@
+node_modules/
+dist/
+reports/junit/
+reports/mochawesome/.jsons/
+reports/mochawesome/merged.json
+reports/mochawesome/html/
+screenshots/
+*.log

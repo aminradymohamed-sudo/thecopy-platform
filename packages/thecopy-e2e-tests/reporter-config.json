@@ -1,0 +1,20 @@
+{
+  "reporterEnabled": "spec, mochawesome, mocha-junit-reporter",
+  "mochawesomeReporterOptions": {
+    "reportDir": "reports/mochawesome/.jsons",
+    "reportFilename": "[name]-[datetime]",
+    "timestamp": "yyyymmdd-HHMMss",
+    "html": false,
+    "json": true,
+    "overwrite": false,
+    "quiet": true,
+    "embeddedScreenshots": false,
+    "inlineAssets": false
+  },
+  "mochaJunitReporterReporterOptions": {
+    "mochaFile": "reports/junit/junit-[hash].xml",
+    "toConsole": false,
+    "rootSuiteTitle": "thecopy-e2e",
+    "testsuitesTitle": "thecopy-e2e-system"
+  }
+}

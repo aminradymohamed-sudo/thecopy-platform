@@ -1,0 +1,20 @@
+{
+  "_comment": "خريطة (main) studios من apps/web/src/app/(main) - استخدمها كمصدر حقيقة عند توسيع الاختبارات",
+  "studios": [
+    "actorai-arabic",
+    "analysis",
+    "arabic-creative-writing-studio",
+    "arabic-prompt-engineering-studio",
+    "art-director",
+    "brain-storm-ai",
+    "BREAKAPP",
+    "breakdown",
+    "BUDGET",
+    "cinematography-studio",
+    "development",
+    "directors-studio",
+    "editor",
+    "styleIST",
+    "ui"
+  ]
+}

@@ -1,0 +1,22 @@
+{
+  "name": "@thecopy/selenium-grid-runner",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Distributed multi-browser smoke runner against thecopy.app via Selenium Grid 4 over Podman.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "smoke": "tsx src/smoke-runner.ts",
+    "smoke:report": "tsx src/smoke-runner.ts --emit-html",
+    "grid:status": "tsx src/grid-status.ts"
+  },
+  "dependencies": {
+    "selenium-webdriver": "4.27.0"
+  },
+  "devDependencies": {
+    "@types/node": "22.10.2",
+    "@types/selenium-webdriver": "4.1.28",
+    "tsx": "4.19.2",
+    "typescript": "5.7.2"
+  }
+}

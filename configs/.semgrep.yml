@@ -1,0 +1,169 @@
+# =============================================================================
+# قواعد Semgrep مخصصة لمشروع The Copy
+# مكمّلة لقواعد المجتمع p/security-audit و p/owasp-top-ten
+# =============================================================================
+
+rules:
+  # ---------------------------------------------------------------------------
+  # كشف مفاتيح Anthropic API مكشوفة
+  # ---------------------------------------------------------------------------
+  - id: hardcoded-anthropic-api-key
+    pattern-either:
+      - pattern-regex: 'sk-ant-[a-zA-Z0-9_-]{20,}'
+    message: مفتاح Anthropic API مكشوف في الكود. انقله لمتغير بيئة فوراً
+    languages: [javascript, typescript, python, generic]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: 'CWE-798: Use of Hard-coded Credentials'
+      owasp: 'A07:2021 - Identification and Authentication Failures'
+
+  # ---------------------------------------------------------------------------
+  # كشف مفاتيح OpenAI API مكشوفة
+  # ---------------------------------------------------------------------------
+  - id: hardcoded-openai-api-key
+    pattern-regex: 'sk-[a-zA-Z0-9]{40,}'
+    message: مفتاح OpenAI API مكشوف في الكود
+    languages: [javascript, typescript, python, generic]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: 'CWE-798'
+
+  # ---------------------------------------------------------------------------
+  # منع استخدام eval و Function constructor
+  # ---------------------------------------------------------------------------
+  - id: no-eval-usage
+    pattern-either:
+      - pattern: eval($X)
+      - pattern: new Function($X)
+      - pattern: Function($X)
+    message: استخدام eval أو Function constructor يفتح ثغرة تنفيذ كود
+    languages: [javascript, typescript]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: 'CWE-95: Improper Neutralization of Directives in Dynamically Evaluated Code'
+
+  # ---------------------------------------------------------------------------
+  # منع تعطيل تحقق SSL
+  # ---------------------------------------------------------------------------
+  - id: disabled-ssl-verification
+    pattern-either:
+      - pattern: 'rejectUnauthorized: false'
+      - pattern: 'verify: False'
+      - pattern: 'verify=False'
+      - pattern: 'CURLOPT_SSL_VERIFYPEER, false'
+    message: تعطيل تحقق SSL يفتح الباب لهجمات Man-in-the-Middle
+    languages: [javascript, typescript, python]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: 'CWE-295: Improper Certificate Validation'
+
+  # ---------------------------------------------------------------------------
+  # منع dangerouslySetInnerHTML بدون تنقية
+  # ---------------------------------------------------------------------------
+  - id: react-dangerous-html-without-sanitize
+    pattern: "dangerouslySetInnerHTML={{ __html: $X }}"
+    pattern-not-either:
+      - pattern: "dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize($X) }}"
+      - pattern: "dangerouslySetInnerHTML={{ __html: sanitizeHtml($X) }}"
+    message: استخدام dangerouslySetInnerHTML بدون تنقية يفتح ثغرة XSS
+    languages: [javascript, typescript]
+    severity: WARNING
+    metadata:
+      category: security
+      cwe: 'CWE-79: Improper Neutralization of Input During Web Page Generation'
+
+  # ---------------------------------------------------------------------------
+  # منع استخدام HTTP بدلاً من HTTPS لطلبات خارجية
+  # ---------------------------------------------------------------------------
+  - id: http-without-tls
+    pattern-regex: '["''"]http://(?!localhost|127\.0\.0\.1|0\.0\.0\.0)[a-zA-Z0-9.-]+'
+    message: استخدام HTTP بدلاً من HTTPS لطلب خارجي
+    languages: [javascript, typescript, python]
+    severity: WARNING
+    metadata:
+      category: security
+      cwe: 'CWE-319: Cleartext Transmission of Sensitive Information'
+
+  # ---------------------------------------------------------------------------
+  # منع تخزين كلمات السر في storage بنص ظاهر
+  # ---------------------------------------------------------------------------
+  - id: plaintext-password-storage
+    pattern-either:
+      - pattern: localStorage.setItem("password", ...)
+      - pattern: localStorage.setItem('password', ...)
+      - pattern: sessionStorage.setItem("password", ...)
+      - pattern: sessionStorage.setItem('password', ...)
+    message: تخزين كلمة السر في storage بنص ظاهر
+    languages: [javascript, typescript]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: 'CWE-312: Cleartext Storage of Sensitive Information'
+
+  # ---------------------------------------------------------------------------
+  # منع SQL Injection عبر template literals
+  # ---------------------------------------------------------------------------
+  - id: sql-injection-template-literal
+    pattern-either:
+      - pattern: |
+          $DB.query(`... ${$INPUT} ...`)
+      - pattern: |
+          $DB.execute(`... ${$INPUT} ...`)
+    message: استخدام template literals في استعلامات SQL يفتح ثغرة حقن
+    languages: [javascript, typescript]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: 'CWE-89: SQL Injection'
+
+  # ---------------------------------------------------------------------------
+  # منع استخدام Math.random للأغراض الأمنية
+  # ---------------------------------------------------------------------------
+  - id: insecure-random
+    pattern-either:
+      - pattern: Math.random()
+    message: استخدام Math.random غير آمن للأغراض الأمنية. استخدم crypto.randomBytes
+    languages: [javascript, typescript]
+    severity: WARNING
+    metadata:
+      category: security
+      cwe: 'CWE-338: Use of Cryptographically Weak Pseudo-Random Number Generator'
+
+  # ---------------------------------------------------------------------------
+  # منع استخدام child_process مع input غير موثوق
+  # ---------------------------------------------------------------------------
+  - id: command-injection-risk
+    pattern-either:
+      - pattern: exec($CMD + $INPUT)
+      - pattern: |
+          exec(`... ${$INPUT} ...`)
+      - pattern: execSync($CMD + $INPUT)
+    message: استخدام exec مع input متغير يفتح ثغرة Command Injection
+    languages: [javascript, typescript]
+    severity: ERROR
+    metadata:
+      category: security
+      cwe: 'CWE-78: OS Command Injection'
+
+# ---------------------------------------------------------------------------
+# مسارات مستثناة من الفحص
+# ---------------------------------------------------------------------------
+paths:
+  exclude:
+    - 'node_modules/'
+    - 'dist/'
+    - 'build/'
+    - '.next/'
+    - 'coverage/'
+    - '*.test.ts'
+    - '*.test.tsx'
+    - '*.spec.ts'
+    - '*.spec.tsx'
+    - '__tests__/'
+    - '__fixtures__/'
+    - '__mocks__/'
+    - 'tests/fixtures/'

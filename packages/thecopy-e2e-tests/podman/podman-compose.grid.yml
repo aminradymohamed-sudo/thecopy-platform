@@ -1,0 +1,69 @@
+# شبكة سيلينيوم 4 موزّعة عبر بودمان مخصصة لحزمة E2E
+# نسخة قابلة للتشغيل المعزول بدون التعارض مع الحاويات الأخرى للمشروع
+
+version: "3.9"
+
+x-node-common: &node_common
+  shm_size: "2gb"
+  restart: unless-stopped
+  depends_on:
+    selenium-hub:
+      condition: service_healthy
+  environment:
+    - SE_EVENT_BUS_HOST=selenium-hub
+    - SE_EVENT_BUS_PUBLISH_PORT=4442
+    - SE_EVENT_BUS_SUBSCRIBE_PORT=4443
+    - SE_NODE_MAX_SESSIONS=2
+    - SE_NODE_OVERRIDE_MAX_SESSIONS=true
+    - SE_NODE_SESSION_TIMEOUT=300
+    - SE_VNC_NO_PASSWORD=1
+    - SE_SCREEN_WIDTH=1920
+    - SE_SCREEN_HEIGHT=1080
+    - SE_START_XVFB=true
+    - TZ=Africa/Cairo
+
+services:
+  selenium-hub:
+    image: docker.io/selenium/hub:4.43.0-20260404
+    container_name: thecopy-e2e-selenium-hub
+    restart: unless-stopped
+    ports:
+      - "4444:4444"
+      - "4442:4442"
+      - "4443:4443"
+    environment:
+      - GRID_MAX_SESSION=16
+      - GRID_BROWSER_TIMEOUT=300
+      - GRID_TIMEOUT=300
+      - TZ=Africa/Cairo
+    healthcheck:
+      test: ["CMD-SHELL", "curl -fsS http://localhost:4444/wd/hub/status || exit 1"]
+      interval: 5s
+      timeout: 5s
+      retries: 30
+      start_period: 10s
+
+  selenium-node-chromium:
+    <<: *node_common
+    image: docker.io/selenium/node-chromium:4.43.0-20260404
+    container_name: thecopy-e2e-selenium-node-chromium
+    ports:
+      - "7900:7900"
+
+  selenium-node-firefox:
+    <<: *node_common
+    image: docker.io/selenium/node-firefox:4.43.0-20260404
+    container_name: thecopy-e2e-selenium-node-firefox
+    ports:
+      - "7901:7900"
+
+  selenium-node-edge:
+    <<: *node_common
+    image: docker.io/selenium/node-edge:4.43.0-20260404
+    container_name: thecopy-e2e-selenium-node-edge
+    ports:
+      - "7902:7900"
+
+networks:
+  default:
+    name: thecopy-e2e-selenium-net

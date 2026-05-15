@@ -1,0 +1,48 @@
+# =============================================================================
+# قواعد ZAP Baseline scan
+# الصيغة: PLUGIN_ID TAB THRESHOLD TAB NAME
+# THRESHOLD: WARN | FAIL | IGNORE
+# =============================================================================
+
+# تجاهل تحذيرات مزعجة من cookies في staging
+10010	IGNORE	(Cookie No HttpOnly Flag)
+10011	IGNORE	(Cookie Without Secure Flag)
+10054	IGNORE	(Cookie without SameSite Attribute)
+
+# headers أمنية - تحذير فقط
+10015	WARN	(Incomplete or No Cache-control and Pragma HTTP Header Set)
+10020	WARN	(X-Frame-Options Header)
+10021	WARN	(X-Content-Type-Options Header Missing)
+10035	WARN	(Strict-Transport-Security Header Not Set)
+10036	WARN	(Server Leaks Version Information)
+10037	WARN	(Server Leaks Information via X-Powered-By)
+10038	WARN	(Content Security Policy Header Not Set)
+10063	WARN	(Permissions Policy Header Not Set)
+
+# CSP - فشل عند الإنتاج
+10055	FAIL	(CSP Scanner)
+
+# XSS - فشل دائماً
+40012	FAIL	(Cross Site Scripting Reflected)
+40014	FAIL	(Cross Site Scripting Persistent)
+40016	FAIL	(Cross Site Scripting Persistent - Prime)
+40017	FAIL	(Cross Site Scripting Persistent - Spider)
+
+# SQL Injection - فشل دائماً
+40018	FAIL	(SQL Injection)
+40019	FAIL	(SQL Injection - MySQL)
+40020	FAIL	(SQL Injection - Hypersonic SQL)
+40021	FAIL	(SQL Injection - Oracle)
+40022	FAIL	(SQL Injection - PostgreSQL)
+
+# Path Traversal و Remote File Inclusion
+6	FAIL	(Path Traversal)
+7	FAIL	(Remote File Inclusion)
+
+# CSRF
+10202	WARN	(Absence of Anti-CSRF Tokens)
+
+# معلومات مكشوفة - تحذير
+10024	WARN	(Information Disclosure - Sensitive Information in URL)
+10025	WARN	(Information Disclosure - Sensitive Information in HTTP Referrer Header)
+10027	WARN	(Information Disclosure - Suspicious Comments)

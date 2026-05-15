@@ -1,0 +1,15 @@
+{
+  "extension": ["ts"],
+  "loader": "tsx/esm",
+  "timeout": 120000,
+  "slow": 30000,
+  "retries": 1,
+  "parallel": false,
+  "jobs": 3,
+  "recursive": true,
+  "color": true,
+  "reporter": "mocha-multi-reporters",
+  "reporter-options": "configFile=reporter-config.json",
+  "require": ["src/utils/Hooks.ts"],
+  "node-option": ["import=tsx/esm", "no-warnings=ExperimentalWarning"]
+}

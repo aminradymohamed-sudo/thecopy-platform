@@ -1,0 +1,115 @@
+{
+  "$comment": "Lighthouse CI لـ staging على Vercel — يفحص كل الصفحات العامة الأساسية. لا تخفّف العتبات (AGENTS.md).",
+  "ci": {
+    "collect": {
+      "url": [
+        "https://thecopy-front-amin9.vercel.app/",
+        "https://thecopy-front-amin9.vercel.app/login",
+        "https://thecopy-front-amin9.vercel.app/register",
+        "https://thecopy-front-amin9.vercel.app/ui",
+        "https://thecopy-front-amin9.vercel.app/apps-overview",
+        "https://thecopy-front-amin9.vercel.app/actorai-arabic",
+        "https://thecopy-front-amin9.vercel.app/actorai-arabic/self-tape-suite",
+        "https://thecopy-front-amin9.vercel.app/analysis",
+        "https://thecopy-front-amin9.vercel.app/arabic-creative-writing-studio",
+        "https://thecopy-front-amin9.vercel.app/arabic-prompt-engineering-studio",
+        "https://thecopy-front-amin9.vercel.app/art-director",
+        "https://thecopy-front-amin9.vercel.app/brain-storm-ai",
+        "https://thecopy-front-amin9.vercel.app/breakdown",
+        "https://thecopy-front-amin9.vercel.app/BREAKAPP",
+        "https://thecopy-front-amin9.vercel.app/BUDGET",
+        "https://thecopy-front-amin9.vercel.app/cinematography-studio",
+        "https://thecopy-front-amin9.vercel.app/development",
+        "https://thecopy-front-amin9.vercel.app/directors-studio",
+        "https://thecopy-front-amin9.vercel.app/directors-studio/ai-assistant",
+        "https://thecopy-front-amin9.vercel.app/directors-studio/characters",
+        "https://thecopy-front-amin9.vercel.app/directors-studio/decoupage",
+        "https://thecopy-front-amin9.vercel.app/directors-studio/scenes",
+        "https://thecopy-front-amin9.vercel.app/directors-studio/script",
+        "https://thecopy-front-amin9.vercel.app/directors-studio/shots",
+        "https://thecopy-front-amin9.vercel.app/editor",
+        "https://thecopy-front-amin9.vercel.app/editor/app",
+        "https://thecopy-front-amin9.vercel.app/metrics-dashboard",
+        "https://thecopy-front-amin9.vercel.app/styleIST"
+      ],
+      "numberOfRuns": 1,
+      "settings": {
+        "preset": "desktop",
+        "throttling": {
+          "rttMs": 40,
+          "throughputKbps": 10240,
+          "cpuSlowdownMultiplier": 1
+        },
+        "skipAudits": ["uses-http2", "canonical"],
+        "chromeFlags": "--no-sandbox --headless=new --disable-gpu --disable-dev-shm-usage"
+      }
+    },
+    "assert": {
+      "preset": "lighthouse:recommended",
+      "assertions": {
+        "categories:performance":     ["error", { "minScore": 0.90 }],
+        "categories:accessibility":   ["error", { "minScore": 0.95 }],
+        "categories:best-practices":  ["error", { "minScore": 0.95 }],
+        "categories:seo":             ["error", { "minScore": 0.95 }],
+        "first-contentful-paint":     ["error", { "maxNumericValue": 1800 }],
+        "largest-contentful-paint":   ["error", { "maxNumericValue": 2500 }],
+        "cumulative-layout-shift":    ["error", { "maxNumericValue": 0.1 }],
+        "total-blocking-time":        ["error", { "maxNumericValue": 200 }],
+        "speed-index":                ["error", { "maxNumericValue": 3400 }],
+        "interactive":                ["error", { "maxNumericValue": 3800 }],
+        "max-potential-fid":          ["error", { "maxNumericValue": 100 }],
+        "server-response-time":       ["error", { "maxNumericValue": 500 }],
+        "uses-responsive-images":     "error",
+        "offscreen-images":           "error",
+        "unminified-css":             "error",
+        "unminified-javascript":      "error",
+        "unused-css-rules":           "warn",
+        "unused-javascript":          "warn",
+        "modern-image-formats":       "error",
+        "uses-optimized-images":      "error",
+        "uses-text-compression":      "error",
+        "uses-rel-preconnect":        "warn",
+        "font-display":               "error",
+        "network-requests":           "off",
+        "total-byte-weight":          ["error", { "maxNumericValue": 1500000 }],
+        "resource-summary:script:size":      ["error", { "maxNumericValue": 358400 }],
+        "resource-summary:stylesheet:size":  ["error", { "maxNumericValue": 102400 }],
+        "resource-summary:image:size":       ["error", { "maxNumericValue": 512000 }],
+        "resource-summary:font:size":        ["error", { "maxNumericValue": 102400 }],
+        "resource-summary:total:size":       ["error", { "maxNumericValue": 1536000 }],
+        "bootup-time":                ["warn",  { "maxNumericValue": 2000 }],
+        "mainthread-work-breakdown":  ["warn",  { "maxNumericValue": 2500 }],
+        "dom-size":                   ["warn",  { "maxNumericValue": 1500 }],
+        "uses-long-cache-ttl":        "warn",
+        "efficient-animated-content": "warn",
+        "duplicated-javascript":      "error",
+        "legacy-javascript":          "error",
+        "unsized-images":             "error"
+      }
+    },
+    "upload": {
+      "target": "temporary-public-storage"
+    },
+    "budgets": [
+      {
+        "path": "/*",
+        "resourceSizes": [
+          { "resourceType": "script",     "budget": 350 },
+          { "resourceType": "stylesheet", "budget": 50 },
+          { "resourceType": "image",      "budget": 500 },
+          { "resourceType": "font",       "budget": 100 },
+          { "resourceType": "document",   "budget": 50 },
+          { "resourceType": "total",      "budget": 1000 }
+        ],
+        "timings": [
+          { "metric": "first-contentful-paint",   "budget": 1800 },
+          { "metric": "largest-contentful-paint", "budget": 2500 },
+          { "metric": "cumulative-layout-shift",  "budget": 0.1 },
+          { "metric": "total-blocking-time",      "budget": 200 },
+          { "metric": "speed-index",              "budget": 3400 },
+          { "metric": "interactive",              "budget": 3800 }
+        ]
+      }
+    ]
+  }
+}

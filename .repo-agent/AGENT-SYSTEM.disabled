@@ -1,0 +1,11 @@
+# Agent System Disabled
+
+This local marker disables repository agent guard, bootstrap, verify,
+live memory, and drift enforcement hooks.
+
+Remove it with:
+
+pnpm agent-system:enable
+
+Generated files are intentionally left in place but ignored by hooks.
+Known generated references: output/session-state.md, .repo-agent/PERSISTENT-MEMORY-CONTEXT.generated.md, .repo-agent/PERSISTENT-MEMORY-TURN-CONTEXT.generated.md, .repo-agent/state-fingerprint.json

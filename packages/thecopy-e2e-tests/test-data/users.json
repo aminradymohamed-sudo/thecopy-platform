@@ -1,0 +1,11 @@
+{
+  "_comment": "بيانات اختبار ثابتة. لا تستخدم بيانات إنتاج. المولّد الديناميكي في src/utils/DataGenerator.ts",
+  "seed": [
+    {
+      "id": "e2e-seed-01",
+      "email": "e2e-thecopy-seed-01@thecopy-e2e.invalid",
+      "displayName": "E2E Seed User One",
+      "purpose": "smoke + regression baseline"
+    }
+  ]
+}

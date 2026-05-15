@@ -1,0 +1,45 @@
+# =============================================================================
+# قائمة templates Nuclei المختارة للفحص
+# يتم تشغيلها على الـ URL المستهدف
+# للحصول على كل الـ templates: nuclei -tl
+# =============================================================================
+
+# Misconfigurations - إعدادات خاطئة شائعة
+http/misconfiguration/
+
+# CVEs الحرجة المعروفة
+http/cves/2023/
+http/cves/2024/
+http/cves/2025/
+http/cves/2026/
+
+# كشف technologies
+http/technologies/
+
+# Exposures - معلومات مكشوفة
+http/exposures/configs/
+http/exposures/files/
+http/exposures/tokens/
+http/exposures/backups/
+
+# Default logins - تسجيلات دخول افتراضية
+http/default-logins/
+
+# Vulnerabilities عامة
+http/vulnerabilities/generic/
+http/vulnerabilities/other/
+
+# Headers الأمنية
+http/misconfiguration/http-missing-security-headers.yaml
+
+# Path Traversal
+http/vulnerabilities/generic/basic-xss-prober.yaml
+http/vulnerabilities/generic/cors-misconfig.yaml
+http/vulnerabilities/generic/crlf-injection.yaml
+http/vulnerabilities/generic/error-based-sql-injection.yaml
+
+# CORS misconfiguration
+http/misconfiguration/cors-misconfig.yaml
+
+# Subdomain Takeover
+http/takeovers/

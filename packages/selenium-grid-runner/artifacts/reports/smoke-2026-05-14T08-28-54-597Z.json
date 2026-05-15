@@ -1,0 +1,76 @@
+{
+  "runStamp": "2026-05-14T08-28-54-597Z",
+  "hubUrl": "http://localhost:4444",
+  "targetUrl": "https://www.thecopy.app/",
+  "totalBrowsers": 3,
+  "passed": 3,
+  "failed": 0,
+  "results": [
+    {
+      "id": "chromium",
+      "label": "Chromium",
+      "ok": true,
+      "startedAt": "2026-05-14T08:28:54.600Z",
+      "finishedAt": "2026-05-14T08:29:00.085Z",
+      "durationMs": 5485,
+      "pageLoadMs": 3888,
+      "finalUrl": "https://www.thecopy.app/",
+      "title": "النسخة - منصة الإبداع السينمائي",
+      "documentReadyState": "complete",
+      "htmlBytes": 24223,
+      "performance": {
+        "domContentLoaded": 1778747336396,
+        "loadEventEnd": 1778747339608,
+        "navigationStart": 1778747335743
+      },
+      "screenshot": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\packages\\selenium-grid-runner\\artifacts\\screenshots\\2026-05-14T08-28-54-597Z\\chromium.png",
+      "errors": [],
+      "consoleErrors": [],
+      "vncProbeUrl": "http://localhost:7900/?autoconnect=1&resize=remote"
+    },
+    {
+      "id": "firefox",
+      "label": "Firefox",
+      "ok": true,
+      "startedAt": "2026-05-14T08:28:54.601Z",
+      "finishedAt": "2026-05-14T08:29:02.495Z",
+      "durationMs": 7894,
+      "pageLoadMs": 3383,
+      "finalUrl": "https://www.thecopy.app/",
+      "title": "النسخة - منصة الإبداع السينمائي",
+      "documentReadyState": "complete",
+      "htmlBytes": 24074,
+      "performance": {
+        "domContentLoaded": 1778747339680,
+        "loadEventEnd": 1778747341301,
+        "navigationStart": 1778747337939
+      },
+      "screenshot": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\packages\\selenium-grid-runner\\artifacts\\screenshots\\2026-05-14T08-28-54-597Z\\firefox.png",
+      "errors": [],
+      "consoleErrors": [],
+      "vncProbeUrl": "http://localhost:7901/?autoconnect=1&resize=remote"
+    },
+    {
+      "id": "edge",
+      "label": "Edge",
+      "ok": true,
+      "startedAt": "2026-05-14T08:28:54.601Z",
+      "finishedAt": "2026-05-14T08:29:02.740Z",
+      "durationMs": 8139,
+      "pageLoadMs": 6383,
+      "finalUrl": "https://www.thecopy.app/",
+      "title": "النسخة - منصة الإبداع السينمائي",
+      "documentReadyState": "complete",
+      "htmlBytes": 25739,
+      "performance": {
+        "domContentLoaded": 1778747336705,
+        "loadEventEnd": 1778747342339,
+        "navigationStart": 1778747336025
+      },
+      "screenshot": "C:\\Users\\Mohmed Aimen Raed\\Claude\\Projects\\the copy\\packages\\selenium-grid-runner\\artifacts\\screenshots\\2026-05-14T08-28-54-597Z\\edge.png",
+      "errors": [],
+      "consoleErrors": [],
+      "vncProbeUrl": "http://localhost:7902/?autoconnect=1&resize=remote"
+    }
+  ]
+}
