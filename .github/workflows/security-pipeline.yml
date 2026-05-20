@@ -80,7 +80,7 @@ jobs:
 
       - name: Upload Semgrep raw artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: semgrep-results
           path: semgrep-results.sarif
@@ -131,7 +131,7 @@ jobs:
 
       - name: Upload Gitleaks artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: gitleaks-results
           path: gitleaks-results.sarif
@@ -196,7 +196,7 @@ jobs:
 
       - name: Upload ESLint artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: eslint-security-results
           path: |
@@ -267,7 +267,7 @@ jobs:
 
       - name: Upload dependency artifacts
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: dependency-audit-results
           path: |
@@ -327,7 +327,7 @@ jobs:
             --omit dev
 
       - name: Upload SBOM artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: sbom-cyclonedx
           path: |
@@ -392,7 +392,7 @@ jobs:
 
       - name: Upload license report
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: license-audit-results
           path: license-report.json
@@ -448,7 +448,7 @@ jobs:
 
       - name: Upload Nuclei results
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: nuclei-results
           path: nuclei-results.txt
@@ -508,7 +508,7 @@ jobs:
 
       - name: Upload final summary
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: security-summary
           path: reports/SECURITY-SUMMARY.md
