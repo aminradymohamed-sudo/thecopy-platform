@@ -4,7 +4,7 @@
 # Node 26 is Current (not LTS until October 2026) — avoided per production policy.
 # Pinned to 24.10 minor; digest pinned for immunity against tag re-pushes.
 # Digest captured from Railway Metal Builder build log on 2026-05-12.
-FROM node:26.1-alpine@sha256:e71ac5e964b9201072425d59d2e876359efa25dc96bb1768cb73295728d6e4ea AS builder
+FROM node:26.2-alpine@sha256:7c6af15abe4e3de859690e7db171d0d711bf37d27528eddfe625b2fe89e097f8 AS builder
 
 RUN apk add --no-cache --virtual .build-deps \
     python3 make g++ ca-certificates
@@ -109,7 +109,7 @@ if [ -f .npmrc ]; then
 fi
 EOF
 
-FROM node:26.1-alpine@sha256:e71ac5e964b9201072425d59d2e876359efa25dc96bb1768cb73295728d6e4ea AS runner
+FROM node:26.2-alpine@sha256:7c6af15abe4e3de859690e7db171d0d711bf37d27528eddfe625b2fe89e097f8 AS runner
 
 # Install runtime dependencies only (no build tools)
 RUN apk add --no-cache \
